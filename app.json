@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/views/home/home",
-    "pages/views/diagnosis/index"
+    "pages/views/diagnosis/diagnosis",
+    "pages/views/userhomepage/userhomepage"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,8 +15,11 @@
       "pagePath":"pages/views/home/home",
       "text":"首页"
     },{
-      "pagePath":"pages/views/diagnosis/index",
+      "pagePath":"pages/views/diagnosis/diagnosis",
       "text":"问诊"
+    },{
+      "pagePath":"pages/views/userhomepage/userhomepage",
+      "text":"我的"
     }]
   }
 }

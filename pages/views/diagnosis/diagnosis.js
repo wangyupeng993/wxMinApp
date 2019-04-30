@@ -1,5 +1,3 @@
-const app = getApp().globalData,
-service = require('../../../utils/request.js')
 Page({
     data: {},
     onLoad () {
