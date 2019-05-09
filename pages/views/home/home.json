@@ -1,5 +1,5 @@
 {
     "usingComponents": {
-      "swiper-type": "/pages/components/SwiperType/swiper"
+      "swiper-type": "/pages/components/swiper/swiper"
     }
   }

@@ -1,5 +1,4 @@
 <view>
-    我是首页
     <swiper-type></swiper-type>
 </view>
   
