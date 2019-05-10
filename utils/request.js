@@ -3,14 +3,14 @@ function wxRequest(params) {
         wx.request({
             params,
             success: function(respone){
-                console.log(respone)
                 resolve()
             },
             fail: function(error) {
-                console.log(error)
+                reject(error)
             },
             complete: function() {
                 // complete
+                resolve()
             }
         })
     })
