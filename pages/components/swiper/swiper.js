@@ -1,10 +1,12 @@
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true,// 开启样式识别
   },
-  properties: {},
+  properties: {
+    imageEffect: String
+  },
   data: {
-      cardCur: 1,
+      cardCur: 0,
       swiperList: [{
           id: 0,
           type: 'image',
@@ -36,7 +38,26 @@ Component({
         }]
   },
   // 组件初始化执行
-  attached() {},
+  attached() {
+    this.towerSwiper('swiperList')
+    console.log(this.data)
+  },
   // 自定义事件方法
-  methods: {}
+  methods: {
+    cardSwiper(e) {
+      this.setData({
+        cardCur: e.detail.current
+      })
+    },
+    towerSwiper(name) {
+      let list = this.data[name];
+      list.forEach((item, index, array) => {
+        item['zIndex'] = parseInt(array.length / 2) + 1 - Math.abs(index - parseInt(array.length / 2))
+        item['mLeft'] = index - parseInt(array.length / 2)
+      })
+      this.setData({
+        swiperList: list
+      })
+    }
+  }
 })

@@ -1,4 +1,4 @@
 <view>
-    <swiper-type></swiper-type>
+    <swiper-type image-effect="card"></swiper-type>
 </view>
   

@@ -4,13 +4,10 @@ Page({
     data: {},
     onLoad () {
         console.log('页面加载的时候执行，只执行一次')
-        service.getbase64()
-         .then(respone => {
-             console.log(respone)
-         })
-         .catch(error => {
-             console.log(error)
-         })
+        // service.getbase64()
+        //  .then(respone => {
+        //      console.log(respone)
+        //  })
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')
