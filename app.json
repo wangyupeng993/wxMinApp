@@ -1,25 +1,14 @@
 {
-  "pages":[
+  "pages": [
     "pages/views/home/home",
     "pages/views/diagnosis/diagnosis",
     "pages/views/userhomepage/userhomepage"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "肌柚",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "tabBar":{
-    "list":[{
-      "pagePath":"pages/views/home/home",
-      "text":"首页"
-    },{
-      "pagePath":"pages/views/diagnosis/diagnosis",
-      "text":"问诊"
-    },{
-      "pagePath":"pages/views/userhomepage/userhomepage",
-      "text":"我的"
-    }]
-  }
+  "sitemapLocation": "sitemap.json"
 }

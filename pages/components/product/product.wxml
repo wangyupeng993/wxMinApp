@@ -1,0 +1,13 @@
+<view class="cu-list">
+    <scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item" wx:for="{{10}}" wx:key>
+            <image src="../../assets/images/home/product@2x.png"></image>
+            <view class="action">
+                <text>¥34.00</text>
+            </view>
+            <view class="action">
+                <text>盐酸西替嗪片</text>
+            </view>
+        </view>
+    </scroll-view>
+</view>

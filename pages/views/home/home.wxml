@@ -1,4 +1,86 @@
-<view>
-    <swiper-type image-effect="card"></swiper-type>
+<view class="el-relative">
+    <view class="el-container">
+        <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+            <view class="cu-bar search">
+                <view class="search-form">
+                    <text class="cuIcon-search"></text>
+                    <input type="text" placeholder="搜索症状/疾病/药品" confirm-type="search"></input>
+                </view>
+                <view class="action">
+                    <el-button round name="搜索" colour="#fff" text-colour="#818181"></el-button>
+                </view>
+            </view>
+            <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
+                <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+                    <image src="{{item.icon}}"></image>
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+
+            <view class="solids-bottom padding-xs flex align-center">
+                <view class="flex-sub text-center">
+                    <view class="text-xl padding">
+                        <text class="text-black text-bold">皮肤小问题，快速问医生</text>
+                    </view>
+                    <view class="padding" style="color:#51565F;">三甲医院主治及以上医师，已解答120万个问题</view>
+                    <el-button round name="快速提问" block colour="linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)"></el-button>
+                </view>
+            </view>
+
+            <view class="cu-list" style="margin:0 15rpx;">
+                <swiper-type image-effect="screen"></swiper-type>
+            </view>
+            
+            <view class="cu-list">
+                <view class="action border-title">
+                    <text class="text-xl">医师讲堂</text>
+                </view>
+                <swiper-type image-effect="card"></swiper-type>
+            </view>
+
+            <view class="cu-list">
+                <view class="action border-title">
+                    <text class="text-xl">关注的医生</text>
+                </view>
+                <view class="cu-list grid col-5 no-border" style="border:none;">
+                    <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+                        <image src="../../assets/images/home/user.png" style="border-radius:50%;"></image>
+                        <text>张盛宇</text>
+                    </view>
+                    <view class="cu-item">
+                        <image src="../../assets/images/home/new-button.png" style="border-radius:50%;"></image>
+                    </view>
+                </view>
+            </view>
+            <view class="cu-list">
+                <view class="action border-title">
+                    <text class="text-xl">皮肤小知识</text>
+                </view>
+                <swiper-type image-effect="card"></swiper-type>
+            </view>
+            <view class="cu-list">
+                <view class="action border-title">
+                    <text class="text-xl">推荐药品</text>
+                    <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,1)" style="float:right;"></el-button>
+                </view>
+                <el-product></el-product>
+            </view>
+        </scroll-view>
+    </view>
+    
+    <view class="cu-bar tabbar bg-white">
+        <view class="action text-green">
+            <view class="cuIcon-homefill"></view> 首页
+        </view>
+        <view class="action text-gray add-action  text-green">
+            <button class="cu-btn cuIcon-add bg-green shadow "></button>
+            问诊
+        </view>
+        <view class="action text-gray text-green">
+            <view class="cuIcon-my"></view>
+            我的
+        </view>
+    </view>
+    
 </view>
   

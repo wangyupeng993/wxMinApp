@@ -1,11 +1,11 @@
 <!-- {{DotStyle?'square-dot':'round-dot'}} -->
-<swiper wx:if="{{imageEffect === 'screen'}}" class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'screen'}}" class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key="*/this">
     <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'card'}}"  class="card-swiper" bindchange="cardSwiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'card'}}"  class="card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view class="swiper-item">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>

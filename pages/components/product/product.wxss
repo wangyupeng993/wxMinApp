@@ -1,0 +1,14 @@
+.cu-item image{
+    width:300rpx;
+    height:300rpx;
+}
+.action{
+    min-height:46rpx;
+}
+.cu-bar .action:last-child{
+    margin:0;
+}
+.nav .cu-item{
+    height:auto;
+    line-height:inherit;
+}

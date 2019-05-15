@@ -1,0 +1,38 @@
+<button wx:if="{{!block}}" class="cu-btn {{icon !==''&&name === ''?'icon':''}} shadow {{round?'round':''}} {{small !== ''?small:''}}" disabled="{{disabled?disabled:false}}" loading="{{loading?loading:false}}" style="background:{{colour !== ''?colour:'#3165EC'}};">
+    <text style="color:{{textColour !== ''?textColour:'#ffffff'}};margin-top:0;" wx:if="{{icon !== ''}}" class="{{icon !==''?icon:''}}"></text>
+    <text style="color:{{textColour !== ''?textColour:'#ffffff'}};">{{name}}</text> 
+</button>
+
+<!-- <view class="padding flex flex-wrap justify-between align-center bg-white">
+  <button class="cu-btn round sm">小尺寸</button>
+  <button class="cu-btn round">默认</button>
+  <button class="cu-btn round lg">大尺寸</button>
+</view> -->
+
+<!-- <view class="grid padding-sm">
+  <view class="margin-tb-sm text-center" wx:key>
+    <button wx:for="{{ColorList}}" wx:key class="cu-btn round bg-{{item.name}} shadow">{{item.title}}</button>
+  </view>
+</view> -->
+
+<!-- <view class="grid padding-sm">
+  <view class="margin-tb-sm text-center" wx:if="{{item.name!='white'}}">
+    <button wx:for="{{ColorList}}" wx:key class="cu-btn round line{{bordersize?bordersize:''}}-{{item.name}} shadow">{{item.title}}</button>
+  </view>
+</view> -->
+
+<view wx:if="{{block}}" class="padding flex flex-direction">
+  <button class="cu-btn {{round?'round':''}} bg-grey lg" loading="{{loading?loading:false}}" disabled="{{disabled?disabled:false}}" style="background:{{colour !== ''?colour:'#3165EC'}};">
+    <text wx:if="{{icon !== ''}}" class="icon"></text>
+    <text>{{name}}</text>
+  </button>
+</view>
+<!-- 
+<view class="padding-xl">
+  <button class="cu-btn block line-orange lg">
+    <text class="cuIcon-upload"></text> 图标</button>
+  <button class="cu-btn block bg-blue margin-tb-sm lg">
+    <text class="cuIcon-loading2 iconfont-spin"></text> 加载
+  </button>
+  <button class="cu-btn block bg-black margin-tb-sm lg" loading="{{loading?loading:false}}"> 微信加载</button>
+</view> -->

@@ -2,6 +2,7 @@ Component({
   options: {
     addGlobalClass: true,// 开启样式识别
   },
+  // 接收自定义属性
   properties: {
     imageEffect: String
   },
@@ -40,7 +41,6 @@ Component({
   // 组件初始化执行
   attached() {
     this.towerSwiper('swiperList')
-    console.log(this.data)
   },
   // 自定义事件方法
   methods: {

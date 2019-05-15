@@ -3,3 +3,6 @@
     margin-left: calc(var(--left) * 100rpx - 150rpx);
     z-index: var(--index);
 }
+.card-swiper swiper-item{
+    padding:20rpx 0 20rpx;
+}
