@@ -41,3 +41,23 @@
     margin:0 27rpx;
     color:#434343;
 }
+.cuIcon{
+    position:absolute;
+    width:70rpx;
+    z-index:2;
+    height:70rpx;
+    border-radius:50%;
+    line-height:70rpx;
+    font-size:50rpx;
+    top:-35rpx;
+    left:0;
+    right:0;
+    margin:auto;
+    padding:0;
+     
+}
+
+.bg-darkblue image{
+    width:52rpx;
+    height:52rpx;
+}

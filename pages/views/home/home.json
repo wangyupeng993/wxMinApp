@@ -2,7 +2,7 @@
     "usingComponents": {
       "swiper-type": "/pages/components/swiper/swiper",
       "el-button": "/pages/components/button/button",
-      "bottom-bar": "/pages/components/BottomBar/BottomBar",
-      "el-product": "/pages/components/product/product"
+      "el-product": "/pages/components/product/product",
+      "init-page": "/pages/components/InitPage/InitPage"
     }
   }

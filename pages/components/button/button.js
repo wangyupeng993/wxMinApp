@@ -12,13 +12,16 @@ Component({
         textColour: String, // 字体颜色
         block: Boolean, // 是否为块元素
         disabled: Boolean, // 禁用状态
-        loading: Boolean
+        loading: Boolean,
+        attributeValue: null
     },
     data: {},
     // 组件初始化执行
-    attached () {
-        console.log(this.data)
-    },
+    attached () {},
     // 自定义事件方法
-    methods: {}
+    methods: {
+        onHandleClick () {
+            this.triggerEvent('handleclick', this.data)
+        }
+    }
 })

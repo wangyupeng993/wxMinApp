@@ -1,0 +1,27 @@
+.init-page{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.cu-list{
+    height:70rpx;
+}
+.padding{
+    padding:15rpx;
+}
+.text-tips{
+    color:#51565F;
+    font-size:24rpx;
+}
+
+.button-margin{
+    display:inline-block;
+    margin:0 7rpx 34rpx 7rpx;
+}
+
+.chiose{
+    position:absolute;
+    bottom:100rpx;
+    width:100%;
+}

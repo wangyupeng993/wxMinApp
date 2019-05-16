@@ -1,4 +1,4 @@
-<view class="el-relative">
+<view wx:if="{{initChoice.symptom.length > 0}}" class="el-relative">
     <view class="el-container">
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
             <view class="cu-bar search">
@@ -17,7 +17,7 @@
                 </view>
             </view>
 
-            <view class="solids-bottom padding-xs flex align-center">
+            <view class="padding-xs flex align-center">
                 <view class="flex-sub text-center">
                     <view class="text-xl padding">
                         <text class="text-black text-bold">皮肤小问题，快速问医生</text>
@@ -72,15 +72,18 @@
         <view class="action text-green">
             <view class="cuIcon-homefill"></view> 首页
         </view>
-        <view class="action text-gray add-action  text-green">
-            <button class="cu-btn cuIcon-add bg-green shadow "></button>
+        <view class="action text-gray add-action">
+            <button class="cu-btn cuIcon bg-darkblue shadow">
+                <image src="../../assets/images/home/science@2x.png"></image>
+            </button>
             问诊
         </view>
-        <view class="action text-gray text-green">
+        <view class="action text-gray">
             <view class="cuIcon-my"></view>
             我的
         </view>
-    </view>
-    
+    </view> 
 </view>
+
+<init-page wx:if="{{initChoice.symptom.length <= 0}}"></init-page>
   

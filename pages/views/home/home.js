@@ -2,7 +2,11 @@ const app = getApp().globalData
 const service = require('../../api/request/index.js')
 Page({
     data: {
-        gridCol:4,
+        initChoice: {
+          symptom: [],
+          doctor: []
+        },
+        gridCol: 4,
         iconList: [{
             icon: '../../assets/images/home/Doctors@2x.png',
             color: 'red',
@@ -34,7 +38,7 @@ Page({
         console.log('页面渲染完成之后执行，只执行一次')
     },
     onShow () {
-        console.log('页面显示就会执行')
+        console.log(this.data.initChoice.symptom.length, '页面显示就会执行')
     },
     onHide () {
         console.log('页面隐藏就是执行')
