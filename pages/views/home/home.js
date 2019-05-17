@@ -2,6 +2,7 @@ const app = getApp().globalData
 const service = require('../../api/request/index.js')
 Page({
     data: {
+      enterHome: false,
       gridCol: 4,
       iconList: [{
         icon: '../../assets/images/home/Doctors@2x.png',
@@ -40,7 +41,9 @@ Page({
     loadmore () {
         console.log('加载更多')
     },
-    getnto (params) {
-      console.log(params)
+    getInto (params) {
+      this.setData({
+        doctor: params.detail
+      })
     }
 })

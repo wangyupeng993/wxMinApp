@@ -107,7 +107,7 @@ Component({
       },
       nextHome () {
         const {doctor} = this.data
-        this.triggerEvent('handleclick', doctor.length >= 2)
+        this.triggerEvent('handleclick', doctor)
       },
       // 跳过
       jumpHome () {},
