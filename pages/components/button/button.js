@@ -8,6 +8,7 @@ Component({
         colour: String, // 按钮的颜色
         name: String, // 按钮的文字
         icon: String, // 按钮的图标
+        imgUrl: String, // 图片地址
         round: Boolean, // 按钮是否为圆角
         textColour: String, // 字体颜色
         block: Boolean, // 是否为块元素

@@ -1,4 +1,5 @@
-<button bind:tap="onHandleClick" wx:if="{{!block}}" class="cu-btn {{icon !==''&&name === ''?'icon':''}} shadow {{round?'round':''}} {{small !== ''?small:''}}" disabled="{{disabled?disabled:false}}" loading="{{loading?loading:false}}" style="background:{{colour !== ''?colour:'#3165EC'}};">
+<button bind:tap="onHandleClick" bind:transitionend="onTransitionEnd" wx:if="{{!block}}" class="cu-btn {{icon !==''&&name === ''?'icon':''}} shadow {{round?'round':''}} {{small !== ''?small:''}}" disabled="{{disabled?disabled:false}}" loading="{{loading?loading:false}}" style="background:{{colour !== ''?colour:'#3165EC'}};">
+    <image wx:if="{{imgUrl !== ''}}" src="{{imgUrl !== ''?imgUrl:''}}"></image>
     <text style="color:{{textColour !== ''?textColour:'#ffffff'}};margin-top:0;" wx:if="{{icon !== ''}}" class="{{icon !==''?icon:''}}"></text>
     <text style="color:{{textColour !== ''?textColour:'#ffffff'}};">{{name}}</text> 
 </button>
@@ -22,7 +23,7 @@
 </view> -->
 
 <view wx:if="{{block}}" class="padding flex flex-direction">
-  <button bind:tap="onHandleClick"  class="cu-btn {{round?'round':''}} bg-grey lg shadow" loading="{{loading?loading:false}}" disabled="{{disabled?disabled:false}}" style="background:{{colour !== ''?colour:'#3165EC'}};">
+  <button bind:tap="onHandleClick" class="cu-btn {{round?'round':''}} bg-grey lg shadow" loading="{{loading?loading:false}}" disabled="{{disabled?disabled:false}}" style="background:{{colour !== ''?colour:'#3165EC'}};">
     <text wx:if="{{icon !== ''}}" class="icon"></text>
     <text style="color:{{textColour !== ''?textColour:'#ffffff'}};">{{name}}</text>
   </button>
