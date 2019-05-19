@@ -2,7 +2,6 @@
     "usingComponents": {
       "swiper-type": "/pages/components/swiper/swiper",
       "el-button": "/pages/components/button/button",
-      "el-product": "/pages/components/product/product",
-      "init-page": "/pages/components/InitPage/InitPage"
+      "el-product": "/pages/components/product/product"
     }
   }

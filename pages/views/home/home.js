@@ -24,6 +24,12 @@ Page({
       }]
     },
     onLoad () {
+      const doctor = wx.getStorageSync('doctor')
+      if (doctor === '' || !doctor || doctor === null) {
+          wx.redirectTo({
+              url: '/pages/views/initPage/initPage'
+          })
+      }
       console.log('页面加载的时候执行，只执行一次')
     },
     onReady () {
@@ -40,10 +46,5 @@ Page({
     },
     loadmore () {
         console.log('加载更多')
-    },
-    getInto (params) {
-      this.setData({
-        doctor: params.detail
-      })
     }
 })

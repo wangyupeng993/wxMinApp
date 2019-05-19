@@ -1,4 +1,4 @@
-<view wx:if="{{doctor.length >= 2}}" class="el-relative">
+<view class="el-relative">
     <view class="el-container">
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
             <view class="cu-bar search">
@@ -84,6 +84,3 @@
         </view>
     </view> 
 </view>
-
-<init-page bind:handleclick="getInto" wx:if="{{!doctor}}"></init-page>
-  

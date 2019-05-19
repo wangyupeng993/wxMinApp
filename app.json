@@ -2,7 +2,8 @@
   "pages": [
     "pages/views/home/home",
     "pages/views/diagnosis/diagnosis",
-    "pages/views/userhomepage/userhomepage"
+    "pages/views/userhomepage/userhomepage",
+    "pages/views/initPage/initPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
