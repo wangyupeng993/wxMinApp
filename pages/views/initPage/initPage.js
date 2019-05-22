@@ -59,10 +59,13 @@ Page({
         console.log('页面渲染完成之后执行，只执行一次')
     },
     onShow () {
+        const userInfo = wx.getStorageSync('getUserInfo')
         const {symptom,doctor} = app.globalData.initPageChoice
+
         this.setData({
             symptom: symptom,
-            doctor: doctor
+            doctor: doctor,
+            userInfo: userInfo
         })
         this.AnimationScale()
     },
@@ -71,6 +74,14 @@ Page({
     },
     onUnload () {
         console.log('页面卸载的时候就会执行，只执行一次')
+    },
+    // 获取用户授权
+    getUserInfo (respone) {
+        console.log(respone)
+    },
+    //取消授权
+    cancelAuth (respone) {
+        console.log(respone)
     },
     // 选择症状
     getChoise (event) {

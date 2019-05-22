@@ -1,3 +1,4 @@
+const app = getApp().globalData
 Component({
     options: {
         addGlobalClass: true,// 开启样式识别
@@ -18,7 +19,12 @@ Component({
     },
     data: {},
     // 组件初始化执行
-    attached () {},
+    attached () {
+        const {getUserInfo} = app.canIUse
+        this.setData({
+          canIUse:  getUserInfo
+        })
+    },
     // 自定义事件方法
     methods: {
         onHandleClick () {

@@ -71,3 +71,24 @@
                    text-colour="{{doctor.length >=2?'#ffffff':'#A8A8A8'}}"></el-button>
     </view>
 </view>
+
+<view class="cu-modal bottom-modal {{userInfo === ''||userInfo === null||!userInfo?'show':''}}">
+    <view class="cu-dialog">
+        <view class="padding-xl">
+            <view class="user-header-image">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="solid-bottom text-xl padding">
+                <view class="text-black text-bold">获取<open-data type="userNickName"></open-data>公开信息（昵称、头像）</view>
+            </view>
+            <view class="text-xl padding">
+                <button class="cu-btn shadow lg"
+                        open-type="openSetting"
+                        bindopensetting="cancelAuth">取 消</button>
+                <button class="cu-btn shadow lg"
+                        open-type="getUserInfo"
+                        bindgetuserinfo="getUserInfo">授 权</button>
+            </view>
+        </view>
+    </view>
+</view>
