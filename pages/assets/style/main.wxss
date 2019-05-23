@@ -11,7 +11,8 @@
  ==================== */
 page {
 	width:100%;
-	height:100%;
+	height:calc(100vh - 128rpx);
+    padding-top:128rpx;
 	/* Color 可以自定义相关配色 */
 	/* var属性兼容性 --> https://www.caniuse.com/#feat=css-variables */
 	/* 标准色 */
