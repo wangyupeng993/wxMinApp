@@ -1,0 +1,48 @@
+.el-relative{
+    position:relative;
+    width:100%;
+    height:100%;
+    background-color:rgba(240,240,240,1);
+}
+.el-relative .bg-white{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    box-shadow:0px -1px 14px rgba(226,232,255,1)
+}
+.cu-bar .search-form{
+    margin:0 15rpx;
+    border-radius:8rpx;
+    background:rgba(255,255,255,1);
+    box-shadow:0px 13px 31px rgba(0,0,0,0.09);
+}
+
+.cu-item image{
+    width:80rpx;
+    height:80rpx;
+    margin:0 auto;
+}
+.text-xl{
+    margin:0 27rpx;
+    color:#434343;
+}
+.cuIcon{
+    position:absolute;
+    width:70rpx;
+    z-index:2;
+    height:70rpx;
+    border-radius:50%;
+    line-height:70rpx;
+    font-size:50rpx;
+    top:-35rpx;
+    left:0;
+    right:0;
+    margin:auto;
+    padding:0;
+
+}
+
+.bg-darkblue image{
+    width:52rpx;
+    height:52rpx;
+}

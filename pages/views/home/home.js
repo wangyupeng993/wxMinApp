@@ -44,6 +44,7 @@ Page({
     onUnload () {
         console.log('页面卸载的时候就会执行，只执行一次')
     },
+
     loadmore () {
         console.log('加载更多')
     }

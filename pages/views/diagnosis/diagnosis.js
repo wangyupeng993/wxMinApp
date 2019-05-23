@@ -2,6 +2,10 @@ Page({
     data: {},
     onLoad () {
         console.log('页面加载的时候执行，只执行一次')
+        wx.setNavigationBarColor({
+            frontColor: '#000000',
+            backgroundColor:'#0081ff'
+        })
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')

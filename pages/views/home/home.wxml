@@ -35,7 +35,7 @@
                 <view class="action border-title">
                     <text class="text-xl">医师讲堂</text>
                 </view>
-                <swiper-type image-effect="card"></swiper-type>
+                <swiper-type image-effect="ImageText"></swiper-type>
             </view>
 
             <view class="cu-list">
@@ -56,7 +56,7 @@
                 <view class="action border-title">
                     <text class="text-xl">皮肤小知识</text>
                 </view>
-                <swiper-type image-effect="card"></swiper-type>
+                <swiper-type image-effect="ImageText"></swiper-type>
             </view>
             <view class="cu-list">
                 <view class="action border-title">
@@ -69,18 +69,22 @@
     </view>
     
     <view class="cu-bar tabbar bg-white">
-        <view class="action text-green">
+        <view class="action text-blue">
             <view class="cuIcon-homefill"></view> 首页
         </view>
         <view class="action text-gray add-action">
+            <navigator url="/pages/views/diagnosis/diagnosis" hover-class="none">
             <button class="cu-btn cuIcon bg-darkblue shadow">
                 <image src="../../assets/images/home/science@2x.png"></image>
             </button>
             问诊
+            </navigator>
         </view>
         <view class="action text-gray">
-            <view class="cuIcon-my"></view>
-            我的
+            <navigator url="/pages/views/userhomepage/userhomepage" hover-class="none">
+                <view class="cuIcon-my"></view>
+                我的
+            </navigator>
         </view>
     </view> 
 </view>

@@ -1,14 +1,30 @@
 <!-- {{DotStyle?'square-dot':'round-dot'}} -->
-<swiper wx:if="{{imageEffect === 'screen'}}" class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'screen'}}" class="screen-swiper shadow shadow-lg" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key="*/this">
     <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'card'}}"  class="card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'card'}}"  class="card-swiper shadow shadow-lg" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view class="swiper-item">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    </view>
+  </swiper-item>
+</swiper>
+
+<swiper wx:if="{{imageEffect === 'ImageText'}}"  class="card-swiper image-text-swiper shadow shadow-lg" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+  <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <view class="text-df text-indent">专注视觉的小程序组件库</view>
+      <view class="text-sm text-indent">
+        <text class="text-grey">何亮.浙江大学医学附属第二医院…</text>
+      </view>
+      <view class="text-xs text-indent">
+        <text class="text-blue">¥1.00</text>
+        <text class="text-gray" style="float:right;margin-right:24rpx;">1179人参与</text>
+      </view>
     </view>
   </swiper-item>
 </swiper>

@@ -6,3 +6,13 @@
 .card-swiper swiper-item{
     padding:20rpx 0 20rpx;
 }
+.image-text-swiper .swiper-item{
+    background-color:#ffffff;
+}
+.image-text-swiper .swiper-item .text-indent{
+    text-indent: 30rpx;
+}
+.image-text-swiper image{
+    height:153rpx;
+    margin-bottom:5rpx;
+}

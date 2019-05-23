@@ -72,7 +72,7 @@
     </view>
 </view>
 
-<view class="cu-modal bottom-modal {{userInfo === ''||userInfo === null||!userInfo?'show':''}}">
+<view class="cu-modal bottom-modal {{!authSetting?'show':''}}">
     <view class="cu-dialog">
         <view class="padding-xl">
             <view class="user-header-image">
@@ -82,9 +82,7 @@
                 <view class="text-black text-bold">获取<open-data type="userNickName"></open-data>公开信息（昵称、头像）</view>
             </view>
             <view class="text-xl padding">
-                <button class="cu-btn shadow lg"
-                        open-type="openSetting"
-                        bindopensetting="cancelAuth">取 消</button>
+                <navigator class="cu-btn shadow lg exit" target="miniProgram" open-type="exit">取 消</navigator>
                 <button class="cu-btn shadow lg"
                         open-type="getUserInfo"
                         bindgetuserinfo="getUserInfo">授 权</button>

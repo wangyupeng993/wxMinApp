@@ -53,19 +53,37 @@ Page({
         }]
     },
     onLoad () {
-        console.log('页面加载的时候执行，只执行一次')
+        wx.getSetting({
+            success: (respone) => {
+                const authSetting = respone.authSetting['scope.userInfo']?respone.authSetting['scope.userInfo']:false
+                this.setData({
+                    authSetting: authSetting
+                })
+                if (authSetting) {
+                    wx.getUserInfo({
+                        success: (respone) => {
+                            const {userInfo} =respone
+                            wx.setStorageSync('getUserInfo', userInfo)
+                        },
+                        error: (error) => {
+                            console.log(error)
+                        }
+                    })
+                }
+            },
+            error: (error) => {
+                console.log(error)
+            }
+        })
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')
     },
     onShow () {
-        const userInfo = wx.getStorageSync('getUserInfo')
         const {symptom,doctor} = app.globalData.initPageChoice
-
         this.setData({
             symptom: symptom,
-            doctor: doctor,
-            userInfo: userInfo
+            doctor: doctor
         })
         this.AnimationScale()
     },
@@ -77,11 +95,11 @@ Page({
     },
     // 获取用户授权
     getUserInfo (respone) {
-        console.log(respone)
-    },
-    //取消授权
-    cancelAuth (respone) {
-        console.log(respone)
+        const {userInfo} =respone.detail
+        wx.setStorageSync('getUserInfo', userInfo)
+        this.setData({
+            authSetting: true
+        })
     },
     // 选择症状
     getChoise (event) {

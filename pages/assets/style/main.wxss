@@ -2605,7 +2605,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .screen-swiper {
-	min-height: 375rpx;
+	min-height: 350rpx;
 }
 
 .screen-swiper image,
@@ -2620,7 +2620,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .card-swiper {
-	height: 420rpx !important;
+	height: 306rpx !important;
 }
 
 .card-swiper swiper-item {
