@@ -1,6 +1,13 @@
 @import "/pages/assets/style/main.wxss";
 @import "/pages/assets/style/icon.wxss";
 
+.el-header{
+  position:absolute;
+  top:88rpx;
+  width:100%;
+  padding:15rpx;
+}
+
 .scrollPage {
   height: 100vh;
 }

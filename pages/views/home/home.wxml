@@ -1,4 +1,4 @@
-<view class="el-relative">
+<view class="el-relative" wx:if="{{doctor !== '' && doctor &&doctor !== null}}">
     <view class="el-container">
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
             <view class="cu-bar search">

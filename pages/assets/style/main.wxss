@@ -10,6 +10,7 @@
         初始化
  ==================== */
 page {
+	position:relative;
 	width:100%;
 	height:calc(100vh - 128rpx);
     padding-top:128rpx;
@@ -70,7 +71,6 @@ page {
 	--greyShadow: rgba(114, 130, 138, 0.2);
 	--grayShadow: rgba(114, 130, 138, 0.2);
 	--blackShadow: rgba(26, 26, 26, 0.2);
-
 	background-color: var(--white);
 	font-size: 28rpx;
 	color: var(--black);

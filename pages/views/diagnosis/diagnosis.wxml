@@ -1,3 +1,14 @@
+
+<camera wx:if="{{openCamera}}" flash="off" binderror="error" class="openCamera">
+    <cover-view style="width:100%;height:100vh;">
+        <cover-image src="../../assets/images/diagnosis/hand@2x.png"></cover-image>
+        <cover-view class="closeCamera" bind:tap="closeCamera">关闭</cover-view>
+        <cover-view bind:tap="takePhoto" class="getPhoto">
+            <cover-view>拍摄</cover-view>
+        </cover-view>
+    </cover-view>
+</camera>
+
 <view class="el-container">
     <view class="el-row">
         <view class="hand">
@@ -11,7 +22,15 @@
         </view>
     </view>
     <view class="self-diagnosis">
-        <el-button round name="开始自诊" block
+        <el-button bind:handleclick="openCamera" round name="开始自诊" block
                    colour="linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)" />
     </view>
+</view>
+<view class="el-header">
+        <navigator open-type="navigateBack" hover-class="none">
+            <el-button small="lg" icon="cuIcon-back_android"
+        colour="rgba(255,255,255,0)" />
+        </navigator>
+        <el-button small="lg" icon="cuIcon-question"
+        colour="rgba(255,255,255,0)" style="float:right;" />
 </view>

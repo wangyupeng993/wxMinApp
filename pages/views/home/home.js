@@ -25,6 +25,9 @@ Page({
     },
     onLoad () {
       const doctor = wx.getStorageSync('doctor')
+      this.setData({
+        doctor: doctor
+      })
       if (doctor === '' || !doctor || doctor === null) {
           wx.redirectTo({
               url: '/pages/views/initPage/initPage'

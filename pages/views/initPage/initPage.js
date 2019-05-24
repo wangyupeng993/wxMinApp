@@ -95,10 +95,10 @@ Page({
     },
     // 获取用户授权
     getUserInfo (respone) {
-        const {userInfo} =respone.detail
+        const {userInfo} = respone.detail
         wx.setStorageSync('getUserInfo', userInfo)
         this.setData({
-            authSetting: true
+            authSetting: userInfo === undefined?false:true
         })
     },
     // 选择症状
