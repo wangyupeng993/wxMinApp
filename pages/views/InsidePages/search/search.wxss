@@ -1,0 +1,23 @@
+.el-header{
+    top:20rpx;
+}
+.el-header .icon{
+    font-size:42rpx;
+}
+
+.search-form{
+    border-radius:50rpx;
+}
+.search-form .cuIcon-search, .search-form .cuIcon-close{
+    font-weight:bold;
+}
+
+.padding-lg button{
+    color:#ffffff;
+    margin:0 20rpx;
+}
+
+.button-margin{
+    display:inline-block;
+    margin:0 7rpx 34rpx 7rpx;
+}

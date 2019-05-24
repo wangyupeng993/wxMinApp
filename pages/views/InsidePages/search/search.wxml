@@ -1,0 +1,28 @@
+
+<view class="el-header">
+    <navigator open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   text-colour="#333333"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+</view>
+<view class="cu-bar search">
+    <view class="search-form">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="搜索症状/疾病/药品" confirm-type="search" focus="true" />
+        <text class="cuIcon-close"></text>
+    </view>
+    <!-- <view class="action">
+        <el-button round name="搜索" colour="#fff" text-colour="#818181"></el-button>
+    </view> -->
+</view>
+<view class="padding-lg flex-sub text-center">
+    <el-button class="button-margin" round name="Shoes" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Sport wears" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Caps" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Bang and Olufsen" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Mackbook" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Apple" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Shoes" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+    <el-button class="button-margin" round name="Sport wears" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+</view>

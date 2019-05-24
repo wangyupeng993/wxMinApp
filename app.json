@@ -3,7 +3,8 @@
     "pages/views/home/home",
     "pages/views/diagnosis/diagnosis",
     "pages/views/userhomepage/userhomepage",
-    "pages/views/initPage/initPage"
+    "pages/views/initPage/initPage",
+    "pages/views/InsidePages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
