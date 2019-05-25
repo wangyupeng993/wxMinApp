@@ -1,30 +1,24 @@
+.el-header{
+    top:20rpx;
+}
+
 .el-relative{
     position:relative;
     width:100%;
     height:100%;
-    background-color:rgba(240,240,240,1);
 }
 .el-relative .el-container{
     height:88%;
 }
-.cu-list.grid{
-    background-color:rgba(240,240,240,1);
-}
-.cu-list.grid.no-border{
-    padding:20rpx 0;
-    margin:0 17rpx;
-    border-bottom:1px solid rgba(229,229,229,1);
-}
 
-.cu-bar .search-form{
-    margin:0 15rpx;
-    border-radius:8rpx;
-    background:rgba(255,255,255,1);
-    box-shadow:0px 13px 31px rgba(0,0,0,0.09);
+.el-container .report{
+    width:702rpx;
+    height:408rpx;
+    margin:0 auto;
 }
-.text-xl{
-    margin:0 27rpx;
-    color:#434343;
+.el-container .report image{
+    width:100%;
+    height:100%;
 }
 
 /* 底部导航 */
@@ -33,12 +27,6 @@
     bottom:0;
     width:100%;
     box-shadow:0px -1px 14px rgba(226,232,255,1)
-}
-
-.cu-item image{
-    width:80rpx;
-    height:80rpx;
-    margin:0 auto;
 }
 
 .cuIcon{
@@ -54,7 +42,6 @@
     right:0;
     margin:auto;
     padding:0;
-     
 }
 
 .bg-darkblue image{

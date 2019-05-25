@@ -5,6 +5,9 @@ Page({
     onShow () {},
     onHide () {},
     onUnload () {},
+    loadmore () {
+        console.log('问诊页，加载更多~~')
+    },
     // 分享
     onShareAppMessage () {
         return {
