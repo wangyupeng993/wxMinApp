@@ -7,13 +7,24 @@
   width:100%;
   padding:15rpx;
 }
-
+.el-container{
+  height:88%;
+}
+.flex-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
 .scrollPage {
   height: 100vh;
 }
 .scrollView{
   height:100%;
 }
+.inline-block{
+  display:inline-block;
+}
+
 .nav-list {
   display: flex;
   flex-wrap: wrap;

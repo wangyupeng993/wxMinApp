@@ -1,0 +1,30 @@
+page{
+    background:#202332;
+}
+.el-header {
+    top:20rpx;
+}
+.el-header .icon{
+    font-size:52rpx;
+}
+
+.el-container{
+    position:relative;
+    height:100%;
+}
+
+.el-container view:nth-of-type(1).flex-sub{
+    height:100%;
+}
+
+.ps-bottom{
+    position:absolute;
+    left:0;
+    bottom:84rpx;
+    width:100%;
+}
+
+.button-margin{
+    display:inline-block;
+    margin:0 7rpx 34rpx 7rpx;
+}

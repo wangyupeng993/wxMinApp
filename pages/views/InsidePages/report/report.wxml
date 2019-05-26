@@ -1,5 +1,5 @@
-<view class="el-header">
-    <navigator open-type="navigateBack" hover-class="none">
+<view class="el-header text-center">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
         <el-button small="lg" icon="cuIcon-back_android"
                    text-colour="#333333"
                    colour="rgba(255,255,255,0)" />
@@ -26,8 +26,8 @@
                 <text class="fr text-blue padding-tb-sm padding-lr-xs text-bold text-sm cuIcon-question"></text>
                 <text class="fr text-blue padding-tb-sm padding-lr-xs text-sm">49 Reviews</text>
             </view>
-            <view class="padding-xs">
-                <swiper-type image-effect="VisitingCard" class="shadow"></swiper-type>
+            <view class="padding">
+                <swiper-type image-effect="VisitingCard"></swiper-type>
             </view>
             <view class="padding-lr-sm">
                 <view class="padding-tb-sm action border-title">

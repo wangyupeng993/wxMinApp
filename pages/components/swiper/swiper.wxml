@@ -48,3 +48,28 @@
     </view>
   </swiper-item>
 </swiper>
+
+<swiper wx:if="{{imageEffect === 'RecommendCard'}}"  class="card-swiper recommend-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
+    <view class="swiper-item bg-white card-shadow" data-id="{{item.id}}" bind:tap="onHandleClick">
+      <view class="fl padding-sm recommend-card-image">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      </view>
+      <view class="fl padding-xs">
+        <view class="text-df text-green text-xs">
+          <text>皮肤科 主治医师</text>
+          <view class="fr">
+            <text class="padding-left-lg text-gray cuIcon-location"></text>
+            <text class="padding-xs text-gray text-xs">0.7 km</text>
+          </view>
+        </view>
+        <view class="text-sm text-indent">
+          <text class="text-lg text-black text-bold">霍利</text>
+        </view>
+        <view class="text-xs text-indent padding-bottom-xs">
+          <text class="text-black text-bold">浙江大学附属第二医院</text>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+</swiper>

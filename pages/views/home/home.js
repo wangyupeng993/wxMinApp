@@ -5,18 +5,22 @@ Page({
       enterHome: false,
       gridCol: 4,
       iconList: [{
+        url: '/pages/views/InsidePages/LookingDoctor/LookingDoctor',
         icon: '../../assets/images/home/Doctors@2x.png',
         color: 'red',
         name: '找医生'
       }, {
+        url: '/pages/views/InsidePages/LookingDrugs/LookingDrugs',
         icon: '../../assets/images/home/drug@2x.png',
         badge: 1,
         name: '找药品'
       }, {
+        url: '/pages/views/InsidePages/hospital/hospital',
         icon: '../../assets/images/home/hospital@2x.png',
         color: 'yellow',
         name: '查医院'
       }, {
+        url: '/pages/views/InsidePages/physician/physician',
         icon: '../../assets/images/home/cup@2x.png',
         color: 'olive',
         badge: 22,

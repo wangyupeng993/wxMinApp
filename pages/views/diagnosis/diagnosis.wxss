@@ -16,6 +16,10 @@ page{
 .el-header .icon{
     font-size:52rpx;
 }
+.el-header .title{
+    display:inline-block;
+    line-height:64rpx;
+}
 
 .el-row{
     position:absolute;

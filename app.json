@@ -4,7 +4,12 @@
     "pages/views/diagnosis/diagnosis",
     "pages/views/userhomepage/userhomepage",
     "pages/views/initPage/initPage",
-    "pages/views/InsidePages/search/search"
+    "pages/views/InsidePages/search/search",
+    "pages/views/InsidePages/LookingDoctor/LookingDoctor",
+    "pages/views/InsidePages/LookingDrugs/LookingDrugs",
+    "pages/views/InsidePages/hospital/hospital",
+    "pages/views/InsidePages/physician/physician",
+    "pages/views/InsidePages/DoctorInfo/DoctorInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

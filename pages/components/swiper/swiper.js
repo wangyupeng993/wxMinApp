@@ -58,6 +58,9 @@ Component({
       this.setData({
         swiperList: list
       })
+    },
+    onHandleClick (ev) {
+      this.triggerEvent('handleclick', ev.currentTarget.dataset)
     }
   }
 })

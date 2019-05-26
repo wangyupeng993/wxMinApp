@@ -2,6 +2,10 @@
     top:20rpx;
 }
 
+.el-header .icon{
+    font-size:52rpx;
+}
+
 .el-relative{
     position:relative;
     width:100%;
