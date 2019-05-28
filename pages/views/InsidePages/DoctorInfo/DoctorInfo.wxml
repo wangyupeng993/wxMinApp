@@ -9,18 +9,111 @@
 </view>
 
 <view class="el-container">
-    <view class="padding-sm inline-block solid-bottom shadow">
-        <view class="fl doctor-image">
-            <image src="../../../assets/images/home/user.png"></image>
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+        <view class="padding-sm inline-block solid-bottom shadow">
+            <view class="fl doctor-image">
+                <image src="../../../assets/images/home/user.png"></image>
+            </view>
+            <view class="fl padding-xs">
+                <view class="text-green text-sm padding-bottom-xs padding-left-xs">皮肤科 主治医师</view>
+                <view class="text-black text-bold padding-bottom-xs padding-left-xs">霍利</view>
+                <view class="text-black text-sm padding-left-xs">浙江大学附属第二医院</view>
+            </view>
+            <view class="fr margin-top-lg margin-right-lg">
+                <el-button small="sm" round name="关注"
+                           colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
+            </view>
         </view>
-        <view class="fl padding-xs">
-            <view class="text-green text-sm padding-bottom-xs padding-left-xs">皮肤科 主治医师</view>
-            <view class="text-black text-bold padding-bottom-xs padding-left-xs">霍利</view>
-            <view class="text-black text-sm padding-left-xs">浙江大学附属第二医院</view>
+        <view class="flex  p-xs padding-tb-sm mb-sm solid-bottom">
+            <view class="flex-treble padding-sm margin-lr-xs">
+                <view class="fl padding-xs">
+                    <view class="text-black text-bold text-lg padding-bottom-xs text-center">10年</view>
+                    <view class="text-black text-xs padding-left-xs">从业年限</view>
+                </view>
+            </view>
+            <view class="flex-treble padding-sm margin-lr-xs">
+                <view class="fl padding-xs">
+                    <view class="text-black text-bold  text-lg padding-bottom-xs text-center">104次</view>
+                    <view class="text-black text-xs padding-left-xs">回答次数</view>
+                </view>
+            </view>
+            <view class="flex-treble padding-sm margin-lr-xs">
+                <view class="fl padding-xs">
+                    <view class="text-black text-bold  text-lg padding-bottom-xs text-center">5.0分</view>
+                    <text class="cuIcon-favorfill text-olive" wx:for="{{5}}" wx:key="*/this"></text>
+                </view>
+            </view>
         </view>
-        <view class="fr margin-top-lg margin-right-lg">
-            <el-button small="sm" round name="关注"
-                       colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
+        <view class="flex padding-sm solid-bottom">
+            <view class="flex-treble margin-lr-xs text-center">
+                <checkbox-group style="display:inline-block;margin-right:15rpx;">
+                    <checkbox class="blue"></checkbox>
+                </checkbox-group>
+                <text class="text-xs">平时响应：1小时</text>
+            </view>
+            <view class="flex-treble margin-lr-xs text-center">
+                <checkbox-group style="display:inline-block;margin-right:15rpx;">
+                    <checkbox class="blue"></checkbox>
+                </checkbox-group>
+                <text class="text-xs">三甲医院</text>
+            </view>
+            <view class="flex-treble margin-lr-xs text-center">
+                <checkbox-group style="display:inline-block;margin-right:15rpx;">
+                    <checkbox class="blue"></checkbox>
+                </checkbox-group>
+                <text class="text-xs">医师认证</text>
+            </view>
         </view>
-    </view>
+        <view class="padding solid-bottom">
+            <view class="text-black text-bold text-lg padding-bottom-sm padding-left-xs">擅长疾病</view>
+            <view>
+                <el-button class="margin-lr-xs" small="sm" round name="湿疹"
+                           text-colour="#ffffff"
+                           colour="#3858D6" />
+                <el-button class="margin-lr-xs" small="sm" round name="炎症"
+                           text-colour="#ffffff"
+                           colour="#3858D6" />
+                <el-button class="margin-lr-xs" small="sm" round name="皮疹"
+                           text-colour="#ffffff"
+                           colour="#3858D6" />
+                <el-button class="margin-lr-xs" small="sm" round name="青春痘"
+                           text-colour="#ffffff"
+                           colour="#3858D6" />
+            </view>
+        </view>
+        <view class="padding solid-bottom">
+            <view class="text-black text-lg padding-tb-xs">个人简介</view>
+            <view class="text-sm text-gray padding-tb-xs" style="text-align: justify;">
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+                <text class="text-bold text-olive">More</text>
+            </view>
+        </view>
+        <view class="padding" style="width:100%;">
+            <view class="text-black text-lg padding-tb-xs">评价列表</view>
+            <view class="inline-block padding-xs solid-bottom" wx:for="{{5}}" wx:key="*/this" style="width:100%;">
+                <view class="fl comment-image">
+                    <image src="../../../assets/images/home/user.png"></image>
+                </view>
+                <view class="fr padding-xs" style="width:529rpx;">
+                    <view class="padding-bottom-sm">
+                        <text class="text-lg">Samuel Smith</text>
+                        <view class="fr">
+                            <text class="cuIcon-favorfill text-olive" wx:for="{{5}}" wx:key="*/this"></text>
+                        </view>
+                    </view>
+                    <view class="text-sm" style="text-align: justify;">
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="questions">
+    <el-button block name="向霍利医生提问（¥39.0）"
+               text-colour="#ffffff"
+               colour="#3858D6" />
 </view>

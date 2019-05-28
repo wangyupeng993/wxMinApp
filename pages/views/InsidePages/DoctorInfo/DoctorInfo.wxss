@@ -21,8 +21,23 @@
     width:136rpx;
     height:136rpx;
 }
+.comment-image{
+    width:90rpx;
+    height:90rpx;
+}
 
-.doctor-image image{
+.doctor-image image, .comment-image image{
     height:100%;
     border-radius:50%;
+}
+
+.questions{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+.flex-direction{
+    padding:0;
 }

@@ -4,6 +4,9 @@ Page({
     onReady () {},
     onShow () {},
     onUnload () {},
+    loadmore () {
+        console.log('加载更多')
+    },
     // 分享
     onShareAppMessage () {
         return {
