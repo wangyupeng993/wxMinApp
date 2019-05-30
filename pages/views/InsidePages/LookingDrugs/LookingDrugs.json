@@ -1,1 +1,7 @@
-{}
+{
+  "usingComponents": {
+    "swiper-type": "/pages/components/swiper/swiper",
+    "el-button": "/pages/components/button/button",
+    "el-product": "/pages/components/product/product"
+  }
+}

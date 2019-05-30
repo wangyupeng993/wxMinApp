@@ -1,1 +1,49 @@
-<view>找药品页面</view>
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+        <navigator url="/pages/views/InsidePages/search/search" hover-class="none">
+            <view class="cu-bar search">
+                <view class="search-form">
+                    <text class="cuIcon-search"></text>
+                    <input type="text" disabled placeholder="搜索症状/疾病/药品" confirm-type="search"></input>
+                </view>
+            </view>
+        </navigator>
+        <view class="cu-list margin-lr-sm margin-bottom-sm">
+            <swiper-type image-effect="screen"></swiper-type>
+        </view>
+        <view class="padding-sm">
+            <view class="text-xl text-bold padding-lr-xs">药品分类</view>
+            <view class="padding-tb-sm">
+                <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation scroll-left="{{scrollLeft}}">
+                    <view class="padding-sm inline-block bg-white shadow margin-right-lg" wx:for="{{10}}" wx:key="*/this" style="width:360rpx;">
+                        <image class="cu-avatar round lg fl margin-right-sm" src="https://ossweb-img.qq.com/images/lol/img/champion/Taric.png"></image>
+                        <view class="padding-tb-xs text-bold text-lg">B&o</view>
+                        <view class="padding-tb-xs text-sm text-gray">5693 Products</view>
+                    </view>
+                </scroll-view>
+            </view>
+
+        </view>
+        <view>
+            <view class="action border-title">
+                <text class="text-xl padding-lr-sm">推荐药品</text>
+                <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr"></el-button>
+            </view>
+            <el-product></el-product>
+        </view>
+        <view>
+            <view class="action border-title">
+                <text class="text-xl padding-lr-sm">推荐药品</text>
+                <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" style="float:right;"></el-button>
+            </view>
+            <el-product></el-product>
+        </view>
+    </scroll-view>
+</view>

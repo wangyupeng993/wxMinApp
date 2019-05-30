@@ -9,7 +9,8 @@
     "pages/views/InsidePages/LookingDrugs/LookingDrugs",
     "pages/views/InsidePages/hospital/hospital",
     "pages/views/InsidePages/physician/physician",
-    "pages/views/InsidePages/DoctorInfo/DoctorInfo"
+    "pages/views/InsidePages/DoctorInfo/DoctorInfo",
+    "pages/views/InsidePages/HospitalInfo/HospitalInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

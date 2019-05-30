@@ -33,6 +33,13 @@ Page({
         this.AnimationScale();
     },
     onUnload () {},
+    handleclick (params) {
+        const {id} = params.detail
+        wx.navigateTo({
+            url: '/pages/views/InsidePages/HospitalInfo/HospitalInfo'
+        })
+        console.log(params.detail)
+    },
     // 按钮动效
     AnimationScale () {
         let [next] = [true]

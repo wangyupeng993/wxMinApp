@@ -1,0 +1,43 @@
+.icon{
+    font-size:52rpx;
+}
+
+.title{
+    display:inline-block;
+    font-size:40rpx;
+    line-height:74rpx;
+}
+
+.el-container{
+    position:relative;
+    height:84%;
+}
+
+.el-container view:nth-of-type(1).inline-block{
+    width:100%;
+}
+
+.doctor-image{
+    width:136rpx;
+    height:136rpx;
+}
+.comment-image{
+    width:90rpx;
+    height:90rpx;
+}
+
+.doctor-image image, .comment-image image{
+    height:100%;
+    border-radius:50%;
+}
+
+.questions{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+.flex-direction{
+    padding:0;
+}

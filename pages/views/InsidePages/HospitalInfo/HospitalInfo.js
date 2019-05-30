@@ -1,7 +1,7 @@
 Page({
     data: {},
     onLoad () {},
-    onReady () {},
+    onReady() {},
     onShow () {},
     onHide () {},
     onUnload () {},

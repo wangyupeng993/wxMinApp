@@ -1,0 +1,14 @@
+page{
+    background-color:rgba(240,240,240,1);
+}
+
+.icon{
+    font-size:52rpx;
+}
+.el-header{
+    top:30rpx;
+}
+
+.el-container{
+    height:100%;
+}

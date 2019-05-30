@@ -20,6 +20,6 @@
         </view>
     </view>
     <view class="ps-bottom">
-        <swiper-type image-effect="RecommendCard" class="shadow"></swiper-type>
+        <swiper-type image-effect="RecommendCard" bind:handleclick="handleclick" class="shadow"></swiper-type>
     </view>
 </view>

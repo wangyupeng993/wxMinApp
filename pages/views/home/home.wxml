@@ -31,7 +31,7 @@
                 </view>
             </view>
 
-            <view class="cu-list" style="margin:0 15rpx;">
+            <view class="cu-list margin-lr-xs">
                 <swiper-type image-effect="screen"></swiper-type>
             </view>
             

@@ -3859,6 +3859,10 @@ scroll-view.cu-steps .cu-item {
 	text-align: right;
 }
 
+.text-justify{
+	text-align:justify;
+}
+
 .text-red,
 .line-red,
 .lines-red {
