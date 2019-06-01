@@ -1,0 +1,27 @@
+.el-header {
+    z-index:2;
+}
+.el-header .icon{
+    font-size:52rpx;
+}
+
+.el-container{
+    position:absolute;
+    top:0;
+}
+
+.Drugs-swiper{
+    position:relative;
+    height:954rpx;
+}
+
+.questions{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+.flex-direction{
+    padding:0;
+}

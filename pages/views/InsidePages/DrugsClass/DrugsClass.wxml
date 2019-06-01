@@ -1,5 +1,5 @@
 <view class="el-header">
-    <navigator open-type="navigateBack" hover-class="none">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
         <el-button small="lg" icon="cuIcon-back_android"
                    text-colour="#000000"
                    colour="rgba(255,255,255,0)" />
@@ -20,9 +20,11 @@
         <view class="padding-tb-sm">
             <view class="padding-lr-sm flex flex-wrap">
                 <view class="basis-df radius padding-bottom" wx:for="{{20}}" wx:key="*/this">
-                    <image src="../../../assets/images/home/product@2x.png"></image>
-                    <view class="text-indent-lg padding-tb-xs">¥34.00</view>
-                    <view class="text-indent-lg">盐酸西替嗪片</view>
+                    <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
+                        <image src="../../../assets/images/home/product@2x.png"></image>
+                        <view class="text-indent-lg padding-tb-xs">¥34.00</view>
+                        <view class="text-indent-lg">盐酸西替嗪片</view>
+                    </navigator>
                 </view>
             </view>
         </view>

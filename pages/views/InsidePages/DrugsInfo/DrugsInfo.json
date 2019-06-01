@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "el-button": "/pages/components/button/button",
+    "el-product": "/pages/components/product/product"
+  }
+}

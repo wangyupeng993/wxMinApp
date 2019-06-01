@@ -3967,3 +3967,19 @@ scroll-view.cu-steps .cu-item {
 .lines-white {
 	color: var(--white);
 }
+
+.line-height-xs {
+    line-height:26rpx;
+}
+
+.line-height-sm {
+    line-height:36rpx;
+}
+
+.line-height {
+    line-height:46rpx;
+}
+
+.line-height {
+    line-height:56rpx;
+}

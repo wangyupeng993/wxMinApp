@@ -11,7 +11,8 @@
     "pages/views/InsidePages/physician/physician",
     "pages/views/InsidePages/DoctorInfo/DoctorInfo",
     "pages/views/InsidePages/HospitalInfo/HospitalInfo",
-    "pages/views/InsidePages/RecommendedDrugs/RecommendedDrugs"
+    "pages/views/InsidePages/DrugsClass/DrugsClass",
+    "pages/views/InsidePages/DrugsInfo/DrugsInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

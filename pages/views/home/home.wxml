@@ -65,7 +65,7 @@
             <view class="cu-list">
                 <view class="action border-title">
                     <text class="text-xl">推荐药品</text>
-                    <navigator url="/pages/views/InsidePages/RecommendedDrugs/RecommendedDrugs" hover-class="none">
+                    <navigator url="/pages/views/InsidePages/DrugsClass/DrugsClass" hover-class="none">
                         <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,1)" />
                     </navigator>
                 </view>

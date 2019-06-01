@@ -83,7 +83,7 @@
         </view>
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">个人简介</view>
-            <view class="text-sm text-gray padding-tb-xs text-justify">
+            <view class="text-sm text-gray padding-tb-xs text-justify line-height">
                 A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
                 <text class="text-bold text-olive">More</text>
             </view>
@@ -101,7 +101,7 @@
                             <text class="cuIcon-favorfill text-olive" wx:for="{{5}}" wx:key="*/this"></text>
                         </view>
                     </view>
-                    <view class="text-sm text-justify">
+                    <view class="text-sm text-justify line-height-sm">
                         Wonderful jean, perfect gift for my girl for our anniversary!
                         Wonderful jean, perfect gift for my girl for our anniversary!
                         Wonderful jean, perfect gift for my girl for our anniversary!
