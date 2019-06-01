@@ -10,7 +10,8 @@
     "pages/views/InsidePages/hospital/hospital",
     "pages/views/InsidePages/physician/physician",
     "pages/views/InsidePages/DoctorInfo/DoctorInfo",
-    "pages/views/InsidePages/HospitalInfo/HospitalInfo"
+    "pages/views/InsidePages/HospitalInfo/HospitalInfo",
+    "pages/views/InsidePages/RecommendedDrugs/RecommendedDrugs"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,20 @@
+.el-header {
+    top:20rpx;
+}
+.el-header .icon{
+    font-size:52rpx;
+}
+.el-container{
+    height:100%;
+}
+
+.basis-df image{
+    display:block;
+    width:300rpx;
+    height:300rpx;
+    margin:0 auto;
+}
+
+.basis-df .text-indext-xs{
+    text-indent: 5rpx;
+}

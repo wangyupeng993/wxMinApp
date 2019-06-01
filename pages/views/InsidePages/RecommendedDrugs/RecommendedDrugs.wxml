@@ -1,0 +1,30 @@
+<view class="el-header">
+    <navigator open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+</view>
+
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+        <view class="padding-sm">
+            <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation>
+                <view wx:for="{{navTab}}" wx:key="*/this" data-id="{{item.id}}"
+                      bind:tap="SwitchNavTab"
+                      class="cu-item {{navClassTab === item.id?'text-black text-lg text-bold':'text-gray text-sm'}}">
+                    {{item.name}}
+                </view>
+            </scroll-view>
+        </view>
+        <view class="padding-tb-sm">
+            <view class="padding-lr-sm flex flex-wrap">
+                <view class="basis-df radius padding-bottom" wx:for="{{20}}" wx:key="*/this">
+                    <image src="../../../assets/images/home/product@2x.png"></image>
+                    <view class="text-indent-lg padding-tb-xs">¥34.00</view>
+                    <view class="text-indent-lg">盐酸西替嗪片</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

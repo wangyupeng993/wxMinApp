@@ -22,11 +22,13 @@
             <view class="text-xl text-bold padding-lr-xs">药品分类</view>
             <view class="padding-tb-sm">
                 <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation scroll-left="{{scrollLeft}}">
-                    <view class="padding-sm inline-block bg-white shadow margin-right-lg" wx:for="{{10}}" wx:key="*/this" style="width:360rpx;">
-                        <image class="cu-avatar round lg fl margin-right-sm" src="https://ossweb-img.qq.com/images/lol/img/champion/Taric.png"></image>
-                        <view class="padding-tb-xs text-bold text-lg">B&o</view>
-                        <view class="padding-tb-xs text-sm text-gray">5693 Products</view>
-                    </view>
+                    <navigator url="/pages/views/InsidePages/RecommendedDrugs/RecommendedDrugs" hover-class="none">
+                        <view class="padding-sm inline-block bg-white shadow margin-right-lg" wx:for="{{10}}" wx:key="*/this" style="width:360rpx;">
+                            <image class="cu-avatar round lg fl margin-right-sm" src="https://ossweb-img.qq.com/images/lol/img/champion/Taric.png"></image>
+                            <view class="padding-tb-xs text-bold text-lg">B&o</view>
+                            <view class="padding-tb-xs text-sm text-gray">5693 Products</view>
+                        </view>
+                    </navigator>
                 </scroll-view>
             </view>
 
@@ -34,14 +36,18 @@
         <view>
             <view class="action border-title">
                 <text class="text-xl padding-lr-sm">推荐药品</text>
-                <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr"></el-button>
+                <navigator url="/pages/views/InsidePages/RecommendedDrugs/RecommendedDrugs" hover-class="none">
+                    <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr" />
+                </navigator>
             </view>
             <el-product></el-product>
         </view>
         <view>
             <view class="action border-title">
                 <text class="text-xl padding-lr-sm">推荐药品</text>
-                <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" style="float:right;"></el-button>
+                <navigator url="/pages/views/InsidePages/RecommendedDrugs/RecommendedDrugs" hover-class="none">
+                    <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr" />
+                </navigator>
             </view>
             <el-product></el-product>
         </view>

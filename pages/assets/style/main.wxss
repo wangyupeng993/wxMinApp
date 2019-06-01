@@ -3863,6 +3863,21 @@ scroll-view.cu-steps .cu-item {
 	text-align:justify;
 }
 
+.text-indent-xs{
+	text-indent: 10rpx;
+}
+.text-indent-sm{
+	text-indent: 20rpx;
+}
+
+.text-indent{
+	text-indent: 20rpx;
+}
+
+.text-indent-lg{
+	text-indent: 30rpx;
+}
+
 .text-red,
 .line-red,
 .lines-red {
