@@ -1999,9 +1999,9 @@ button.icon.lg {
 }
 
 .nav .cu-item {
-	height: 90rpx;
+	height: 70rpx;
 	display: inline-block;
-	line-height: 90rpx;
+	line-height: 70rpx;
 	margin: 0 10rpx;
 	padding: 0 20rpx;
 }

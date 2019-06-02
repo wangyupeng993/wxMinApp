@@ -1,3 +1,12 @@
+<view class="el-header text-center">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-white text-bold text-lg">AI检测，科学自诊</view>
+    <el-button class="fr" small="lg" icon="cuIcon-question"
+               colour="rgba(255,255,255,0)" />
+</view>
 
 <camera wx:if="{{openCamera}}" flash="off" binderror="error" class="openCamera">
     <cover-view style="width:100%;height:100vh;">
@@ -15,7 +24,7 @@
             <image src="../../assets/images/diagnosis/hand@2x.png"></image>
         </view>
         <view class="text-lg text-center">
-            <checkbox-group style="display:inline-block;margin-right:15rpx;">
+            <checkbox-group class="inline-block margin-left-sm">
                 <checkbox class="blue"></checkbox>
             </checkbox-group>
             <text class="text-white">免责申明</text>
@@ -25,13 +34,4 @@
         <el-button bind:handleclick="openCamera" round name="开始自诊" block
                    colour="linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)" />
     </view>
-</view>
-<view class="el-header text-center">
-        <navigator class="fl" open-type="navigateBack" hover-class="none">
-            <el-button small="lg" icon="cuIcon-back_android"
-        colour="rgba(255,255,255,0)" />
-        </navigator>
-        <view class="title text-white text-bold text-lg">AI检测，科学自诊</view>
-        <el-button class="fr" small="lg" icon="cuIcon-question"
-        colour="rgba(255,255,255,0)" />
 </view>

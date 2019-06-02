@@ -7,8 +7,7 @@
 </view>
 
 <view class="el-container">
-    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
-        <view class="padding-sm">
+        <view class="padding-lr-sm padding-tb-xs">
             <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation>
                 <view wx:for="{{navTab}}" wx:key="*/this" data-id="{{item.id}}"
                       bind:tap="SwitchNavTab"
@@ -17,16 +16,18 @@
                 </view>
             </scroll-view>
         </view>
-        <view class="padding-tb-sm">
-            <view class="padding-lr-sm flex flex-wrap">
-                <view class="basis-df radius padding-bottom" wx:for="{{20}}" wx:key="*/this">
-                    <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
-                        <image src="../../../assets/images/home/product@2x.png"></image>
-                        <view class="text-indent-lg padding-tb-xs">¥34.00</view>
-                        <view class="text-indent-lg">盐酸西替嗪片</view>
-                    </navigator>
+        <view class="class-product padding-tb-xs">
+            <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+                <view class="padding-lr-sm flex flex-wrap">
+                    <view class="basis-df radius padding-bottom" wx:for="{{20}}" wx:key="*/this">
+                        <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
+                            <image src="../../../assets/images/home/product@2x.png"></image>
+                            <view class="text-indent-lg padding-tb-xs">¥34.00</view>
+                            <view class="text-indent-lg">盐酸西替嗪片</view>
+                        </navigator>
+                    </view>
                 </view>
-            </view>
+            </scroll-view>
+
         </view>
-    </scroll-view>
 </view>

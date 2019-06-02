@@ -18,3 +18,7 @@
 .basis-df .text-indext-xs{
     text-indent: 5rpx;
 }
+
+.class-product{
+    height:91%;
+}
