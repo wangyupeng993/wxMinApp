@@ -67,7 +67,9 @@
     </scroll-view>
 </view>
 <view class="questions">
-    <el-button block name="立即购买"
-               text-colour="#ffffff"
-               colour="#3858D6" />
+    <navigator url="/pages/views/InsidePages/ClassroomInfoPay/ClassroomInfoPay" hover-class="none">
+        <el-button block name="立即购买"
+                   text-colour="#ffffff"
+                   colour="#3858D6" />
+    </navigator>
 </view>

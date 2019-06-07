@@ -1,3 +1,7 @@
+
+.cu-list{
+ width:100%;   
+}
 .cu-item image{
     width:300rpx;
     height:300rpx;

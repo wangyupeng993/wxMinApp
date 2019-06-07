@@ -1,0 +1,52 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <el-button class="fr margin-right-lg" small="lg" icon="icon cuIcon-question"
+               text-colour="#000000"
+               colour="rgba(255,255,255,0)" />
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true">
+        <view class="padding-sm">
+            <view class="course-list bg-white radius shadow padding-bottom-lg margin-bottom-lg">
+                <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg"></image>
+                <view class="text-lg text-black padding-tb-sm padding-lr-lg">日常如何预防真菌感染</view>
+                <view class="text-xs text-gray padding-lr-lg">何亮.浙江大学医学附属第二医院…</view>
+            </view>
+        </view>
+        <view class="padding-lr-lg padding-tb-xs text-lg">
+            <view class="text-black line-height">Shewrapara, Mirpur, Dhaka-1216</view>
+            <view class="text-black line-height"> House no: 938 </view>
+            <view class="text-black line-height">Road no: 9</view>
+            <view class="text-blue line-height">
+                <text>设置</text>
+            </view>
+        </view>
+        <view class="padding-tb-lg padding-lr-sm solid-top solid-bottom text-lg">
+            <view class="padding-bottom-sm inline-block" style="width:100%;">
+                <text class="fl text-gray">Subtotal</text>
+                <text class="fr text-black">$160.00</text>
+            </view>
+            <view class="padding-bottom-sm inline-block" style="width:100%;">
+                <text class="fl text-gray">Discount</text>
+                <text class="fr text-black">5%</text>
+            </view>
+            <view class="inline-block" style="width:100%;">
+                <text class="fl text-gray">Shipping</text>
+                <text class="fr text-black">$10.00</text>
+            </view>
+        </view>
+        <view class="padding-sm text-lg">
+            <view class="inline-block padding-bottom-lg" style="width:100%;">
+                <text class="text-gray fl">Total</text>
+                <text class="text-black fr">$162.00</text>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="pay padding-tb-sm padding-lr-lg bg-white">
+    <el-button round block name="付款" colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
+</view>
