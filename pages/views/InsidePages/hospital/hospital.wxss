@@ -4,9 +4,6 @@ page{
 .el-header {
     top:20rpx;
 }
-.el-header .icon{
-    font-size:52rpx;
-}
 
 .el-container{
     position:relative;

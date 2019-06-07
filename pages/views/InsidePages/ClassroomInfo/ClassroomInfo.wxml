@@ -1,0 +1,73 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <el-button class="fr margin-right-lg" small="lg" icon="icon cuIcon-favor"
+               text-colour="#000000"
+               colour="rgba(255,255,255,1)" />
+</view>
+
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+        <view class="Drugs-swiper">
+            <swiper class="screen-swiper Drugs-swiper"  indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+                <swiper-item wx:for="{{5}}" wx:key="*/this">
+                    <image src="../../../assets/images/Image@2x.png" mode="aspectFill"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="padding-tb-lg padding-lr-sm">
+            <view class="text-xl text-bold padding-bottom-sm padding-left-sm">日常如何预防真菌感染</view>
+            <view class="text-sm text-blue padding-left-sm">¥1.00</view>
+        </view>
+        <view class="padding-tb-sm padding-lr-lg solid-bottom solid-top">
+            <view class="flex text-center">
+                <view bind:tap="intrSwitch" data-type="0" class="basis-sm text-lg {{intr === 0?'text-black text-bold':'text-gray'}}">讲堂介绍</view>
+                <view bind:tap="intrSwitch" data-type="1" class="basis-sm text-lg {{intr === 1?'text-black text-bold':'text-gray'}}">讲堂目录</view>
+                <view bind:tap="intrSwitch" data-type="2" class="basis-sm text-lg {{intr === 2?'text-black text-bold':'text-gray'}}">评价列表</view>
+            </view>
+        </view>
+        <view class="padding solid-bottom" wx:if="{{intr === 0}}">
+            <view class="text-black text-lg padding-tb-xs">课堂介绍</view>
+            <view class="text-sm text-gray padding-tb-xs text-justify line-height">
+                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
+                <text class="text-bold text-olive">More</text>
+            </view>
+        </view>
+        <view class="padding-sm" wx:if="{{intr === 1}}" wx:for="{{10}}" wx:key="*/this">
+            <view class="padding-sm bg-gray radius">
+                <text class="text-sm cuIcon-recordfill margin-right-sm"></text>
+                <text class="text-sm text-black">PHP高级编程指南-Swoole千万PV异步任务多进程开发</text>
+            </view>
+        </view>
+        <view class="padding" style="width:100%;" wx:if="{{intr === 2}}">
+            <view class="text-black text-lg padding-tb-xs">评价列表</view>
+            <view class="inline-block padding-xs solid-bottom" wx:for="{{5}}" wx:key="*/this" style="width:100%;">
+                <view class="fl comment-image">
+                    <image src="../../../assets/images/home/user.png"></image>
+                </view>
+                <view class="fr padding-xs" style="width:529rpx;">
+                    <view class="padding-bottom-sm">
+                        <text class="text-lg">Samuel Smith</text>
+                        <view class="fr">
+                            <text class="cuIcon-favorfill text-olive" wx:for="{{5}}" wx:key="*/this"></text>
+                        </view>
+                    </view>
+                    <view class="text-sm text-justify line-height-sm">
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="questions">
+    <el-button block name="立即购买"
+               text-colour="#ffffff"
+               colour="#3858D6" />
+</view>

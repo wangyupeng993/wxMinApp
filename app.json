@@ -12,7 +12,8 @@
     "pages/views/InsidePages/DoctorInfo/DoctorInfo",
     "pages/views/InsidePages/HospitalInfo/HospitalInfo",
     "pages/views/InsidePages/DrugsClass/DrugsClass",
-    "pages/views/InsidePages/DrugsInfo/DrugsInfo"
+    "pages/views/InsidePages/DrugsInfo/DrugsInfo",
+    "pages/views/InsidePages/ClassroomInfo/ClassroomInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
