@@ -14,7 +14,8 @@
     "pages/views/InsidePages/DrugsClass/DrugsClass",
     "pages/views/InsidePages/DrugsInfo/DrugsInfo",
     "pages/views/InsidePages/ClassroomInfo/ClassroomInfo",
-    "pages/views/InsidePages/ClassroomInfoPay/ClassroomInfoPay"
+    "pages/views/InsidePages/ClassroomInfoPay/ClassroomInfoPay",
+    "pages/views/InsidePages/ShoppingCart/ShoppingCart"
   ],
   "window": {
     "backgroundTextStyle": "light",

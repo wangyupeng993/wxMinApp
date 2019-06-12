@@ -54,7 +54,9 @@
 <view class="questions">
     <view class="flex flex-wrap">
         <view class="basis-df">
-            <el-button block name="加入购物车" colour="#E1E1E1" text-colour="#333333" />
+            <navigator url="/pages/views/InsidePages/ShoppingCart/ShoppingCart" hover-class="none">
+                <el-button block name="加入购物车" colour="#E1E1E1" text-colour="#333333" />
+            </navigator>
         </view>
         <view class="basis-df">
             <el-button block name="加入购物车" colour="#3858D6" />

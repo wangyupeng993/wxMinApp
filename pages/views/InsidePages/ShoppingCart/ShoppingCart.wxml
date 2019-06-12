@@ -1,0 +1,31 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="text-bold text-lg margin-top-sm">购物车</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view class="padding-lr-lg padding-tb-sm">
+            <view wx:for="{{6}}" wx:key="*/this" class="el-relative padding-sm margin-bottom-sm inline-block shadow-gray rounds" style="width:100%;">
+                <view class="fl product">
+                    <image src="../../../assets/images/home/product@2x.png"></image>
+                </view>
+                <view class="fl margin-left-lg">
+                    <view class="text-darkGray text-lg padding-tb-xs">盐酸西替嗪片</view>
+                    <view class="text-gray padding-tb-xs">30ml</view>
+                    <view class="text-blue">¥34.00</view>
+                    <view class="margin-tb-sm rounds text-center bg-gray inline-block" style="width:100%;">
+                        <text class="fl text-lg text-darkGray text-bold cuIcon-move padding-xs"></text>
+                        <text class="text-darkGray inline-block padding-tb-xs">123</text>
+                        <text class="fr text-lg text-darkGray text-bold cuIcon-add padding-xs"></text>
+                    </view>
+                </view>
+                <view class="fr text-lg text-bold text-gray cuIcon-close padding-xs"></view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<el-button block round name="去结算" colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />

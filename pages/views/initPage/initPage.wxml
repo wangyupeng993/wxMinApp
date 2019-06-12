@@ -6,7 +6,7 @@
                     round colour="#ffffff"
                     text-colour="#51565F"
                     name="跳过"
-                    class="fl" />
+                    class="fr" />
         </view>
     </view>
     <view class="padding-xs flex align-center">
@@ -42,7 +42,7 @@
                        round colour="#ffffff"
                        text-colour="#51565F"
                        name="跳过"
-                       class="fl" />
+                       class="fr" />
         </view>
     </view>
     <view class="padding-xs flex align-center">

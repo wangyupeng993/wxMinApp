@@ -28,7 +28,7 @@
   </view>
 </view> -->
 
-<view wx:if="{{block}}" class="padding flex flex-direction">
+<view wx:if="{{block}}" class="padding-tb-sm padding-lr flex flex-direction">
   <button open-type="{{openType === ''&&!canIUse? '':openType}}"
           bind:tap="onHandleClick" class="cu-btn {{round?'round':''}} bg-grey lg shadow"
           loading="{{loading?loading:false}}"
