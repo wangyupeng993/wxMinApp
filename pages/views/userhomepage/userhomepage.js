@@ -1,8 +1,15 @@
 const app = getApp().globalData
 Page({
-    data: {},
+    data: {
+        userInfo: null
+    },
     onLoad () {
+        const userInfo = wx.getStorageSync('getUserInfo')
+        this.setData({
+            userInfo: userInfo
+        })
         console.log('页面加载的时候执行，只执行一次')
+        console.log(userInfo)
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')

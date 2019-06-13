@@ -7,9 +7,6 @@
                         <text class="cuIcon-search"></text>
                         <input type="text" disabled placeholder="搜索症状/疾病/药品" confirm-type="search"></input>
                     </view>
-                    <!-- <view class="action">
-                        <el-button round name="搜索" colour="#fff" text-colour="#818181"></el-button>
-                    </view> -->
                 </view>
             </navigator>
             <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
@@ -39,7 +36,7 @@
                 <view class="action border-title">
                     <text class="text-xl">医师讲堂</text>
                 </view>
-                <swiper-type image-effect="ImageText"></swiper-type>
+                <swiper-type bind:handleclick="classroom" image-effect="ImageText"></swiper-type>
             </view>
 
             <view class="cu-list">
@@ -48,11 +45,13 @@
                 </view>
                 <view class="cu-list grid col-5 no-border" style="border:none;">
                     <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
-                        <image src="../../assets/images/home/user.png" style="border-radius:50%;"></image>
-                        <text>张盛宇</text>
+                        <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo" hover-class="none">
+                            <image src="../../assets/images/home/user.png" style="border-radius:50%;"></image>
+                            <text>张盛宇</text>
+                        </navigator>
                     </view>
                     <view class="cu-item">
-                        <image src="../../assets/images/home/new-button.png" style="border-radius:50%;"></image>
+                        <view class="follow inline-block text-blue text-center text-lg cuIcon-add"></view>
                     </view>
                 </view>
             </view>
@@ -60,7 +59,7 @@
                 <view class="action border-title">
                     <text class="text-xl">皮肤小知识</text>
                 </view>
-                <swiper-type image-effect="ImageText"></swiper-type>
+                <swiper-type bind:handleclick="hospitaldetails" image-effect="ImageText"></swiper-type>
             </view>
             <view class="cu-list">
                 <view class="action border-title">

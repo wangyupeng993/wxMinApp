@@ -27,6 +27,15 @@
     color:#434343;
 }
 
+.follow{
+    width:80rpx !important;
+    height:80rpx;
+    line-height:80rpx;
+    border:2rpx solid #0081ff;
+    border-radius:50%;
+    margin:0 auto !important;
+}
+
 /* 底部导航 */
 .el-relative .bg-white{
     position:absolute;

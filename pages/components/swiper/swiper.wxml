@@ -1,13 +1,13 @@
 <!-- {{DotStyle?'square-dot':'round-dot'}} -->
 <swiper wx:if="{{imageEffect === 'screen'}}" class="screen-swiper shadow shadow-lg" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key="*/this">
-    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <image bind:tap="onHandleClick" src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}" data-item="{{item}}"></image>
   </swiper-item>
 </swiper>
 
 <swiper wx:if="{{imageEffect === 'card'}}"  class="card-swiper shadow shadow-lg" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
-    <view class="swiper-item card-shadow">
+    <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
     </view>
   </swiper-item>
@@ -15,7 +15,7 @@
 
 <swiper wx:if="{{imageEffect === 'ImageText'}}"  class="card-swiper image-text-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
-    <view class="swiper-item card-shadow">
+    <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
       <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
       <view class="text-df text-indent">专注视觉的小程序组件库</view>
       <view class="text-sm text-indent">
@@ -31,7 +31,7 @@
 
 <swiper wx:if="{{imageEffect === 'VisitingCard'}}"  class="card-swiper visiting-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
-    <view class="swiper-item card-shadow">
+    <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
       <view class="fl padding-xs visiting-card-image">
         <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
       </view>
@@ -51,7 +51,7 @@
 
 <swiper wx:if="{{imageEffect === 'RecommendCard'}}"  class="card-swiper recommend-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
-    <view class="swiper-item bg-white card-shadow" data-id="{{item.id}}" bind:tap="onHandleClick">
+    <view bind:tap="onHandleClick" class="swiper-item bg-white card-shadow" data-id="{{item.id}}">
       <view class="fl padding-sm recommend-card-image">
         <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
       </view>

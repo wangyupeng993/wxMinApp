@@ -96,6 +96,7 @@ Page({
     // 获取用户授权
     getUserInfo (respone) {
         const {userInfo} = respone.detail
+        console.log(userInfo)
         wx.setStorageSync('getUserInfo', userInfo)
         this.setData({
             authSetting: userInfo === undefined?false:true

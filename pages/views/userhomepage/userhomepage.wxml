@@ -1,23 +1,90 @@
-<view class="el-relative">
-    <view class="cu-bar tabbar bg-white">
-        <view class="action text-gray">
-            <navigator url="/pages/views/home/home" hover-class="none">
-                <view class="cuIcon-homefill"></view> 首页
-            </navigator>
+<view class="el-container padding-lr-lg">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view class="padding-tb-xs text-xl inline-block" style="width:100%;">
+            <view class="fr cu-avatar padding-lr-sm padding-tb-sm text-bold text-grey cuIcon-notice">
+                <view class="cu-tag badge">99+</view>
+            </view>
+            <view class="fr cu-avatar padding-lr-sm margin-right-sm padding-tb-sm text-bold text-grey cuIcon-mark">
+                <view class="cu-tag badge">99+</view>
+            </view>
         </view>
-        <view class="action text-gray add-action">
-            <navigator url="/pages/views/diagnosis/diagnosis" hover-class="none">
-                <button class="cu-btn cuIcon bg-darkblue shadow">
-                    <image src="../../assets/images/home/science@2x.png"></image>
-                </button>
-                问诊
-            </navigator>
+        <view class="padding-tb-sm inline-block" style="width:100%;">
+            <view class="userinfo">
+                <view class="fl user-header-image">
+                    <image src="{{userInfo.avatarUrl}}"></image>
+                </view>
+                <view class="fl margin-left-lg">
+                    <view class="text-xxl text-bold padding-bottom">{{userInfo.nickName}}</view>
+                    <view class="text-sm text-bold text-grey">18329760102</view>
+                </view>
+                <view class="fr solid round">
+                    <el-button name="医生统计" colour="rgba(255,255,255,0)" text-colour="#727C8E"></el-button>
+                </view>
+            </view>
         </view>
-        <view class="action  text-blue">
-            <navigator url="/pages/views/userhomepage/userhomepage" hover-class="none">
-                <view class="cuIcon-my"></view>
-                我的
-            </navigator>
+        <view class="padding-tb-lg margin-top-xl text-xl">
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-write"></view>
+                <view class="fl padding-top-xs margin-left-lg">我的问诊</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-location"></view>
+                <view class="fl padding-top-xs margin-left-lg">购买的讲堂</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-like"></view>
+                <view class="fl padding-top-xs margin-left-lg">购买的药品</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-time"></view>
+                <view class="fl padding-top-xs margin-left-lg">关注的医生</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-presentfill"></view>
+                <view class="fl padding-top-xs margin-left-lg">我的收藏</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-pay"></view>
+                <view class="fl padding-top-xs margin-left-lg">入驻平台</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-notice"></view>
+                <view class="fl padding-top-xs margin-left-lg">用户反馈</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-exit"></view>
+                <view class="fl padding-top-xs margin-left-lg">登出</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
         </view>
+    </scroll-view>
+</view>
+
+<view class="cu-bar tabbar bg-white">
+    <view class="action text-gray">
+        <navigator url="/pages/views/home/home" hover-class="none">
+            <view class="cuIcon-homefill"></view> 首页
+        </navigator>
+    </view>
+    <view class="action text-gray add-action">
+        <navigator url="/pages/views/diagnosis/diagnosis" hover-class="none">
+            <button class="cu-btn cuIcon bg-darkblue shadow">
+                <image src="../../assets/images/home/science@2x.png"></image>
+            </button>
+            问诊
+        </navigator>
+    </view>
+    <view class="action  text-blue">
+        <navigator url="/pages/views/userhomepage/userhomepage" hover-class="none">
+            <view class="cuIcon-my"></view>
+            我的
+        </navigator>
     </view>
 </view>
