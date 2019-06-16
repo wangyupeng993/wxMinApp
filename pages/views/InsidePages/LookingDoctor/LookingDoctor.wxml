@@ -1,3 +1,4 @@
+<!--
 <view class="el-header">
     <navigator open-type="navigateBack" hover-class="none">
         <el-button small="lg" icon="cuIcon-back_android"
@@ -21,4 +22,14 @@
     <view class="ps-bottom">
         <swiper-type image-effect="RecommendCard" bind:handleclick="handleclick" class="shadow"></swiper-type>
     </view>
-</view>
+</view>-->
+<cover-view class="el-header">
+    <cover-view bind:tap="backPrevPage" class="padding-sm cuIcon-back_android"></cover-view>
+</cover-view>
+<map id="myMap"
+     bindcallouttap="lookDoctor"
+     markers="{{markers}}"
+     style="width:100%;height:100%;"
+     longitude="{{longitude}}"
+     latitude="{{latitude}}" scale='12'>
+</map>
