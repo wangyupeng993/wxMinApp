@@ -34,19 +34,19 @@
 
         </view>
         <view>
-            <view class="action border-title">
-                <text class="text-xl padding-lr-sm">推荐药品</text>
+            <view class="padding-tb-xs inline-block action border-title" style="width:100%;">
+                <text class="fl text-xl padding-tb-xs padding-lr-sm">推荐药品</text>
                 <navigator url="/pages/views/InsidePages/DrugsClass/DrugsClass" hover-class="none">
-                    <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr" />
+                    <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr" />
                 </navigator>
             </view>
             <el-product></el-product>
         </view>
         <view>
-            <view class="action border-title">
-                <text class="text-xl padding-lr-sm">推荐药品</text>
+            <view class="padding-tb-xs inline-block action border-title" style="width:100%;">
+                <text class="fl text-xl padding-tb-xs padding-lr-sm">推荐药品</text>
                 <navigator url="/pages/views/InsidePages/DrugsClass/DrugsClass" hover-class="none">
-                    <el-button round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr" />
+                    <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)" class="fr" />
                 </navigator>
             </view>
             <el-product></el-product>
