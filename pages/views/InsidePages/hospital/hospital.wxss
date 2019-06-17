@@ -1,8 +1,9 @@
-page{
-    background:#202332;
-}
+
 .el-header {
     top:20rpx;
+}
+.el-header .cuIcon-back_android{
+    font-size:52rpx;
 }
 
 .el-container{

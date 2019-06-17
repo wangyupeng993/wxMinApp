@@ -59,7 +59,9 @@
             </navigator>
         </view>
         <view class="basis-df">
-            <el-button block name="加入购物车" colour="#3858D6" />
+            <navigator url="/pages/views/InsidePages/payment/payment" hover-class="none">
+                <el-button block name="立即购买" colour="#3858D6" />
+            </navigator>
         </view>
     </view>
 </view>
