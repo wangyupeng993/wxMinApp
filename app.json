@@ -16,7 +16,8 @@
     "pages/views/InsidePages/ClassroomInfo/ClassroomInfo",
     "pages/views/InsidePages/ClassroomInfoPay/ClassroomInfoPay",
     "pages/views/InsidePages/ShoppingCart/ShoppingCart",
-    "pages/views/InsidePages/payment/payment"
+    "pages/views/InsidePages/payment/payment",
+    "pages/views/InsidePages/address/address"
   ],
   "window": {
     "backgroundTextStyle": "light",

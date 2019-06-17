@@ -4,7 +4,7 @@
                    text-colour="#000000"
                    colour="rgba(255,255,255,0)" />
     </navigator>
-    <view class="text-bold text-lg margin-top-sm">购物车</view>
+    <view class="text-bold text-lg margin-top-sm">付款</view>
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">

@@ -1,0 +1,6 @@
+.el-header{
+    top:30rpx;
+}
+.el-container{
+    height:80%;
+}
