@@ -1,11 +1,9 @@
 Page({
-    data: {
-        address:''
-    },
+    data: {},
     onLoad () {},
     onReady () {},
     onShow () {},
-    onHide() {},
+    onHide () {},
     onUnload () {},
     onShareAppMessage () {}
 })

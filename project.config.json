@@ -9,7 +9,7 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": true,
+		"autoAudits": false,
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",

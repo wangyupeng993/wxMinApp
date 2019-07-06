@@ -8,12 +8,14 @@
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <view class="flex padding-lg inline-block" style="width:100%;" wx:for="{{20}}" wx:key="*/this">
-            <view class="fl text-justify" style="width:85%;">福建省厦门市翔安区新店镇</view>
-            <view class="padding-lr-xs fr">
-                <radio class="blue radio"></radio>
+        <radio-group>
+            <view class="flex padding-lg inline-block" style="width:100%;" wx:for="{{20}}" wx:key="*/this">
+                <view class="fl text-justify" style="width:85%;">福建省厦门市翔安区新店镇</view>
+                <view class="padding-lr-xs fr">
+                        <radio class="blue radio"></radio>
+                </view>
             </view>
-        </view>
+        </radio-group>
     </scroll-view>
 </view>
 <view class="padding-lr-lg padding-tb-sm inline-block bg-white" style="width:100%;">

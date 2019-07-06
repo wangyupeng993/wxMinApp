@@ -59,7 +59,7 @@
             </navigator>
         </view>
         <view class="basis-df">
-            <navigator url="/pages/views/InsidePages/payment/payment" hover-class="none">
+            <navigator url="/pages/views/InsidePages/pay/pay" hover-class="none">
                 <el-button block name="立即购买" colour="#3858D6" />
             </navigator>
         </view>
