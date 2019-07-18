@@ -1,15 +1,22 @@
 function wxRequest(params) {
+    wx.showLoading()
     const promise = new Promise((resolve, reject) => {
         wx.request({
-            params,
+            url: params.url ? params.url : '',
+            method: params.method ? params.method : '',
+            data: params.data,
+            header: params.header ? params.header : '',
+            dataType: 'json',
             success: function(respone){
-                resolve()
+                wx.hideLoading()
+                resolve(respone)
             },
             fail: function(error) {
+                wx.hideLoading()
                 reject(error)
             },
             complete: function() {
-                // complete
+                wx.hideLoading()
                 resolve()
             }
         })

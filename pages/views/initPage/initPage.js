@@ -1,4 +1,5 @@
 const app = getApp()
+const service = require('../../api/request/index.js')
 Page({
     data: {
         Symptomlist: [{
@@ -50,7 +51,10 @@ Page({
             name: '牛皮藓专家门诊',
             img: '../../assets/images/home/user.png',
             selected: false
-        }]
+        }],
+        symptom: [],
+        doctor: [],
+        userInfo: wx.getStorageSync('getUserInfo')
     },
     onLoad () {
         wx.getSetting({
@@ -75,16 +79,27 @@ Page({
                 console.log(error)
             }
         })
+
+        service.getSymptoms()
+            .then(respone => {
+                console.log(respone)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+        service.getDiseases()
+            .then(respone => {
+                console.log(respone)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')
     },
     onShow () {
-        const {symptom,doctor} = app.globalData.initPageChoice
-        this.setData({
-            symptom: symptom,
-            doctor: doctor
-        })
         this.AnimationScale()
     },
     onHide () {
@@ -96,16 +111,25 @@ Page({
     // 获取用户授权
     getUserInfo (respone) {
         const {userInfo} = respone.detail
-        console.log(userInfo)
-        wx.setStorageSync('getUserInfo', userInfo)
-        this.setData({
-            authSetting: userInfo === undefined?false:true
+        wx.login({
+            timeout: 50000,
+            success:(res) => {
+                const {code} = res
+                service.Login({jsCode: code, nickname: userInfo.nickName})
+                    .then(respone => {
+                        const {code} = respone.data
+                        if (code === 0)wx.setStorageSync('getUserInfo', userInfo)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
         })
     },
     // 选择症状
     getChoise (event) {
         const {attributeValue} = event.detail
-        const {symptom,Symptomlist} = this.data
+        const {Symptomlist} = this.data
         Symptomlist.forEach((item, index, array) => {
             if (item.id === attributeValue) {
                 item.selected = !item.selected
@@ -120,9 +144,8 @@ Page({
     },
     // 选择医生
     getDustor (event) {
-        console.log(event)
         const {attributeValue} = event.detail
-        const {Doctorlist,doctor} = this.data
+        const {Doctorlist} = this.data
         Doctorlist.forEach((item, index, array) => {
             if (item.id === attributeValue) {
                 item.selected = !item.selected
@@ -144,15 +167,23 @@ Page({
     },
     // 进入首页
     nextHome () {
-        const {doctor} = this.data
-        wx.setStorageSync('doctor',doctor)
-        wx.nextTick(() => {
-            if (doctor.length >= 2){
-                wx.reLaunch({
-                    url: '/pages/views/home/home'
+        const {doctor,symptom} = this.data
+        service.saveinitPageinfo()
+            .then(respone => {
+                console.log(respone)
+                wx.setStorageSync('doctor',doctor)
+                wx.setStorageSync('symptom',symptom)
+                wx.nextTick(() => {
+                    if (doctor.length >= 2){
+                        wx.reLaunch({
+                            url: '/pages/views/home/home'
+                        })
+                    }
                 })
-            }
-        })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     // 跳过
     jumpHome () {

@@ -72,7 +72,7 @@
     </view>
 </view>
 
-<view class="cu-modal bottom-modal {{!authSetting?'show':''}}">
+<view class="cu-modal bottom-modal {{userInfo === ''?'show':''}}">
     <view class="cu-dialog">
         <view class="padding-xl">
             <view class="user-header-image">
