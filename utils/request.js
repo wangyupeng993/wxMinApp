@@ -8,15 +8,21 @@ function wxRequest(params) {
             header: params.header ? params.header : '',
             dataType: 'json',
             success: function(respone){
-                wx.hideLoading()
+                const {code, message} = respone.data
+                code === 0 ? wx.showToast({title: '',icon: 'none',duration: 10}) : wx.showToast({
+                    title: message,
+                    image: '/pages/assets/images/icon/error.png'
+                })
                 resolve(respone)
             },
             fail: function(error) {
-                wx.hideLoading()
+                wx.showToast({
+                    title: '',
+                    image: '/pages/assets/images/icon/error.png'
+                })
                 reject(error)
             },
             complete: function() {
-                wx.hideLoading()
                 resolve()
             }
         })

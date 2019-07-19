@@ -2,59 +2,11 @@ const app = getApp()
 const service = require('../../api/request/index.js')
 Page({
     data: {
-        Symptomlist: [{
-            id: 1,
-            name: '手上长满密集的小红点'
-        },{
-            id: 2,
-            name: '皮疹',
-            selected: false
-        }, {
-            id: 3,
-            name: '青春痘',
-            selected: false
-        }, {
-            id: 4,
-            name: '手上长满密集的小红点',
-            selected: false
-        },{
-            id: 5,
-            name: '皮疹',
-            selected: false
-        },{
-            id: 6,
-            name: '青春痘',
-            selected: false
-        }],
-        Doctorlist: [{
-            id: 1,
-            name: '主治湿疹',
-            img: '../../assets/images/home/user.png',
-            selected: false
-        },{
-            id: 2,
-            name: '主治青少年内分泌失调',
-            img: '../../assets/images/home/user.png',
-            selected: false
-        },{
-            id: 3,
-            name: '皮疹',
-            img: '../../assets/images/home/user.png',
-            selected: false
-        },{
-            id: 4,
-            name: '青春痘',
-            img: '../../assets/images/home/user.png',
-            selected: false
-        },{
-            id: 5,
-            name: '牛皮藓专家门诊',
-            img: '../../assets/images/home/user.png',
-            selected: false
-        }],
-        symptom: [],
-        doctor: [],
-        userInfo: wx.getStorageSync('getUserInfo')
+        Symptomlist: [], // 病症
+        Doctorlist: [],// 医生
+        symptom: [], // 选择病症
+        doctor: [], // 选择医生
+        userInfo: wx.getStorageSync('getUserInfo') // 用户信息
     },
     onLoad () {
         wx.getSetting({
@@ -79,7 +31,7 @@ Page({
                 console.log(error)
             }
         })
-
+        // 获取病症
         service.getSymptoms()
             .then(respone => {
                 console.log(respone)
@@ -87,7 +39,7 @@ Page({
             .catch(error => {
                 console.log(error)
             })
-
+        // 获取医生
         service.getDiseases()
             .then(respone => {
                 console.log(respone)

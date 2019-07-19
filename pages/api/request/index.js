@@ -27,7 +27,7 @@ const service = {
             url: `${URL}/initial/symptoms`,
             method: 'POST',
             header: JSONHEADER,
-            data: data || {}
+            data
         })
     },
     // 获取初始化医生信息接口
@@ -36,7 +36,7 @@ const service = {
             url: `${URL}/initial/skillful/diseases`,
             method: 'POST',
             header: JSONHEADER,
-            data: data || {}
+            data
         })
     },
     // 保存初始化页面选择
