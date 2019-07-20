@@ -1,4 +1,5 @@
 const QQMapWX = require('../../../../utils/Map/qqmap-wx-jssdk')
+const service = require('../../../api/request/index.js')
 let qqmapsdk;
 const key = 'VN5BZ-7TCRI-OX7GZ-5KSG4-DKO27-QJBAH'
 Page({
@@ -77,6 +78,13 @@ Page({
     },
     onShow () {
         this.AnimationScale();
+        service.getHospitals()
+            .then(respone => {
+                console.log(respone.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     onUnload () {},
     /*handleclick (params) {

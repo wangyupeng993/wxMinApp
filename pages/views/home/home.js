@@ -25,7 +25,8 @@ Page({
         color: 'olive',
         badge: 22,
         name: '医师讲堂'
-      }]
+      }],
+      follow: []
     },
     onLoad () {
       const doctor = wx.getStorageSync('doctor')
@@ -45,7 +46,16 @@ Page({
         console.log('页面渲染完成之后执行，只执行一次')
     },
     onShow () {
-        console.log('页面显示就会执行')
+        service.followDoctor()
+            .then(respone => {
+                console.log(respone.data)
+                this.setData({
+                    follow: respone.data.data.map(item => item)
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     onHide () {
         console.log('页面隐藏就是执行')

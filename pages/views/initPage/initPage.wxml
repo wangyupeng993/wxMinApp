@@ -71,7 +71,7 @@
                    text-colour="{{doctor.length >=2?'#ffffff':'#A8A8A8'}}"></el-button>
     </view>
 </view>
-
+<!--<view wx:if="{{symptom.length <= 0 && doctor.length <= 0}}" class="init-page flex-center text-bold text-lg">暂无数据......</view>-->
 <view class="cu-modal bottom-modal {{userInfo === ''?'show':''}}">
     <view class="cu-dialog">
         <view class="padding-xl">

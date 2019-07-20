@@ -9,8 +9,8 @@ function wxRequest(params) {
             dataType: 'json',
             success: function(respone){
                 const {code, message} = respone.data
-                code === 0 ? wx.showToast({title: '',icon: 'none',duration: 10}) : wx.showToast({
-                    title: message,
+                code === 200 || code === 0? wx.showToast({title: '',icon: 'none',duration: 10}) : wx.showToast({
+                    title: `${code} ${message}`,
                     image: '/pages/assets/images/icon/error.png'
                 })
                 resolve(respone)

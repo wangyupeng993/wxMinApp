@@ -139,7 +139,8 @@ Page({
     },
     // 跳过
     jumpHome () {
-        wx.setStorageSync('doctor','跳过')
+        wx.setStorageSync('doctor',[])
+        wx.setStorageSync('symptom',[])
         wx.nextTick(() => {
             wx.reLaunch({
                 url: '/pages/views/home/home'

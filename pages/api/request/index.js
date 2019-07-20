@@ -9,7 +9,7 @@ const service = {
             url: `${URL}/login`,
             method: 'POST',
             header: JSONHEADER,
-            data: data || {}
+            data
         })
     },
     // 获取用户信息
@@ -18,7 +18,7 @@ const service = {
             url: `${URL}/supply/user`,
             method: 'POST',
             header: JSONHEADER,
-            data: data || {}
+            data
         })
     },
     // 获取初始化页面的症状
@@ -45,7 +45,34 @@ const service = {
             url: `${URL}/initial/save/info`,
             method: 'POST',
             header: JSONHEADER,
-            data: data || {}
+            data
+        })
+    },
+    // 个人关注医生列表
+    followDoctor: (data) => {
+      return wxRequest({
+          url: `${URL}/user/doctor`,
+          method: 'POST',
+          header: JSONHEADER,
+          data
+      })
+    },
+    // 获取医生列表
+    getDoctors: (data) => {
+        return wxRequest({
+            url: `${URL}/doctors`,
+            method: 'POST',
+            header: JSONHEADER,
+            data
+        })
+    },
+    // 获取医院列表
+    getHospitals: (data) => {
+        return wxRequest({
+            url: `${URL}/hospitals`,
+            method: 'GET',
+            header: JSONHEADER,
+            data
         })
     }
 }
