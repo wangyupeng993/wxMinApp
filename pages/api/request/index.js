@@ -71,7 +71,7 @@ const service = {
         return wxRequest({
             url: `${URL}/hospitals`,
             method: 'GET',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...FORMHEADER, session_key: wx.getStorageSync('sessionKey')},
             data
         })
     }
