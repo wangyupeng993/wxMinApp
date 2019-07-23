@@ -70,7 +70,14 @@ Page({
                 service.Login({jsCode: code, nickname: userInfo.nickName})
                     .then(respone => {
                         const {code} = respone.data
-                        if (code === 0)wx.setStorageSync('getUserInfo', userInfo)
+                        if (code === 200) {
+                            const {key} = respone.data.data
+                            wx.setStorageSync('sessionKey', key)
+                            wx.setStorageSync('getUserInfo', userInfo)
+                            this.setData({
+                                userInfo: wx.getStorageSync('getUserInfo')
+                            })
+                        }
                     })
                     .catch(error => {
                         console.log(error)

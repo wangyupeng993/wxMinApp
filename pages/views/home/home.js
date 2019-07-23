@@ -39,24 +39,24 @@ Page({
           wx.redirectTo({
               url: '/pages/views/initPage/initPage'
           })
+      }else{
+          service.followDoctor()
+              .then(respone => {
+                  console.log(respone.data)
+                  this.setData({
+                      follow: respone.data.data.map(item => item)
+                  })
+              })
+              .catch(error => {
+                  console.log(error)
+              })
       }
       console.log('页面加载的时候执行，只执行一次')
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')
     },
-    onShow () {
-        service.followDoctor()
-            .then(respone => {
-                console.log(respone.data)
-                this.setData({
-                    follow: respone.data.data.map(item => item)
-                })
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    },
+    onShow () {},
     onHide () {
         console.log('页面隐藏就是执行')
     },
