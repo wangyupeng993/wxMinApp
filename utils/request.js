@@ -17,8 +17,9 @@ function wxRequest(params) {
             },
             fail: function(error) {
                 wx.showToast({
-                    title: '',
-                    image: '/pages/assets/images/icon/error.png'
+                    title: JSON.stringify(error),
+                    icon: 'none'
+                    // image: '/pages/assets/images/icon/error.png'
                 })
                 reject(error)
             },

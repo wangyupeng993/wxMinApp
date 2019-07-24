@@ -24,7 +24,7 @@
     </view>
 </view>-->
 <cover-view class="el-header">
-    <cover-view bind:tap="backPrevPage" class="padding-sm cuIcon-back_android"></cover-view>
+    <cover-view bind:tap="backPrevPage" class="padding-sm  text-lg">返回</cover-view>
 </cover-view>
 <map id="myMap"
      bindcallouttap="lookDoctor"

@@ -35,9 +35,37 @@ Page({
         }]
     },
     onLoad () {
-        qqmapsdk = new QQMapWX({key})
+        this.getUserLocation()
     },
-    onReady () {
+    onReady () {},
+    onShow () {
+      this.AnimationScale();
+      service.getDoctors()
+          .then(respone => {
+                console.log(respone.data)
+            })
+          .catch(error => {
+                console.log(error)
+            })
+        wx.getSetting({
+            success: (respone) => {
+                if (respone.authSetting['scope.userLocation']) this.getUserLocation()
+            }
+        })
+    },
+    onUnload () {},
+    backPrevPage () {
+        wx.navigateBack(-1)
+    },
+    /*handleclick (params) {
+        const {markerId} = params
+        wx.navigateTo({
+            url: '/pages/views/InsidePages/DoctorInfo/DoctorInfo'
+        })
+        console.log(markerId)
+    },*/
+    getUserLocation () {
+        qqmapsdk = new QQMapWX({key})
         let {markers} = this.data
         wx.getLocation({
             type: 'wgs84',
@@ -54,7 +82,7 @@ Page({
                                 title: item.title,
                                 latitude: item.location.lat,
                                 longitude: item.location.lng,
-                                iconPath: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK84xyzRypsXnCeaFe6H8OACsEVBwibInL8afh6oHJGL3m7JhHgXdyO0jNO7SZMK2ExD0lxhjQD0EA/132',
+                                iconPath: '../../../assets/images/home/user.png',
                                 width: 50,
                                 height: 50,
                                 callout:{
@@ -73,30 +101,30 @@ Page({
                     },
                     fail: (error) => {}
                 })
+            },
+            fail: (error) => {
+                wx.showModal({
+                    title: '提示',
+                    content: '前往小程序设置界面，授权获取地理位置',
+                    confirmText: '前往',
+                    success: (respone) => {
+                        if (respone.confirm) {
+                            wx.openSetting({
+                                success:(respone) => {
+                                },
+                                fail: (error) => {
+                                }
+                            })
+                        } else if (respone.cancel) {
+                            wx.navigateBack(-2)
+                        }
+                    },
+                    fail: (error) => {}
+                })
+
             }
         })
     },
-    onShow () {
-      this.AnimationScale();
-        service.getDoctors()
-            .then(respone => {
-                console.log(respone.data)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    },
-    onUnload () {},
-    backPrevPage () {
-        wx.navigateBack(-1)
-    },
-    /*handleclick (params) {
-        const {markerId} = params
-        wx.navigateTo({
-            url: '/pages/views/InsidePages/DoctorInfo/DoctorInfo'
-        })
-        console.log(markerId)
-    },*/
     // 查看医生详情
     lookDoctor (params) {
         const {markerId} = params

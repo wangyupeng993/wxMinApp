@@ -20,6 +20,7 @@ App({
   },
   onShow () {
     console.log('小程序进入页面')
+    wx.setEnableDebug({enableDebug: true})
   },
   onHide () {
     console.log('小程序隐藏在后台运行')
