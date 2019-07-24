@@ -14,7 +14,8 @@
             <view class="text-xl padding">
                 <text class="text-black text-bold">选择您需要了解的症状</text>
             </view>
-            <view class="padding text-tips">至少选择2项，点击选中/取消</view>
+            <view  wx:if="{{symptom.length > 1 && doctor.length > 1}}" class="padding text-tips">至少选择2项，点击选中/取消</view>
+            <view wx:if="{{symptom.length <= 0 && doctor.length <= 0}}" class="init-page padding-top-lg flex-center text-lg text-blue">暂无数据，请直接跳过</view>
         </view>
     </view>
     <view class="padding-lg flex-sub text-center">
@@ -34,7 +35,6 @@
                    text-colour="{{symptom.length >=2?'#ffffff':'#A8A8A8'}}"></el-button>
     </view>
 </view>
-
 <view wx:if="{{DoctorPage}}" class="init-page">
     <view class="cu-list">
         <view class="action border-title">
@@ -50,7 +50,8 @@
             <view class="text-xl padding">
                 <text class="text-black text-bold">选择您感兴趣的医生</text>
             </view>
-            <view class="padding text-tips">至少选择2项，点击选中/取消</view>
+            <view  wx:if="{{symptom.length > 1 && doctor.length > 1}}" class="padding text-tips">至少选择2项，点击选中/取消</view>
+            <view wx:if="{{symptom.length <= 0 && doctor.length <= 0}}" class="init-page flex-center padding-top-lg text-lg text-blue">暂无数据，请直接跳过</view>
         </view>
     </view>
     <view class="padding-lg flex-sub text-center">
