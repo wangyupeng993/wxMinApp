@@ -1,15 +1,15 @@
 const app = getApp().globalData
+const service = require('../../api/request/index.js')
 Page({
     data: {
-        userInfo: null
+        userInfo: null,
+        phone: null
     },
     onLoad () {
-        const userInfo = wx.getStorageSync('getUserInfo')
         this.setData({
-            userInfo: userInfo
+            userInfo: wx.getStorageSync('getUserInfo')
         })
         console.log('页面加载的时候执行，只执行一次')
-        console.log(userInfo)
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')
@@ -22,6 +22,20 @@ Page({
     },
     onUnload () {
         console.log('页面卸载的时候就会执行，只执行一次')
+    },
+    getPhoneNumber (params) {
+        const {userInfo} = this.data
+        const {encryptedData, iv} = params.detail
+        console.log(params)
+        if (encryptedData && iv) {
+            service.getUserPhone({encrypted:encryptedData, iv: iv, nickname: userInfo.nickName})
+                .then(respone => {
+                    console.log(respone.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
     },
     // 分享
     onShareAppMessage () {

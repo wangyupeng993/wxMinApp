@@ -1,7 +1,7 @@
 const QQMapWX = require('../../../../utils/Map/qqmap-wx-jssdk')
 const service = require('../../../api/request/index.js')
 let qqmapsdk;
-const key = 'VN5BZ-7TCRI-OX7GZ-5KSG4-DKO27-QJBAH'
+const key = 'NNQBZ-UW43U-OCVVE-2VCKL-3WO32-JEBOU'
 Page({
     data: {
         markers: [],
@@ -110,10 +110,8 @@ Page({
                     success: (respone) => {
                         if (respone.confirm) {
                             wx.openSetting({
-                                success:(respone) => {
-                                },
-                                fail: (error) => {
-                                }
+                                success:(respone) => {},
+                                fail: (error) => {}
                             })
                         } else if (respone.cancel) {
                             wx.navigateBack(-2)

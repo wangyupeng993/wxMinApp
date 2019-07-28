@@ -60,3 +60,23 @@
     right:inherit;
     background:linear-gradient(180deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%);
 }
+
+.padding-xl .user-header-image{
+    width:200rpx;
+    height:200rpx;
+    border-radius:50%;
+    overflow:hidden;
+    margin:0 auto;
+}
+
+.padding-xl .text-xl button{
+    color:#ffffff;
+    margin:0 20rpx;
+}
+.padding-xl .text-xl .exit{
+    border-radius:6rpx;
+    background-color:#8799a3;
+}
+.padding-xl .text-xl button:nth-of-type(1){
+    background-color:#39b54a;
+}

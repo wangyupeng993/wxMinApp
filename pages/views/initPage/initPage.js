@@ -63,27 +63,29 @@ Page({
     // 获取用户授权
     getUserInfo (respone) {
         const {userInfo} = respone.detail
-        wx.login({
-            timeout: 50000,
-            success:(res) => {
-                const {code} = res
-                service.Login({jsCode: code, nickname: userInfo.nickName})
-                    .then(respone => {
-                        const {code} = respone.data
-                        if (code === 200) {
-                            const {key} = respone.data.data
-                            wx.setStorageSync('sessionKey', key)
-                            wx.setStorageSync('getUserInfo', userInfo)
-                            this.setData({
-                                userInfo: wx.getStorageSync('getUserInfo')
-                            })
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
-            }
-        })
+        if (userInfo) {
+            wx.login({
+                timeout: 50000,
+                success:(res) => {
+                    const {code} = res
+                    service.Login({jsCode: code, nickname: userInfo.nickName})
+                        .then(respone => {
+                            const {code} = respone.data
+                            if (code === 200) {
+                                const {key} = respone.data.data
+                                wx.setStorageSync('sessionKey', key)
+                                wx.setStorageSync('getUserInfo', userInfo)
+                                this.setData({
+                                    userInfo: wx.getStorageSync('getUserInfo')
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }
+            })
+        }
     },
     // 选择症状
     getChoise (event) {
@@ -129,7 +131,6 @@ Page({
         const {doctor,symptom} = this.data
         service.saveinitPageinfo()
             .then(respone => {
-                console.log(respone)
                 wx.setStorageSync('doctor',doctor)
                 wx.setStorageSync('symptom',symptom)
                 wx.nextTick(() => {

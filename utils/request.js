@@ -1,5 +1,5 @@
 function wxRequest(params) {
-    wx.showLoading()
+    wx.showLoading({mask: true})
     const promise = new Promise((resolve, reject) => {
         wx.request({
             url: params.url ? params.url : '',
@@ -7,24 +7,25 @@ function wxRequest(params) {
             data: params.data,
             header: params.header ? params.header : '',
             dataType: 'json',
-            success: function(respone){
+            success: respone => {
                 const {code, message} = respone.data
-                code === 200 || code === 0? wx.showToast({title: '',icon: 'none',duration: 10}) : wx.showToast({
+                code === 200 || code === 0? wx.showToast({title: '',icon: 'none',duration: 10,mask: true}) : wx.showToast({
                     title: `${code} ${message}`,
-                    image: '/pages/assets/images/icon/error.png'
+                    image: '/pages/assets/images/icon/error.png',
+                    mask: true
                 })
                 resolve(respone)
             },
-            fail: function(error) {
+            fail: error => {
                 wx.showToast({
                     title: JSON.stringify(error),
-                    icon: 'none'
-                    // image: '/pages/assets/images/icon/error.png'
+                    icon: 'none',
+                    mask: true
                 })
                 reject(error)
             },
-            complete: function() {
-                resolve()
+            complete: params => {
+                resolve(params)
             }
         })
     })

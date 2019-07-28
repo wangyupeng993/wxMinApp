@@ -15,7 +15,7 @@
                 </view>
                 <view class="fl margin-left-lg">
                     <view class="text-xxl text-bold padding-bottom">{{userInfo.nickName}}</view>
-                    <view class="text-sm text-bold text-grey">18329760102</view>
+                    <view class="text-sm text-bold text-grey">{{phone}}</view>
                 </view>
                 <view class="fr solid round">
                     <el-button name="医生统计" colour="rgba(255,255,255,0)" text-colour="#727C8E"></el-button>
@@ -93,5 +93,24 @@
             <view class="cuIcon-my"></view>
             我的
         </navigator>
+    </view>
+</view>
+
+<view class="cu-modal bottom-modal {{!phone||phone === ''||phone === null?'show':''}}">
+    <view class="cu-dialog">
+        <view class="padding-xl">
+            <view class="user-header-image">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <view class="solid-bottom text-xl padding">
+                <view class="text-black text-bold">获取<open-data type="userNickName"></open-data>公开信息（电话号码）</view>
+            </view>
+            <view class="text-xl padding">
+                <navigator class="cu-btn shadow lg exit" open-type="navigateBack" hover-class="none">取 消</navigator>
+                <button class="cu-btn shadow lg"
+                        open-type="getPhoneNumber"
+                        bindgetphonenumber="getPhoneNumber">授 权</button>
+            </view>
+        </view>
     </view>
 </view>
