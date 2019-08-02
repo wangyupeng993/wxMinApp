@@ -8,7 +8,7 @@ const service = {
         return wxRequest({
             url: `${URL}/login`,
             method: 'POST',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     },
@@ -17,7 +17,7 @@ const service = {
         return wxRequest({
             url: `${URL}/supply/user`,
             method: 'POST',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     },
@@ -26,7 +26,7 @@ const service = {
         return wxRequest({
             url: `${URL}/initial/symptoms`,
             method: 'POST',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     },
@@ -35,7 +35,7 @@ const service = {
         return wxRequest({
             url: `${URL}/initial/skillful/diseases`,
             method: 'POST',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     },
@@ -44,7 +44,7 @@ const service = {
         return wxRequest({
             url: `${URL}/initial/save/info`,
             method: 'POST',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     },
@@ -53,7 +53,7 @@ const service = {
       return wxRequest({
           url: `${URL}/user/doctor`,
           method: 'POST',
-          header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+          header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
           data
       })
     },
@@ -62,7 +62,7 @@ const service = {
         return wxRequest({
             url: `${URL}/doctors`,
             method: 'POST',
-            header: {...JSONHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...JSONHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     },
@@ -71,7 +71,7 @@ const service = {
         return wxRequest({
             url: `${URL}/hospitals`,
             method: 'GET',
-            header: {...FORMHEADER, session_key: wx.getStorageSync('sessionKey')},
+            header: {...FORMHEADER, x_yhealth_authentication: wx.getStorageSync('sessionid')},
             data
         })
     }

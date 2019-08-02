@@ -62,7 +62,7 @@ Page({
     },
     // 获取用户授权
     getUserInfo (respone) {
-        const {userInfo} = respone.detail
+        const {userInfo,encryptedData,iv} = respone.detail
         if (userInfo) {
             wx.login({
                 timeout: 50000,
@@ -73,10 +73,19 @@ Page({
                             const {code} = respone.data
                             if (code === 200) {
                                 const {key} = respone.data.data
-                                wx.setStorageSync('sessionKey', key)
+                                wx.setStorageSync('sessionid', key)
                                 wx.setStorageSync('getUserInfo', userInfo)
                                 this.setData({
                                     userInfo: wx.getStorageSync('getUserInfo')
+                                })
+                                wx.nextTick(() => {
+                                    service.getUserPhone({encrypted: encryptedData, iv: iv, nickname: userInfo.nickName})
+                                        .then(respone => {
+                                            console.log(respone.data)
+                                        })
+                                        .catch(error => {
+                                            console.log(error)
+                                        })
                                 })
                             }
                         })
