@@ -22,13 +22,15 @@
             <view class="text-xl text-bold padding-lr-xs">药品分类</view>
             <view class="padding-tb-sm">
                 <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation scroll-left="{{scrollLeft}}">
-                    <navigator url="/pages/views/InsidePages/DrugsClass/DrugsClass" hover-class="none">
-                        <view class="padding-sm inline-block bg-white shadow margin-right-lg" wx:for="{{10}}" wx:key="*/this" style="width:360rpx;">
-                            <image class="cu-avatar round lg fl margin-right-sm" src="https://ossweb-img.qq.com/images/lol/img/champion/Taric.png"></image>
-                            <view class="padding-tb-xs text-bold text-lg">B&o</view>
-                            <view class="padding-tb-xs text-sm text-gray">5693 Products</view>
-                        </view>
-                    </navigator>
+                    <view class="padding-sm inline-block bg-white shadow margin-lr-xs"
+                          wx:for="{{Drugsclass}}" wx:key="*/this" style="width:360rpx;">
+                        <navigator url="/pages/views/InsidePages/DrugsClass/DrugsClass?catalogId={{item.catalogId}}" hover-class="none">
+                            <image class="cu-avatar round lg fl margin-right-sm"
+                                   src="https://ossweb-img.qq.com/images/lol/img/champion/Taric.png"></image>
+                            <view class="padding-tb-xs text-bold text-lg">{{item.drugCatalogName}}</view>
+                            <view class="padding-tb-xs text-sm text-gray">{{item.drugCatalogName}}</view>
+                        </navigator>
+                    </view>
                 </scroll-view>
             </view>
 

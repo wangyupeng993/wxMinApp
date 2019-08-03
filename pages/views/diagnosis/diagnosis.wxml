@@ -24,10 +24,9 @@
             <image src="../../assets/images/diagnosis/hand@2x.png"></image>
         </view>
         <view class="text-lg text-center">
-            <checkbox-group class="inline-block margin-left-sm">
-                <checkbox class="blue"></checkbox>
+            <checkbox-group class="inline-block">
+                <checkbox class="blue margin-right-sm"></checkbox><text class="text-white">免责申明</text>
             </checkbox-group>
-            <text class="text-white">免责申明</text>
         </view>
     </view>
     <view class="self-diagnosis">

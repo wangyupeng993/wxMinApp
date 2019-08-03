@@ -1,44 +1,50 @@
+const service = require('../../../api/request/index.js')
 Page({
     data: {
         navClassTab: 0,
-        navTab: [{
-            name: '全部',
-            id: 0
-        },{
-            name: 'Headphones',
-            id: 1
-        },{
-            name: 'Speakers',
-            id: 2
-        },{
-            name: 'Microphones',
-            id: 3
-        },{
-            name: 'Headphones',
-            id: 4
-        },{
-            name: 'Speakers',
-            id: 5
-        },{
-            name: 'Microphones',
-            id: 6
-        },{
-            name: 'Headphones',
-            id: 7
-        }]
+        navTab: [],
+        inDrugs: [],
+        outDrugs: []
     },
-    onLoad () {},
+    onLoad (ev) {
+        const {catalogId} = ev
+        this.setData({
+            navClassTab: Number(catalogId)
+        })
+        this.getDrugsclass()
+        this.getDrugsclasslist({catalogId:Number(catalogId)})
+    },
     onReady () {},
     onShow () {},
     onHide () {},
     onUnload () {},
     loadmore () {},
+    getDrugsclass() {
+        service.getDrugsclass()
+            .then(respone => {
+                const navTab = respone.data.data.map(item => item)
+                this.setData({navTab})
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    getDrugsclasslist (params) {
+        service.getDrugsclasslist(params)
+            .then(respone => {
+                const {inDrugs, outDrugs} = respone.data.data
+                this.setData({inDrugs, outDrugs})
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     SwitchNavTab (ev) {
-        const {id} = ev.currentTarget.dataset
-        this.setData({
-          navClassTab: id
-        })
-        console.log(id)
+        const {itemId} = ev.currentTarget.dataset
+        if (itemId) {
+            this.setData({navClassTab: itemId})
+            this.getDrugsclasslist({catalogId: itemId})
+        }
     },
     // 分享
     onShareAppMessage () {

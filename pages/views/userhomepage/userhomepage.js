@@ -3,13 +3,38 @@ const service = require('../../api/request/index.js')
 Page({
     data: {
         userInfo: null,
-        phone: null
+        phone: null,
+        wxcode: null // cod
     },
     onLoad () {
         this.setData({
-            userInfo: wx.getStorageSync('getUserInfo')
+            userInfo: wx.getStorageSync('getUserInfo'),
+            phone: wx.getStorageSync('phone'),
+            wxcode: wx.getStorageSync('wxcode')
         })
-        console.log('页面加载的时候执行，只执行一次')
+        wx.nextTick(() => {
+            const {phone} = this.data
+            if (phone === null || phone === '') {
+                wx.login({
+                    success: (respone) => {
+                        const {code} = respone
+                        const {userInfo} = this.data
+                        wx.setStorageSync('wxcode', code)
+                        this.setData({wxcode: wx.getStorageSync('wxcode')})
+                        service.Login({jsCode: code, nickname: userInfo.nickName})
+                            .then(respone => {
+                                const {code} = respone.data
+                                if (code === 200) {
+                                    const {key} = respone.data.data
+                                    wx.setStorageSync('sessionid', key)
+                                }
+                            })
+                            .catch(error => {})
+                    },
+                    fail: (error) => {}
+                })
+            }
+        })
     },
     onReady () {
         console.log('页面渲染完成之后执行，只执行一次')
@@ -23,19 +48,28 @@ Page({
     onUnload () {
         console.log('页面卸载的时候就会执行，只执行一次')
     },
+    // 获取用户手机号
+    getUserPhone (parmas = {}) {
+        service.getUserPhone(parmas)
+            .then(respone => {
+                const {phoneNum} = respone.data.data
+                wx.setStorageSync('phone',phoneNum)
+                this.setData({
+                    phone: wx.getStorageSync('phone')
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     getPhoneNumber (params) {
         const {userInfo} = this.data
         const {encryptedData, iv} = params.detail
-        console.log(params)
-        if (encryptedData && iv) {
-            service.getUserPhone({encrypted:encryptedData, iv: iv, nickname: userInfo.nickName})
-                .then(respone => {
-                    console.log(respone.data)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        }
+        this.getUserPhone({
+            encrypted:encodeURIComponent(encryptedData),
+            iv: iv,
+            nickname: userInfo.nickName
+        })
     },
     // 分享
     onShareAppMessage () {

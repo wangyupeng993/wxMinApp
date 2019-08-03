@@ -9,17 +9,34 @@
 <view class="el-container">
         <view class="padding-lr-sm padding-tb-xs">
             <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation>
-                <view wx:for="{{navTab}}" wx:key="*/this" data-id="{{item.id}}"
+                <view wx:for="{{navTab}}" wx:key="*/this" data-item-id="{{item.catalogId}}"
                       bind:tap="SwitchNavTab"
-                      class="cu-item {{navClassTab === item.id?'text-black text-lg text-bold':'text-gray text-sm'}}">
-                    {{item.name}}
+                      class="cu-item {{navClassTab === item.catalogId?'text-black text-lg text-bold':'text-gray text-sm'}}">
+                    {{item.drugCatalogName}}
                 </view>
             </scroll-view>
         </view>
-        <view class="class-product padding-tb-xs">
+        <view class="class-product padding-tb-xs" wx:if="{{inDrugs.length > 0 && outDrugs.length > 0}}">
             <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
-                <view class="padding-lr-sm flex flex-wrap">
-                    <view class="basis-df radius padding-bottom" wx:for="{{20}}" wx:key="*/this">
+                <view class="padding-lr-sm flex flex-wrap" wx:if="{{inDrugs.length > 0}}">
+                    <view class="text-center margin-bottom-sm padding-bottom-sm padding-top-sm text-xl solid-top solid-bottom"
+                          style="width:100%;">
+                        内服
+                    </view>
+                    <view class="basis-df radius padding-bottom" wx:for="{{inDrugs}}" wx:key="*/this">
+                        <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
+                            <image src="../../../assets/images/home/product@2x.png"></image>
+                            <view class="text-indent-lg padding-tb-xs">¥34.00</view>
+                            <view class="text-indent-lg">盐酸西替嗪片</view>
+                        </navigator>
+                    </view>
+                </view>
+                <view class="padding-lr-sm flex flex-wrap" wx:if="{{outDrugs.length > 0}}">
+                    <view class="text-center margin-bottom-sm padding-bottom-sm padding-top-sm text-xl solid-top solid-bottom"
+                          style="width:100%;">
+                        外用
+                    </view>
+                    <view class="basis-df radius padding-bottom" wx:for="{{outDrugs}}" wx:key="*/this">
                         <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
                             <image src="../../../assets/images/home/product@2x.png"></image>
                             <view class="text-indent-lg padding-tb-xs">¥34.00</view>
@@ -28,6 +45,8 @@
                     </view>
                 </view>
             </scroll-view>
-
+        </view>
+        <view wx:else class="text-center text-xl text-grey text-bold">
+            暂无数据......
         </view>
 </view>

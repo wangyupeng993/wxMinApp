@@ -1,3 +1,4 @@
+const service = require('../../../api/request/index.js')
 Page({
     data: {
         navClassTab: 0,
@@ -25,14 +26,41 @@ Page({
         },{
             name: 'Headphones',
             id: 7
-        }]
+        }],
+        physician: []
     },
     onLoad () {},
     onReady () {},
-    onShow () {},
+    onShow () {
+        this.getPhysicianclass()
+        this.getPhysician({
+            catalogId: 0,
+            pageNo: 1,
+            pageSize: 30
+        })
+    },
     onHide () {},
     onUnload () {},
     loadmore () {},
+    getPhysicianclass () {
+        service.getPhysicianclass()
+            .then(respone => {
+                console.log(respone.data.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    getPhysician (params) {
+        service.getPhysician(params)
+            .then(respone => {
+                const physician = respone.data.data.map(item => item)
+                this.setData({physician})
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
     SwitchNavTab (ev) {
         const {id} = ev.currentTarget.dataset
         this.setData({

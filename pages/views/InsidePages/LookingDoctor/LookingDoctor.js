@@ -34,24 +34,11 @@ Page({
             selected: false
         }]
     },
-    onLoad () {
-        this.getUserLocation()
-    },
+    onLoad () {},
     onReady () {},
     onShow () {
       this.AnimationScale();
-      service.getDoctors()
-          .then(respone => {
-                console.log(respone.data)
-            })
-          .catch(error => {
-                console.log(error)
-            })
-        wx.getSetting({
-            success: (respone) => {
-                if (respone.authSetting['scope.userLocation']) this.getUserLocation()
-            }
-        })
+      this.getUserLocation()
     },
     onUnload () {},
     backPrevPage () {
@@ -72,6 +59,18 @@ Page({
             altitude: true,
             success: (respone) => {
                 const {latitude,longitude} = respone
+                console.log(respone)
+                service.getDoctors({
+                    distinct: '2000',
+                    latitude: latitude,
+                    longitude: longitude,
+                    pageNo: 1,
+                    pageSize: 99
+                }).then(respone => {
+                        console.log(respone.data.data)
+                    }).catch(error => {
+                        console.log(error)
+                    })
                 qqmapsdk.search({
                     keyword: 'kfc',
                     location: `${latitude},${longitude}`,  //设置周边搜索中心点
@@ -119,7 +118,6 @@ Page({
                     },
                     fail: (error) => {}
                 })
-
             }
         })
     },

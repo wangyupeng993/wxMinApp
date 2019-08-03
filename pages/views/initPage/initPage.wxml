@@ -1,78 +1,84 @@
-<view wx:if="{{!DoctorPage}}" class="init-page">
-    <view class="cu-list">
-        <view class="action border-title">
-            <el-button
-                    bind:handleclick="jumpHome"
-                    round colour="#ffffff"
-                    text-colour="#51565F"
-                    name="跳过"
-                    class="fr" />
-        </view>
-    </view>
-    <view class="padding-xs flex align-center">
-        <view class="flex-sub text-center">
-            <view class="text-xl padding">
-                <text class="text-black text-bold">选择您需要了解的症状</text>
+
+<view style="height:100%;" wx:if="{{Symptomlist.length > 1 && Doctorlist.length > 1}}">
+    <view wx:if="{{!DoctorPage}}" class="init-page">
+        <view class="cu-list">
+            <view class="action border-title">
+                <el-button
+                        bind:handleclick="jumpHome"
+                        round colour="#ffffff"
+                        text-colour="#51565F"
+                        name="跳过"
+                        class="fr" />
             </view>
-            <view  wx:if="{{symptom.length > 1 && doctor.length > 1}}" class="padding text-tips">至少选择2项，点击选中/取消</view>
-            <view wx:if="{{symptom.length <= 0 && doctor.length <= 0}}" class="init-page padding-top-lg flex-center text-lg text-blue">暂无数据，请直接跳过</view>
+        </view>
+        <view class="padding-xs flex align-center">
+            <view class="flex-sub text-center">
+                <view class="text-xl padding">
+                    <text class="text-black text-bold">选择您需要了解的症状</text>
+                </view>
+                <view  wx:if="{{Symptomlist.length > 1 && Doctorlist.length > 1}}" class="padding text-tips">至少选择2项，点击选中/取消</view>
+            </view>
+        </view>
+        <view class="padding-lg flex-sub text-center">
+            <el-button bind:handleclick="getChoise"
+                       animation="{{Animation}}"
+                       class="button-margin"
+                       attribute-value="{{item.id}}"
+                       wx:for="{{Symptomlist}}"
+                       small="lg" wx:key="*/this"
+                       round name="{{item.symptomName}}"
+                       colour="{{item.selected?'rgba(49,101,236,1)':'rgba(49,101,236,0.5)'}}" />
+        </view>
+        <view class="chiose flex-sub text-center">
+            <el-button bind:handleclick="nextDoctorPage"
+                       round name="选好了" block
+                       colour="{{symptom.length >=2?'linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)':'#EDEDED'}}"
+                       text-colour="{{symptom.length >=2?'#ffffff':'#A8A8A8'}}"></el-button>
         </view>
     </view>
-    <view class="padding-lg flex-sub text-center">
-        <el-button bind:handleclick="getChoise"
-                   animation="{{Animation}}"
-                   class="button-margin"
-                   attribute-value="{{item.id}}"
-                   wx:for="{{Symptomlist}}"
-                   small="lg" wx:key="*/this"
-                   round name="{{item.name}}"
-                   colour="{{item.selected?'rgba(49,101,236,1)':'rgba(49,101,236,0.5)'}}" />
-    </view>
-    <view class="chiose flex-sub text-center">
-        <el-button bind:handleclick="nextDoctorPage"
-                   round name="选好了" block
-                   colour="{{symptom.length >=2?'linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)':'#EDEDED'}}"
-                   text-colour="{{symptom.length >=2?'#ffffff':'#A8A8A8'}}"></el-button>
+    <view wx:if="{{DoctorPage}}" class="init-page">
+        <view class="cu-list">
+            <view class="action border-title">
+                <el-button bind:handleclick="jumpHome"
+                           round colour="#ffffff"
+                           text-colour="#51565F"
+                           name="跳过"
+                           class="fr" />
+            </view>
+        </view>
+        <view class="padding-xs flex align-center">
+            <view class="flex-sub text-center">
+                <view class="text-xl padding">
+                    <text class="text-black text-bold">选择您感兴趣的医生</text>
+                </view>
+                <view  wx:if="{{Symptomlist.length > 1 && Doctorlist.length > 1}}" class="padding text-tips">
+                    至少选择2项，点击选中/取消
+                </view>
+            </view>
+        </view>
+        <view class="padding-lg flex-sub text-center">
+            <el-button bind:handleclick="getDustor"
+                       animation="{{Animation}}"
+                       class="button-margin"
+                       attribute-value="{{item.id}}"
+                       wx:for="{{Doctorlist}}"
+                       small="lg" wx:key="*/this"
+                       round name="{{item.diseaseName}}"
+                       img-url="{{item.img}}"
+                       colour="{{item.selected?'rgba(49,101,236,1)':'rgba(49,101,236,0.5)'}}" />
+        </view>
+        <view class="chiose flex-sub text-center">
+            <el-button bind:tap="saveinitPageinfo"
+                       round name="选好了" block
+                       colour="{{doctor.length >=2?'linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)':'#EDEDED'}}"
+                       text-colour="{{doctor.length >=2?'#ffffff':'#A8A8A8'}}" />
+        </view>
     </view>
 </view>
-<view wx:if="{{DoctorPage}}" class="init-page">
-    <view class="cu-list">
-        <view class="action border-title">
-            <el-button bind:handleclick="jumpHome"
-                       round colour="#ffffff"
-                       text-colour="#51565F"
-                       name="跳过"
-                       class="fr" />
-        </view>
-    </view>
-    <view class="padding-xs flex align-center">
-        <view class="flex-sub text-center">
-            <view class="text-xl padding">
-                <text class="text-black text-bold">选择您感兴趣的医生</text>
-            </view>
-            <view  wx:if="{{symptom.length > 1 && doctor.length > 1}}" class="padding text-tips">至少选择2项，点击选中/取消</view>
-            <view wx:if="{{symptom.length <= 0 && doctor.length <= 0}}" class="init-page flex-center padding-top-lg text-lg text-blue">暂无数据，请直接跳过</view>
-        </view>
-    </view>
-    <view class="padding-lg flex-sub text-center">
-        <el-button bind:handleclick="getDustor"
-                   animation="{{Animation}}"
-                   class="button-margin"
-                   attribute-value="{{item.id}}"
-                   wx:for="{{Doctorlist}}"
-                   small="lg" wx:key="*/this"
-                   round name="{{item.name}}"
-                   img-url="{{item.img}}"
-                   colour="{{item.selected?'rgba(49,101,236,1)':'rgba(49,101,236,0.5)'}}" />
-    </view>
-    <view class="chiose flex-sub text-center">
-        <el-button bind:tap="nextHome"
-                   round name="选好了" block
-                   colour="{{doctor.length >=2?'linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)':'#EDEDED'}}"
-                   text-colour="{{doctor.length >=2?'#ffffff':'#A8A8A8'}}"></el-button>
-    </view>
+<view wx:if="{{Symptomlist.length <= 0 && Doctorlist.length <= 0}}"
+      class="init-page padding-top-xl margin-top-xl text-center text-lg text-blue">
+    只有授权了才能获取数据哦~~
 </view>
-<!--<view wx:if="{{symptom.length <= 0 && doctor.length <= 0}}" class="init-page flex-center text-bold text-lg">暂无数据......</view>-->
 <view class="cu-modal bottom-modal {{userInfo === ''?'show':''}}">
     <view class="cu-dialog">
         <view class="padding-xl">
