@@ -9,14 +9,14 @@
 <view class="cu-bar search">
     <view class="search-form">
         <text class="cuIcon-search"></text>
-        <input type="text" placeholder="搜索症状/疾病/药品" confirm-type="search" focus="true" />
-        <text class="cuIcon-close"></text>
+        <input type="text" bindinput="searchInputVal"
+               placeholder="搜索症状/疾病/药品"
+               bindfocus="searchInputfous"
+               confirm-type="search" />
+        <el-button round name="搜索" colour="#f5f5f5" text-colour="#333333"></el-button>
     </view>
-    <!-- <view class="action">
-        <el-button round name="搜索" colour="#fff" text-colour="#818181"></el-button>
-    </view> -->
 </view>
-<view class="padding-lg flex-sub text-center">
+<view class="padding-lg flex-sub text-center" wx:if="{{!focus}}">
     <el-button class="button-margin" round name="Shoes" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Sport wears" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Caps" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
@@ -25,4 +25,58 @@
     <el-button class="button-margin" round name="Apple" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Shoes" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Sport wears" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
+</view>
+<view class="el-container" wx:if="{{focus}}">
+    <view class="flex text-center padding-lr-sm">
+        <el-button class="basis-df" block name="药品" data-search-type="drug"
+                    colour="{{searchtype === 'drug'? '': '#f1f1f1'}}"
+                    text-colour="{{searchtype === 'drug'? '': '#0081ff'}}"
+                    bind:handleclick="switchsearchtype"/>
+        <el-button class="basis-df"  block name="医生" data-search-type="doctor"
+                   colour="{{searchtype === 'doctor'? '': '#f1f1f1'}}"
+                   text-colour="{{searchtype === 'doctor'? '': '#0081ff'}}"
+                   bind:handleclick="switchsearchtype"/>
+        <el-button class="basis-df"  block name="医院" data-search-type="hospital"
+                   colour="{{searchtype === 'hospital'? '': '#f1f1f1'}}"
+                   text-colour="{{searchtype === 'hospital'? '': '#0081ff'}}"
+                   bind:handleclick="switchsearchtype"/>
+    </view>
+    <view class="el-container">
+        <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+            <view class="padding-sm drug inline-block solid-bottom" wx:if="{{searchtype === 'drug'}}">
+                <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
+                <view class="fl">
+                    <view class="padding-tb-sm text-lg">达芙文（阿达帕林凝胶）</view>
+                    <view class="text-gray">法国高德美制药公司</view>
+                </view>
+            </view>
+            <view class="padding-xs doctor inline-block solid-bottom" wx:if="{{searchtype === 'doctor'}}">
+                <image class="fl margin-right-sm margin-top-lg"
+                       src="../../../assets/images/home/product@2x.png"></image>
+                <view class="fl">
+                    <view class="padding-tb-xs text-lg">霍莉（主治医生）</view>
+                    <view class="text-gray">皮肤科 妇幼保健院</view>
+                    <view class="text-gray">擅长 痘痘</view>
+                    <view>
+                        <text class="text-yellow cuIcon-favorfill"></text>
+                        <text class="text-gray">5.0</text>
+                        <text class="text-gray margin-left-sm">1801回答</text>
+                    </view>
+                    <view class="margin-top-sm">
+                        <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
+                        <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
+                        <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>
+                    </view>
+                </view>
+            </view>
+            <view class="padding-sm hospital inline-block solid-bottom" wx:if="{{searchtype === 'hospital'}}">
+                <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
+                <view class="fl">
+                    <view class="padding-tb-xs text-lg">达芙文（阿达帕林凝胶）</view>
+                    <view class="text-gray">法国高德美制药公司</view>
+                    <view class="text-blue text-sm padding-top-xs">三级甲等</view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
 </view>

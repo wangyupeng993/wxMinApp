@@ -21,3 +21,26 @@
     display:inline-block;
     margin:0 7rpx 34rpx 7rpx;
 }
+.flex-direction{
+    padding:0 !important;
+}
+.el-container{
+    height:91%;
+}
+.drug,.doctor,.hospital{
+    width:100%;
+}
+.drug image,.hospital image{
+    width:150rpx;
+    height:150rpx;
+}
+
+.doctor image{
+    width:200rpx;
+    height:200rpx;
+    border-radius:500000rpx;
+}
+.doctor .solid::after {
+    border-radius:100rpx;
+    border: 1rpx solid #1cbbb4;
+}
