@@ -2367,10 +2367,6 @@ button.icon.lg {
 	justify-content: space-between;
 }
 
-.cu-form-group+.cu-form-group {
-	border-top: 1rpx solid #eee;
-}
-
 .cu-form-group .title {
 	text-align: justify;
 	padding-right: 30rpx;

@@ -1,0 +1,30 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg margin-top-sm inline-block">入住平台</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <navigator url="/pages/views/InsidePages/checkinInfo/checkinInfo?checkin='institution'" hover-class="none">
+            <view class="inline-block padding-tb-sm margin-left-sm solid-bottom text-xl" style="width:100%;">
+                <view class="fl">
+                    <view class="text-lg padding-tb-sm text-bold">医院机构入住</view>
+                    <view class="text-sm">三级甲等、三级乙等、三级丙等</view>
+                </view>
+                <text class="fr cuIcon-right text-black margin-right-xl margin-top-xl"></text>
+            </view>
+        </navigator>
+        <navigator url="/pages/views/InsidePages/checkinInfo/checkinInfo?checkin='personal'" hover-class="none">
+            <view class="inline-block padding-tb-sm margin-left-sm solid-bottom text-xl" style="width:100%;">
+                <view class="fl">
+                    <view class="text-lg padding-tb-sm text-bold">医生团体个人入住</view>
+                    <view class="text-sm">具有从医资格且有三年以上从医经验</view>
+                </view>
+                <text class="fr cuIcon-right text-black margin-right-xl margin-top-xl"></text>
+            </view>
+        </navigator>
+    </scroll-view>
+</view>

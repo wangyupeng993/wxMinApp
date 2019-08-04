@@ -67,11 +67,12 @@ Page({
                     pageNo: 1,
                     pageSize: 99
                 }).then(respone => {
-                        console.log(respone.data.data)
+                    const markers = respone.data.data.map(item => item)
+                    this.setData({markers,latitude,longitude})
                     }).catch(error => {
                         console.log(error)
                     })
-                qqmapsdk.search({
+                /*qqmapsdk.search({
                     keyword: 'kfc',
                     location: `${latitude},${longitude}`,  //设置周边搜索中心点
                     success: (respone) => {
@@ -99,7 +100,7 @@ Page({
                         })
                     },
                     fail: (error) => {}
-                })
+                })*/
             },
             fail: (error) => {
                 wx.showModal({

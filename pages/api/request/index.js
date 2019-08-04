@@ -78,7 +78,7 @@ const service = {
     // 获取医师讲堂分类
     getPhysicianclass: (data) => {
         return wxRequest({
-            url: `${URL}/doctor/forum/resources/forumId`,
+            url: `${URL}/forum/catalogs`,
             method: 'GET',
             header: {...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
@@ -106,6 +106,24 @@ const service = {
     getDrugsclasslist: (data = {}) => {
         return wxRequest({
             url: `${URL}/drugs`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 搜索药品接口
+    searchdrugs: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/index/search/drugs`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 搜索医生接口
+    searchdoctors: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/index/search/doctors`,
             method: 'POST',
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data

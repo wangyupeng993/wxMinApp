@@ -1,0 +1,117 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg margin-top-sm inline-block">填写入住信息</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view class="text-center text-lg text-gray text-bold padding-tb-sm solid-bottom">
+            <text class="block">为了给你提供更好的服务</text>
+            <text class="block">请您填写真实信息</text>
+        </view>
+        <form action="" bindsubmit="hospitalformSubmit">
+            <view class="text-center text-lg text-bold padding-tb-sm solid-bottom">
+                填写管理员信息
+            </view>
+            <view class="margin-lr-sm">
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">姓名:</view>
+                    <input placeholder="请输入管理员姓名" name="hospitalAdminName" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">职责:</view>
+                    <input placeholder="请输入管理员职责" name="hospitalAdminPosition" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">身份证号码:</view>
+                    <input type="idcard" placeholder="请输入管理员身份证号码" name="idCardNumber" />
+                </view>
+                <view class="cu-bar bg-white">
+                    <view class="action">
+                        请上传您的身份证正反面照
+                    </view>
+                </view>
+                <view class="cu-form-group">
+                    <view class="grid col-4 grid-square flex-sub">
+                        <view class="bg-img" wx:if="{{idCardImageBack !== ''&&idCardImageBack !== null}}">
+                            <image src="{{idCardImageBack}}" mode="aspectFill"></image>
+                            <view class="cu-tag bg-red">
+                                <text class='cuIcon-close'></text>
+                            </view>
+                        </view>
+                        <view wx:else class="solids" bind:tap="chooseImage" data-idcard="idCardImageBack">
+                            <text class='cuIcon-cameraadd'></text>
+                        </view>
+                        <view class="bg-img" wx:if="{{idCardImageFront !== ''&&idCardImageFront !== null}}">
+                            <image src="{{idCardImageFront}}" mode="aspectFill"></image>
+                            <view class="cu-tag bg-red">
+                                <text class='cuIcon-close'></text>
+                            </view>
+                        </view>
+                        <view wx:else class="solids" bind:tap="chooseImage" data-idcard="idCardImageFront">
+                            <text class='cuIcon-cameraadd'></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="text-center text-lg text-bold padding-tb-sm solid-top solid-bottom">
+                填写医院信息
+            </view>
+            <view class="margin-lr-sm">
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">医院名称:</view>
+                    <input placeholder="请输入医院名称" name="hospitalName" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <picker bindchange="bindPickerGrade" value="{{index}}" range="{{hospitalGrade}}" range-key="label">
+                        <view class="picker">
+                            <text class="fl">医院等级:</text>{{hospitalTags}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <picker bindchange="bindPickerhealthcare" value="{{index}}" range="{{healthcare}}" range-key="label">
+                        <view class="picker">
+                            <text class="fl">是否医保:</text>{{healthcareVal}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">医院地址:</view>
+                    <input placeholder="请输入医院地址" name="hospitalAddress" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">医院电话:</view>
+                    <input type="number" placeholder="请输入医院电话" name="hospitalContactPhone" />
+                </view>
+                <view class="cu-form-group align-start solid-bottom">
+                    <view class="title">医院简介:</view>
+                    <textarea name="hospitalDescription" placeholder="请输入医院简介" />
+                </view>
+                <view class="cu-bar bg-white">
+                    <view class="action">
+                        请上传您的医疗机构执业许可证
+                    </view>
+                </view>
+                <view class="grid col-4 grid-square flex-sub">
+                    <view class="bg-img" wx:if="{{hospitalLicenses !== ''&&hospitalLicenses !== null}}">
+                        <image src="{{hospitalLicenses}}" mode="aspectFill"></image>
+                        <view class="cu-tag bg-red">
+                            <text class='cuIcon-close'></text>
+                        </view>
+                    </view>
+                    <view wx:else class="solids" bind:tap="chooseImage" data-idcard="hospitalLicenses">
+                        <text class='cuIcon-cameraadd'></text>
+                    </view>
+                </view>
+            </view>
+            <view class="btn-area margin-lr-sm margin-top-sm">
+                <button class="block bg-blue text-white round"
+                        form-type="submit">认证</button>
+            </view>
+        </form>
+    </scroll-view>
+</view>

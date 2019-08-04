@@ -1,17 +1,48 @@
+const service = require('../../../api/request/index.js')
 Page({
     data: {
         searchVal:'',
         focus: false,
-        searchtype: 'drug'
+        searchtype: 'drug',
+        searchResult: [],
+        tipsText: ''
     },
     onLoad () {},
     onReady () {},
     onShow () {},
     onHide () {},
     onUnload () {},
+    searchInfo () {
+        const {searchVal, searchtype} = this.data
+        if (searchVal === '') return false
+        if (searchtype === 'drug') {
+            service.searchdrugs({value: searchVal})
+                .then(respone => {
+                    const searchResult = respone.data.data.map(item => item)
+                    const tipsText = searchResult.length > 0? '':'未搜索您想要的结果......'
+                    this.setData({searchResult,tipsText})
+                    console.log(respone.data.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        } else if (searchtype === 'doctor') {
+            service.searchdoctors({value: searchVal})
+                .then(respone => {
+                    const searchResult = respone.data.data.map(item => item)
+                    const tipsText = searchResult.length > 0? '':'未搜索您想要的结果......'
+                    this.setData({searchResult,tipsText})
+                    console.log(respone.data.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }else if (searchtype === 'hospital') {
+
+        }
+    },
     // input获取焦点
     searchInputfous () {
-        console.log('我获取焦点了========================')
         this.setData({
             focus: true
         })
@@ -22,7 +53,6 @@ Page({
         this.setData({
             searchVal: value
         })
-        console.log(ev)
     },
     // 切换搜索类型
     switchsearchtype (ev) {

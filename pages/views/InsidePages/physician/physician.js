@@ -1,43 +1,14 @@
 const service = require('../../../api/request/index.js')
 Page({
     data: {
-        navClassTab: 0,
-        navTab: [{
-            name: '全部',
-            id: 0
-        },{
-            name: 'Headphones',
-            id: 1
-        },{
-            name: 'Speakers',
-            id: 2
-        },{
-            name: 'Microphones',
-            id: 3
-        },{
-            name: 'Headphones',
-            id: 4
-        },{
-            name: 'Speakers',
-            id: 5
-        },{
-            name: 'Microphones',
-            id: 6
-        },{
-            name: 'Headphones',
-            id: 7
-        }],
+        catalogId: '',
+        navTab: [],
         physician: []
     },
     onLoad () {},
     onReady () {},
     onShow () {
         this.getPhysicianclass()
-        this.getPhysician({
-            catalogId: 0,
-            pageNo: 1,
-            pageSize: 30
-        })
     },
     onHide () {},
     onUnload () {},
@@ -45,7 +16,13 @@ Page({
     getPhysicianclass () {
         service.getPhysicianclass()
             .then(respone => {
-                console.log(respone.data.data)
+                const navTab = respone.data.data.map(item => item)
+                this.setData({navTab, catalogId: navTab[0].catalogId})
+                this.getPhysician({
+                    catalogId: navTab[0].catalogId,
+                    pageNo: 1,
+                    pageSize: 10
+                })
             })
             .catch(error => {
                 console.log(error)
@@ -62,11 +39,13 @@ Page({
             })
     },
     SwitchNavTab (ev) {
-        const {id} = ev.currentTarget.dataset
-        this.setData({
-            navClassTab: id
+        const {catalogid} = ev.currentTarget.dataset
+        this.setData({catalogId: catalogid})
+        this.getPhysician({
+            catalogId: catalogid,
+            pageNo: 1,
+            pageSize: 10
         })
-        console.log(id)
     },
     // 分享
     onShareAppMessage () {

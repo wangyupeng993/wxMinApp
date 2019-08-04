@@ -10,10 +10,10 @@
 <view class="el-container">
         <view class="padding-lr-sm padding-tb-xs">
             <scroll-view scroll-x class="nav" scroll-with-animation>
-                <view wx:for="{{navTab}}" wx:key="*/this" data-id="{{item.id}}"
+                <view wx:for="{{navTab}}" wx:key="*/this" data-catalogid="{{item.catalogId}}"
                       bind:tap="SwitchNavTab"
-                      class="cu-item {{navClassTab === item.id?'text-black text-lg text-bold':'text-gray text-sm'}}">
-                    {{item.name}}
+                      class="cu-item {{catalogId === item.catalogId?'text-black text-lg text-bold':'text-gray text-sm'}}">
+                    {{item.catalogName}}
                 </view>
             </scroll-view>
         </view>

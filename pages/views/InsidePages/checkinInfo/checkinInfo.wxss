@@ -1,0 +1,13 @@
+.el-header{
+    top:30rpx;
+}
+.el-header .title{
+    margin-left:-130rpx;
+}
+.el-container{
+    height:99%;
+}
+.cu-form-group picker{
+    width:100%;
+    height:100%;
+}

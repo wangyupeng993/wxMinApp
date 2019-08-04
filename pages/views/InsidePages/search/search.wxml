@@ -13,7 +13,7 @@
                placeholder="搜索症状/疾病/药品"
                bindfocus="searchInputfous"
                confirm-type="search" />
-        <el-button round name="搜索" colour="#f5f5f5" text-colour="#333333"></el-button>
+        <el-button round name="搜索" bind:handleclick="searchInfo" colour="#f5f5f5" text-colour="#333333"></el-button>
     </view>
 </view>
 <view class="padding-lg flex-sub text-center" wx:if="{{!focus}}">
@@ -41,16 +41,21 @@
                    text-colour="{{searchtype === 'hospital'? '': '#0081ff'}}"
                    bind:handleclick="switchsearchtype"/>
     </view>
-    <view class="el-container">
+    <view wx:if="{{searchResult.length > 0}}" class="el-container">
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
-            <view class="padding-sm drug inline-block solid-bottom" wx:if="{{searchtype === 'drug'}}">
+            <view wx:for="{{searchResult}}" wx:key="*/this"
+                  class="padding-sm drug inline-block solid-bottom"
+                  wx:if="{{searchtype === 'drug'}}">
                 <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
                 <view class="fl">
                     <view class="padding-tb-sm text-lg">达芙文（阿达帕林凝胶）</view>
                     <view class="text-gray">法国高德美制药公司</view>
                 </view>
             </view>
-            <view class="padding-xs doctor inline-block solid-bottom" wx:if="{{searchtype === 'doctor'}}">
+
+            <view wx:for="{{searchResult}}" wx:key="*/this"
+                  class="padding-xs doctor inline-block solid-bottom"
+                  wx:if="{{searchtype === 'doctor'}}">
                 <image class="fl margin-right-sm margin-top-lg"
                        src="../../../assets/images/home/product@2x.png"></image>
                 <view class="fl">
@@ -69,7 +74,10 @@
                     </view>
                 </view>
             </view>
-            <view class="padding-sm hospital inline-block solid-bottom" wx:if="{{searchtype === 'hospital'}}">
+
+            <view wx:for="{{searchResult}}" wx:key="*/this"
+                  class="padding-sm hospital inline-block solid-bottom"
+                  wx:if="{{searchtype === 'hospital'}}">
                 <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
                 <view class="fl">
                     <view class="padding-tb-xs text-lg">达芙文（阿达帕林凝胶）</view>
@@ -77,6 +85,10 @@
                     <view class="text-blue text-sm padding-top-xs">三级甲等</view>
                 </view>
             </view>
+
         </scroll-view>
+    </view>
+    <view wx:else class="text-center text-xl text-grey text-bold padding-top-xl">
+        {{tipsText}}
     </view>
 </view>

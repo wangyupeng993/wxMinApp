@@ -48,12 +48,14 @@
                 <view class="fl padding-top-xs margin-left-lg">我的收藏</view>
                 <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
             </view>
-            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
-                <view class="fl padding-xs text-black text-bold radius icon cuIcon-pay"></view>
-                <view class="fl padding-top-xs margin-left-lg">入驻平台</view>
-                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
-            </view>
-            <navigator url="/pages/views/InsidePages/address/address"  hover-class="none">
+            <navigator url="/pages/views/InsidePages/checkinPlatform/checkinPlatform" hover-class="none">
+                <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-pay"></view>
+                    <view class="fl padding-top-xs margin-left-lg">入驻平台</view>
+                    <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+                </view>
+            </navigator>
+            <navigator url="/pages/views/InsidePages/address/address" hover-class="none">
                 <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
                     <view class="fl padding-xs text-black text-bold radius icon cuIcon-news"></view>
                     <view class="fl padding-top-xs margin-left-lg">收货地址</view>
