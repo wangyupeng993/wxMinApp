@@ -2,10 +2,7 @@ function wxRequest(params) {
     wx.showLoading({mask: true})
     const promise = new Promise((resolve, reject) => {
         wx.request({
-            url: params.url ? params.url : '',
-            method: params.method ? params.method : '',
-            data: params.data,
-            header: params.header ? params.header : '',
+            ...params,
             dataType: 'json',
             success: respone => {
                 const {code, message} = respone.data
