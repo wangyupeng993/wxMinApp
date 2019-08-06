@@ -1,4 +1,5 @@
 const wxRequest = require('../../../utils/request.js')
+const request = require('../../../utils/wxUploadFile.js')
 const URL = 'http://m.ykangk.com' // 测试接口
 const FORMHEADER = {'content-type': 'application/x-www-form-urlencoded'}
 const JSONHEADER = {'content-type': 'application/json'}
@@ -46,6 +47,16 @@ const service = {
             method: 'POST',
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
+        })
+    },
+    uploadFiles: (data = {}) => {
+        return request({
+            url: `${URL}/hospital/settledin`,
+            header: {
+                'Content-Type': 'multipart/form-data',
+                'X-Yhealth-Authentication': wx.getStorageSync('sessionid')
+            },
+            ...data
         })
     },
     // 个人关注医生列表

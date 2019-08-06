@@ -1,3 +1,4 @@
+const service = require('../../../api/request/index.js')
 Page({
     data:{
         idCardImageBack: '',
@@ -22,6 +23,7 @@ Page({
             value: 1,
             label: '否'
         }],
+        uploadFils: []
     },
     chooseImage (ev) {
         const {idcard} = ev.currentTarget.dataset
@@ -30,6 +32,7 @@ Page({
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success: (respone) => {
+                console.log(respone)
                 // tempFilePath可以作为img标签的src属性显示图片
                 if (idcard === 'idCardImageBack') {
                     const idCardImageBack = respone.tempFilePaths[0]
@@ -58,6 +61,18 @@ Page({
         console.log(ev)
     },
     hospitalformSubmit (ev) {
+        const {value} = ev.detail
+        const {idCardImageBack} = this.data
+        service.uploadFiles({
+            filePath: idCardImageBack,
+            name: '',
+            formData: {...value}
+        }).then(respone => {
+                console.log(respone.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
         console.log(ev)
     }
 })
