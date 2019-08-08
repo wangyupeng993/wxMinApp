@@ -8,11 +8,12 @@
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <view class="text-center text-lg text-gray text-bold padding-tb-sm solid-bottom">
+        <view class="text-center text-sm text-gray text-bold padding-tb-sm solid-bottom">
             <text class="block">为了给你提供更好的服务</text>
             <text class="block">请您填写真实信息</text>
         </view>
-        <form action="" bindsubmit="hospitalformSubmit">
+        <!--   医院入住     -->
+        <form action="" bindsubmit="hospitalformSubmit" wx:if="{{checkin === 'institution'}}">
             <view class="text-center text-lg text-bold padding-tb-sm solid-bottom">
                 填写管理员信息
             </view>
@@ -38,20 +39,26 @@
                     <view class="grid col-4 grid-square flex-sub">
                         <view class="bg-img" wx:if="{{idCardImageBack !== ''&&idCardImageBack !== null}}">
                             <image src="{{idCardImageBack}}" mode="aspectFill"></image>
-                            <view class="cu-tag bg-red">
+                            <view class="cu-tag bg-red"
+                                  bind:tap="deletechooseImage"
+                                  data-idcard="idCardImageBack">
                                 <text class='cuIcon-close'></text>
                             </view>
                         </view>
-                        <view wx:else class="solids" bind:tap="chooseImage" data-idcard="idCardImageBack">
+                        <view wx:else class="solids" bind:tap="chooseImage"
+                              data-idcard="idCardImageBack" data-name="正面照">
                             <text class='cuIcon-cameraadd'></text>
                         </view>
                         <view class="bg-img" wx:if="{{idCardImageFront !== ''&&idCardImageFront !== null}}">
                             <image src="{{idCardImageFront}}" mode="aspectFill"></image>
-                            <view class="cu-tag bg-red">
+                            <view class="cu-tag bg-red"
+                                  bind:tap="deletechooseImage"
+                                  data-idcard="idCardImageFront">
                                 <text class='cuIcon-close'></text>
                             </view>
                         </view>
-                        <view wx:else class="solids" bind:tap="chooseImage" data-idcard="idCardImageFront">
+                        <view wx:else class="solids" bind:tap="chooseImage"
+                              data-idcard="idCardImageFront" data-name="反面照">
                             <text class='cuIcon-cameraadd'></text>
                         </view>
                     </view>
@@ -68,14 +75,14 @@
                 <view class="cu-form-group solid-bottom">
                     <picker bindchange="bindPickerGrade" value="{{index}}" range="{{hospitalGrade}}" range-key="label">
                         <view class="picker">
-                            <text class="fl">医院等级:</text>{{hospitalTags}}
+                            <text class="fl">医院等级:</text>{{hospitalLevel}}
                         </view>
                     </picker>
                 </view>
                 <view class="cu-form-group solid-bottom">
                     <picker bindchange="bindPickerhealthcare" value="{{index}}" range="{{healthcare}}" range-key="label">
                         <view class="picker">
-                            <text class="fl">是否医保:</text>{{healthcareVal}}
+                            <text class="fl">是否医保:</text>{{medicaid}}
                         </view>
                     </picker>
                 </view>
@@ -99,11 +106,150 @@
                 <view class="grid col-4 grid-square flex-sub">
                     <view class="bg-img" wx:if="{{hospitalLicenses !== ''&&hospitalLicenses !== null}}">
                         <image src="{{hospitalLicenses}}" mode="aspectFill"></image>
-                        <view class="cu-tag bg-red">
+                        <view class="cu-tag bg-red"
+                              bind:tap="deletechooseImage"
+                              data-idcard="hospitalLicenses">
                             <text class='cuIcon-close'></text>
                         </view>
                     </view>
-                    <view wx:else class="solids" bind:tap="chooseImage" data-idcard="hospitalLicenses">
+                    <view wx:else class="solids"
+                          bind:tap="chooseImage" data-name="医疗机构证书"
+                          data-idcard="hospitalLicenses">
+                        <text class='cuIcon-cameraadd'></text>
+                    </view>
+                </view>
+            </view>
+            <view class="btn-area margin-lr-sm margin-top-sm">
+                <button class="block bg-blue text-white round"
+                        form-type="submit">认证</button>
+            </view>
+        </form>
+        <!--   医生入住  -->
+        <form action="" bindsubmit="hospitalformSubmit" wx:if="{{checkin === 'personal'}}">
+            <view class="text-center text-lg text-bold padding-tb-sm solid-bottom">
+                填写医生信息
+            </view>
+            <view class="grid col-1 grid-square flex-sub">
+                <view class="bg-img" style="padding-bottom:0;height:300rpx;"
+                      wx:if="{{hospitalLicenses !== ''&&hospitalLicenses !== null}}">
+                    <image src="{{hospitalLicenses}}" mode="aspectFill" bind:tap="chooseImage"></image>
+                </view>
+                <view wx:else class="solids" style="padding-bottom:0;height:300rpx;"
+                      bind:tap="chooseImage" data-name="医生头像"
+                      data-idcard="hospitalLicenses">
+                    <text class='cuIcon-cameraadd'>上传头像</text>
+                </view>
+            </view>
+            <view class="margin-lr-sm">
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">姓名:</view>
+                    <input placeholder="请输入医生姓名" name="doctorName" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <picker bindchange="bindPickerGrade" value="{{index}}" range="{{hospitalGrade}}" range-key="label">
+                        <view class="picker">
+                            <text class="fl">所在医院:</text>{{hospitalId}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">职责:</view>
+                    <input placeholder="请输入医生职责" name="doctorAcademicTitle" />
+                </view>
+                <!--
+                <view class="cu-form-group solid-bottom">
+                    <picker bindchange="bindPickerGrade" value="{{index}}" range="{{hospitalGrade}}" range-key="label">
+                        <view class="picker">
+                            <text class="fl">医院等级:</text>{{hospitalLevel}}
+                        </view>
+                    </picker>
+                </view>-->
+                <!--<view class="cu-form-group solid-bottom">
+                    <picker bindchange="bindPickerhealthcare" value="{{index}}" range="{{healthcare}}" range-key="label">
+                        <view class="picker">
+                            <text class="fl">是否医保:</text>{{medicaid}}
+                        </view>
+                    </picker>
+                </view>-->
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">身份证号码:</view>
+                    <input type="idcard" placeholder="请输入医生身份证号码" name="cardNumber" />
+                </view>
+                <view class="cu-bar bg-white">
+                    <view class="action">
+                        请上传您的身份证正反面照
+                    </view>
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="grid col-4 grid-square flex-sub">
+                        <view class="bg-img" wx:if="{{idCardImageBack !== ''&&idCardImageBack !== null}}">
+                            <image src="{{idCardImageBack}}" mode="aspectFill"></image>
+                            <view class="cu-tag bg-red"
+                                  bind:tap="deletechooseImage"
+                                  data-idcard="idCardImageBack">
+                                <text class='cuIcon-close'></text>
+                            </view>
+                        </view>
+                        <view wx:else class="solids" bind:tap="chooseImage"
+                              data-idcard="idCardImageBack" data-name="正面照">
+                            <text class='cuIcon-cameraadd'></text>
+                        </view>
+                        <view class="bg-img" wx:if="{{idCardImageFront !== ''&&idCardImageFront !== null}}">
+                            <image src="{{idCardImageFront}}" mode="aspectFill"></image>
+                            <view class="cu-tag bg-red"
+                                  bind:tap="deletechooseImage"
+                                  data-idcard="idCardImageFront">
+                                <text class='cuIcon-close'></text>
+                            </view>
+                        </view>
+                        <view wx:else class="solids" bind:tap="chooseImage"
+                              data-idcard="idCardImageFront" data-name="反面照">
+                            <text class='cuIcon-cameraadd'></text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="margin-lr-sm">
+                <view class="cu-form-group solid-bottom">
+                    <picker mode="date" value="{{workYear}}" end="2017-09-01" bindchange="bindDateChange">
+                        <view class="picker">
+                            <text class="fl">从业年份:</text>{{workYear}}
+                        </view>
+                    </picker>
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">科室:</view>
+                    <input placeholder="请输入医生科室" name="department" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">联系地址:</view>
+                    <input placeholder="请输入医生联系地址" name="address" />
+                </view>
+                <view class="cu-form-group solid-bottom">
+                    <view class="title">联系电话:</view>
+                    <input type="number" placeholder="请输入医生电话" name="phone" />
+                </view>
+                <view class="cu-form-group align-start solid-bottom">
+                    <view class="title">个人简介:</view>
+                    <textarea name="description" placeholder="请输入医院简介" />
+                </view>
+                <view class="cu-bar bg-white">
+                    <view class="action">
+                        请您上传医师资格证书
+                    </view>
+                </view>
+                <view class="grid col-4 grid-square flex-sub">
+                    <view class="bg-img" wx:if="{{doctorLicense !== ''&&doctorLicense !== null}}">
+                        <image src="{{doctorLicense}}" mode="aspectFill"></image>
+                        <view class="cu-tag bg-red"
+                              bind:tap="deletechooseImage"
+                              data-idcard="doctorLicense">
+                            <text class='cuIcon-close'></text>
+                        </view>
+                    </view>
+                    <view wx:else class="solids"
+                          bind:tap="chooseImage" data-name="医师资格证"
+                          data-idcard="doctorLicense">
                         <text class='cuIcon-cameraadd'></text>
                     </view>
                 </view>

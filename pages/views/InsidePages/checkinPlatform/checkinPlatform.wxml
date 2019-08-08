@@ -8,7 +8,7 @@
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <navigator url="/pages/views/InsidePages/checkinInfo/checkinInfo?checkin='institution'" hover-class="none">
+        <navigator url="/pages/views/InsidePages/checkinInfo/checkinInfo?checkin=institution" hover-class="none">
             <view class="inline-block padding-tb-sm margin-left-sm solid-bottom text-xl" style="width:100%;">
                 <view class="fl">
                     <view class="text-lg padding-tb-sm text-bold">医院机构入住</view>
@@ -17,7 +17,7 @@
                 <text class="fr cuIcon-right text-black margin-right-xl margin-top-xl"></text>
             </view>
         </navigator>
-        <navigator url="/pages/views/InsidePages/checkinInfo/checkinInfo?checkin='personal'" hover-class="none">
+        <navigator url="/pages/views/InsidePages/checkinInfo/checkinInfo?checkin=personal" hover-class="none">
             <view class="inline-block padding-tb-sm margin-left-sm solid-bottom text-xl" style="width:100%;">
                 <view class="fl">
                     <view class="text-lg padding-tb-sm text-bold">医生团体个人入住</view>

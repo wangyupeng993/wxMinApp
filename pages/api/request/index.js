@@ -51,9 +51,10 @@ const service = {
     },
     uploadFiles: (data = {}) => {
         return request({
-            url: `${URL}/hospital/settledin`,
+            url: `${URL}/tool/upload`,
             header: {
                 'Content-Type': 'multipart/form-data',
+                'accept': 'application/json',
                 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')
             },
             ...data
