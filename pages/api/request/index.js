@@ -162,7 +162,7 @@ const service = {
     },
     // 医生入住
     doctorsettledin: (data = {}) => {
-        wxRequest({
+        return wxRequest({
             url: `${URL}/doctor/settled/in`,
             method: 'POST',
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},

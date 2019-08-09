@@ -10,8 +10,10 @@ Page({
         hospitalLevel: '', // 医院等级
         hospitalLicenses: '', // 医院机构证书
         doctorLicense: '',// 医生资格证
+        doctorAcademicTitle: '', // 医生职称
         hospitalId: '',  // 所在医院
         workYear: '', // 从业年份
+        logoImg: '', // 医生头像
         // 医院等级
         hospitalGrade: [{
             value: 'GRADE_1_FOR_A',
@@ -49,6 +51,26 @@ Page({
         }, {
             value: false,
             label: '否'
+        }],
+        // 职称等级
+        grade: [{
+            value: 'DIRECTOR_PHYSICIAN',
+            label: '主任医师'
+        },{
+            value: 'ASSISTANT_DIRECTOR_PHYSICIAN',
+            label: '副主任医师'
+        },{
+            value: 'HOUSE_PHYSICIAN',
+            label: '住院医师'
+        },{
+            value: 'DOCTOR_IN_CHARGE_OF_A_CASE',
+            label: '主治医师'
+        },{
+            value: 'PHYSICIAN',
+            label: '医师'
+        },{
+            value: 'CERTIFIED_DOCTOR',
+            label: '执业医师'
         }]
     },
     onLoad (ev) {
@@ -57,7 +79,7 @@ Page({
         if (checkin === 'personal') {
             service.getHospitalsAll()
                 .then(respone => {
-                    const {hospitalGrade} = respone.data.data.map(item => item)
+                    const hospitalGrade = respone.data.data.map(item => item)
                     this.setData({hospitalGrade})
                 })
                 .catch(error => {
@@ -75,11 +97,13 @@ Page({
                 })
         }
     },
+    // 医生从业年份
     bindDateChange(ev) {
-        const {workYear} = this.data
+        console.log(ev)
         const {value} = ev.detail
-        this.setData({workYear: value})
+        this.setData({workYear: Number(value)})
     },
+    // 医生选择擅长病症
     getDiseaseIds(ev) {
         const {attributeValue} = ev.detail
         const {Disease} = this.data
@@ -93,6 +117,7 @@ Page({
         })
         console.log(ev)
     },
+    // 获取照片
     chooseImage (ev) {
         const {idcard,name} = ev.currentTarget.dataset
         wx.chooseImage({
@@ -113,15 +138,19 @@ Page({
                         this.setData({idCardImageFront:data})
                     }else if (idcard === 'hospitalLicenses'){
                         this.setData({hospitalLicenses:data})
+                    }else if (idcard === 'doctorLicense') {
+                        this.setData({doctorLicense:data})
+                    }else if (idcard === 'logoImg') {
+                        this.setData({logoImg:data})
                     }
-                })
-                    .catch(error => {
+                }).catch(error => {
                         console.log(error)
                     })
             },
             fail: (error) => {}
         })
     },
+    // 删除照片
     deletechooseImage (ev) {
         const {idcard} = ev.currentTarget.dataset
         if (idcard === 'idCardImageBack') {
@@ -132,35 +161,60 @@ Page({
             this.setData({hospitalLicenses:''})
         }
     },
-    bindPickerGrade (ev) {
+    // 医院等级
+    bindhospitalGrade (ev) {
         const {value} = ev.detail
         const {hospitalGrade} = this.data
         this.setData({hospitalLevel: hospitalGrade[value]})
-        console.log(ev.detail)
     },
+    // 医生职称
+    binddoctorGrade (ev) {
+        const {value} = ev.detail
+        const {grade} = this.data
+        this.setData({doctorAcademicTitle: grade[value]})
+    },
+    // 医生所在医院
+    bindhospitalId (ev) {
+        const {value} = ev.detail
+        const {hospitalGrade} = this.data
+        this.setData({hospitalId: hospitalGrade[value]})
+    },
+    // 是否医保
     bindPickerhealthcare (ev) {
         const {value} = ev.detail
         const {healthcare} = this.data
         this.setData({medicaid: healthcare[value]})
     },
+    // 提交认证
     hospitalformSubmit (ev) {
         const {value} = ev.detail
-        const {checkin,idCardImageBack,idCardImageFront,medicaid,hospitalLevel,hospitalLicenses} = this.data
+        const address = value.hospitalAddress || value.address
+        let DiseaseIds = []
+        const {checkin,idCardImageBack,idCardImageFront,
+            medicaid,hospitalLevel,hospitalLicenses,
+            hospitalId,doctorAcademicTitle,doctorLicense,workYear,logoImg} = this.data
+        this.data.Disease.forEach((item,index, array) => {
+            if(item.selected) DiseaseIds.push(item.id)
+        })
         const qqmapsdk = new QQMapWX({key})
         console.log(value)
         qqmapsdk.geocoder({
-            address: value.hospitalAddress,
+            address: address,
             success: (respone) => {
                 const {location} = respone.result
                 if (location) {
                     const latitude = location.lat
                     const longitude = location.lng
-                    console.log(latitude, longitude)
-                    checkin === 'personal'? service.doctorsettledin()
-                        .then(respone => {
+                    checkin === 'personal'? service.doctorsettledin({
+                        idCardImageBack,idCardImageFront,
+                        medicaid: medicaid.value,doctorLicense,
+                        latitude,longitude,logoImg,workYear,
+                        doctorAcademicTitle: doctorAcademicTitle.value,
+                        skillfulDiseaseIds:DiseaseIds,
+                        hospitalId: hospitalId.hospitalId,...value
+                    }).then(respone => {
                             console.log(respone.data)
-                        })
-                        .catch(error => {
+                        }).catch(error => {
                             console.log(error)
                         }) : service.hospitalsettledin({
                         idCardImageBack,idCardImageFront,
@@ -171,8 +225,7 @@ Page({
                         ...value
                     }).then(respone => {
                             console.log(respone.data)
-                        })
-                        .catch(error => {
+                        }).catch(error => {
                             console.log(error)
                         })
                 }
