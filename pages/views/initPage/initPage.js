@@ -136,8 +136,8 @@ Page({
             })
     },
     // 选择症状
-    getChoise (event) {
-        const {attributeValue} = event.detail
+    getChoise (ev) {
+        const {attributeValue} = ev.detail
         const {Symptomlist} = this.data
         Symptomlist.forEach((item, index, array) => {
             if (item.id === attributeValue) {
@@ -152,8 +152,8 @@ Page({
         })
     },
     // 选择医生
-    getDustor (event) {
-        const {attributeValue} = event.detail
+    getDustor (ev) {
+        const {attributeValue} = ev.detail
         const {Doctorlist} = this.data
         Doctorlist.forEach((item, index, array) => {
             if (item.id === attributeValue) {

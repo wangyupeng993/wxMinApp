@@ -52,7 +52,7 @@ Page({
         console.log(markerId)
     },*/
     getUserLocation () {
-        qqmapsdk = new QQMapWX({key})
+        const qqmapsdk = new QQMapWX({key})
         let {markers} = this.data
         wx.getLocation({
             type: 'wgs84',

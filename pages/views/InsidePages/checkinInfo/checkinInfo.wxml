@@ -13,7 +13,7 @@
             <text class="block">请您填写真实信息</text>
         </view>
         <!--   医院入住     -->
-        <form action="" bindsubmit="hospitalformSubmit" wx:if="{{checkin === 'institution'}}">
+        <form action="" bindsubmit="hospitalformSubmit" wx:if="{{checkin === 'institution'}}"K>
             <view class="text-center text-lg text-bold padding-tb-sm solid-bottom">
                 填写管理员信息
             </view>
@@ -75,14 +75,14 @@
                 <view class="cu-form-group solid-bottom">
                     <picker bindchange="bindPickerGrade" value="{{index}}" range="{{hospitalGrade}}" range-key="label">
                         <view class="picker">
-                            <text class="fl">医院等级:</text>{{hospitalLevel}}
+                            <text class="fl">医院等级:</text>{{hospitalLevel.label}}
                         </view>
                     </picker>
                 </view>
                 <view class="cu-form-group solid-bottom">
                     <picker bindchange="bindPickerhealthcare" value="{{index}}" range="{{healthcare}}" range-key="label">
                         <view class="picker">
-                            <text class="fl">是否医保:</text>{{medicaid}}
+                            <text class="fl">是否医保:</text>{{medicaid.label}}
                         </view>
                     </picker>
                 </view>
@@ -228,6 +228,16 @@
                 <view class="cu-form-group solid-bottom">
                     <view class="title">联系电话:</view>
                     <input type="number" placeholder="请输入医生电话" name="phone" />
+                </view>
+                <view class="padding-sm flex-sub solid-bottom">
+                    <el-button bind:handleclick="getDiseaseIds"
+                               class="button-margin margin-lr-xs"
+                               attribute-value="{{item.id}}"
+                               wx:for="{{Disease}}"
+                               small="xs" wx:key="*/this"
+                               round name="{{item.symptomName}}"
+                               img-url="{{item.img}}"
+                               colour="{{item.selected?'rgba(49,101,236,1)':'rgba(49,101,236,0.5)'}}" />
                 </view>
                 <view class="cu-form-group align-start solid-bottom">
                     <view class="title">个人简介:</view>

@@ -1,4 +1,6 @@
+const QQMapWX = require('../../../../utils/Map/qqmap-wx-jssdk')
 const service = require('../../../api/request/index.js')
+const key = 'NNQBZ-UW43U-OCVVE-2VCKL-3WO32-JEBOU'
 Page({
     data:{
         checkin: '',
@@ -10,8 +12,7 @@ Page({
         doctorLicense: '',// 医生资格证
         hospitalId: '',  // 所在医院
         workYear: '', // 从业年份
-        latitude: '', // 纬度
-        longitude: '', // 经度
+        // 医院等级
         hospitalGrade: [{
             value: 'GRADE_1_FOR_A',
             label: '一级甲等'
@@ -40,20 +41,56 @@ Page({
             value: 'GRADE_3_FOR_C',
             label: '三级丙等'
         }],
+        Disease: [], // 病症擅长列表
+        // 是否医保
         healthcare: [{
-            value: 0,
+            value: true,
             label: '是'
         }, {
-            value: 1,
+            value: false,
             label: '否'
         }]
     },
     onLoad (ev) {
         const {checkin} = ev
         this.setData({checkin})
-        console.log(ev)
+        if (checkin === 'personal') {
+            service.getHospitalsAll()
+                .then(respone => {
+                    const {hospitalGrade} = respone.data.data.map(item => item)
+                    this.setData({hospitalGrade})
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            service.getSymptoms()
+                .then(respone => {
+                    console.log(respone.data.data)
+                    this.setData({
+                        Disease:respone.data.data.map(item => item)
+                    })
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
     },
     bindDateChange(ev) {
+        const {workYear} = this.data
+        const {value} = ev.detail
+        this.setData({workYear: value})
+    },
+    getDiseaseIds(ev) {
+        const {attributeValue} = ev.detail
+        const {Disease} = this.data
+        Disease.forEach((item, index, array) => {
+            if (item.id === attributeValue) {
+                item.selected = !item.selected
+            }
+        })
+        wx.nextTick(() => {
+            this.setData({Disease})
+        })
         console.log(ev)
     },
     chooseImage (ev) {
@@ -98,18 +135,52 @@ Page({
     bindPickerGrade (ev) {
         const {value} = ev.detail
         const {hospitalGrade} = this.data
-        this.setData({hospitalTags: hospitalGrade[value].label})
+        this.setData({hospitalLevel: hospitalGrade[value]})
         console.log(ev.detail)
     },
     bindPickerhealthcare (ev) {
         const {value} = ev.detail
         const {healthcare} = this.data
-        this.setData({medicaid: healthcare[value].label})
-        console.log(ev)
+        this.setData({medicaid: healthcare[value]})
     },
     hospitalformSubmit (ev) {
         const {value} = ev.detail
-        const {idCardImageBack} = this.data
+        const {checkin,idCardImageBack,idCardImageFront,medicaid,hospitalLevel,hospitalLicenses} = this.data
+        const qqmapsdk = new QQMapWX({key})
+        console.log(value)
+        qqmapsdk.geocoder({
+            address: value.hospitalAddress,
+            success: (respone) => {
+                const {location} = respone.result
+                if (location) {
+                    const latitude = location.lat
+                    const longitude = location.lng
+                    console.log(latitude, longitude)
+                    checkin === 'personal'? service.doctorsettledin()
+                        .then(respone => {
+                            console.log(respone.data)
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        }) : service.hospitalsettledin({
+                        idCardImageBack,idCardImageFront,
+                        medicaid: medicaid.value,
+                        latitude,longitude,
+                        hospitalLevel:hospitalLevel.value,
+                        hospitalLicenses: [hospitalLicenses],
+                        ...value
+                    }).then(respone => {
+                            console.log(respone.data)
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                }
+            },
+            fail: (error) => {
+                console.log(error)
+            }
+        })
         console.log(ev)
     }
 })

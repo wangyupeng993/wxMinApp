@@ -49,6 +49,7 @@ const service = {
             data
         })
     },
+    // 上传文件
     uploadFiles: (data = {}) => {
         return request({
             url: `${URL}/tool/upload`,
@@ -78,7 +79,7 @@ const service = {
             data
         })
     },
-    // 获取医院列表
+    // 获取附近医院列表
     getHospitals: (data = {}) => {
         return wxRequest({
             url: `${URL}/hospitals`,
@@ -86,6 +87,15 @@ const service = {
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
+    },
+    // 获取全部医院的列表
+    getHospitalsAll: (data) => {
+      return wxRequest({
+          url: `${URL}/hospitals`,
+          method: 'GET',
+          header: {...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+          data
+      })
     },
     // 获取医师讲堂分类
     getPhysicianclass: (data) => {
@@ -136,6 +146,24 @@ const service = {
     searchdoctors: (data = {}) => {
         return wxRequest({
             url: `${URL}/index/search/doctors`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 医院入住
+    hospitalsettledin: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/hospital/settledin`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 医生入住
+    doctorsettledin: (data = {}) => {
+        wxRequest({
+            url: `${URL}/doctor/settled/in`,
             method: 'POST',
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
