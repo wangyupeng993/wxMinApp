@@ -1,0 +1,23 @@
+<view class="el-header">
+    <navigator open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   text-colour="#333333"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-black text-lg margin-top-xs">关注病症</view>
+</view>
+<view wx:if="{{symptoms.length > 0}}" class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
+        <view wx:for="{{20}}" wx:key="*/this"
+              class="padding-sm drug inline-block solid-bottom">
+            <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
+            <view class="fl">
+                <view class="padding-tb-sm text-lg">达芙文（阿达帕林凝胶）</view>
+                <view class="text-gray">法国高德美制药公司</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view wx:else class="text-center text-xl text-grey text-bold padding-top-xl">
+    {{tipsText}}
+</view>

@@ -21,7 +21,8 @@
     "pages/views/InsidePages/checkinPlatform/checkinPlatform",
     "pages/views/InsidePages/checkinInfo/checkinInfo",
     "pages/views/InsidePages/article/article",
-    "pages/views/InsidePages/ConcernedDoctors/index"
+    "pages/views/InsidePages/ConcernedDoctors/index",
+    "pages/views/InsidePages/ConcernedSymptoms/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

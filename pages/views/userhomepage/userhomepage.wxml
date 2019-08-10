@@ -40,8 +40,15 @@
             </view>
             <navigator url="/pages/views/InsidePages/ConcernedDoctors/index" hover-class="none">
                 <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
-                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-time"></view>
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-friendfamous"></view>
                     <view class="fl padding-top-xs margin-left-lg">关注的医生</view>
+                    <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+                </view>
+            </navigator>
+            <navigator url="/pages/views/InsidePages/ConcernedSymptoms/index" hover-class="none">
+                <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-time"></view>
+                    <view class="fl padding-top-xs margin-left-lg">关注的病症</view>
                     <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
                 </view>
             </navigator>
