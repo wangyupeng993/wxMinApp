@@ -97,6 +97,15 @@ const service = {
           data
       })
     },
+    // 获取医院详情信息
+    getHospitalsinfo: (data) => {
+        return wxRequest({
+            url: `${URL}/hospital`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
     // 获取医师讲堂分类
     getPhysicianclass: (data) => {
         return wxRequest({

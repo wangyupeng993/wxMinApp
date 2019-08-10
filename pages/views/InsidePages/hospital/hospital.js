@@ -56,6 +56,7 @@ Page({
                     const markers = respone.data.data.map(item => {
                         return {
                             ...item,
+                            id: item.hospitalId,
                             iconPath: '../../../assets/images/icon/yiyuan.png',
                             latitude: item.addressLatitude,
                             longitude: item.addressLongitude,
@@ -95,10 +96,10 @@ Page({
             }
         })
     },
-    lookhospital (params) {
-        const {markerId} = params
+    lookhospital (ev) {
+        const {markerId} = ev
         wx.navigateTo({
-            url: '/pages/views/InsidePages/HospitalInfo/HospitalInfo'
+            url: `/pages/views/InsidePages/HospitalInfo/HospitalInfo?hospitalid=${markerId}`
         })
         console.log(markerId)
     },
