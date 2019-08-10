@@ -1,9 +1,9 @@
-const QQMapWX = require('../../../../utils/Map/qqmap-wx-jssdk')
 const service = require('../../../api/request/index.js')
-const key = 'NNQBZ-UW43U-OCVVE-2VCKL-3WO32-JEBOU'
+const WXMAP = require('../../../api/Map/index.js')
 Page({
     data:{
         checkin: '',
+        chooseImageType: '', // 上传照片类型
         idCardImageBack: '', // 身份证正面照
         idCardImageFront: '',// 身份证反面照
         medicaid: '', // 是否医保
@@ -125,8 +125,19 @@ Page({
             sizeType: ['original', 'compressed'],
             sourceType: ['album', 'camera'],
             success: (respone) => {
-                // tempFilePath可以作为img标签的src属性显示图片
                 let FilePath = respone.tempFilePaths[0]
+                this.setData({chooseImageType:idcard})
+                if (idcard === 'idCardImageBack') {
+                    this.setData({idCardImageBack:'../../../assets/images/loading.gif'})
+                }else if (idcard === 'idCardImageFront') {
+                    this.setData({idCardImageFront:'../../../assets/images/loading.gif'})
+                }else if (idcard === 'hospitalLicenses'){
+                    this.setData({hospitalLicenses:'../../../assets/images/loading.gif'})
+                }else if (idcard === 'doctorLicense') {
+                    this.setData({doctorLicense:'../../../assets/images/loading.gif'})
+                }else if (idcard === 'logoImg') {
+                    this.setData({logoImg:'../../../assets/images/loading.gif'})
+                }
                 service.uploadFiles({
                     filePath: FilePath,
                     name: 'file'
@@ -144,7 +155,17 @@ Page({
                         this.setData({logoImg:data})
                     }
                 }).catch(error => {
-                        console.log(error)
+                    if (idcard === 'idCardImageBack') {
+                        this.setData({idCardImageBack:''})
+                    }else if (idcard === 'idCardImageFront') {
+                        this.setData({idCardImageFront:''})
+                    }else if (idcard === 'hospitalLicenses'){
+                        this.setData({hospitalLicenses:''})
+                    }else if (idcard === 'doctorLicense') {
+                        this.setData({doctorLicense:''})
+                    }else if (idcard === 'logoImg') {
+                        this.setData({logoImg:''})
+                    }
                     })
             },
             fail: (error) => {}
@@ -159,6 +180,10 @@ Page({
             this.setData({idCardImageFront:''})
         }else if (idcard === 'hospitalLicenses'){
             this.setData({hospitalLicenses:''})
+        }else if (idcard === 'logoImg'){
+            this.setData({logoImg:''})
+        }else if (idcard === 'doctorLicense'){
+            this.setData({doctorLicense:''})
         }
     },
     // 医院等级
@@ -196,11 +221,8 @@ Page({
         this.data.Disease.forEach((item,index, array) => {
             if(item.selected) DiseaseIds.push(item.id)
         })
-        const qqmapsdk = new QQMapWX({key})
-        console.log(value)
-        qqmapsdk.geocoder({
-            address: address,
-            success: (respone) => {
+        WXMAP.geocoder({address})
+            .then(respone => {
                 const {location} = respone.result
                 if (location) {
                     const latitude = location.lat
@@ -213,10 +235,10 @@ Page({
                         skillfulDiseaseIds:DiseaseIds,
                         hospitalId: hospitalId.hospitalId,...value
                     }).then(respone => {
-                            console.log(respone.data)
-                        }).catch(error => {
-                            console.log(error)
-                        }) : service.hospitalsettledin({
+                        console.log(respone.data)
+                    }).catch(error => {
+                        console.log(error)
+                    }) : service.hospitalsettledin({
                         idCardImageBack,idCardImageFront,
                         medicaid: medicaid.value,
                         latitude,longitude,
@@ -224,16 +246,15 @@ Page({
                         hospitalLicenses: [hospitalLicenses],
                         ...value
                     }).then(respone => {
-                            console.log(respone.data)
-                        }).catch(error => {
-                            console.log(error)
-                        })
+                        console.log(respone.data)
+                    }).catch(error => {
+                        console.log(error)
+                    })
                 }
-            },
-            fail: (error) => {
-                console.log(error)
-            }
-        })
+            })
+            .catch(error => {
+                console.log(error,'==================================')
+            })
         console.log(ev)
     }
 })

@@ -133,6 +133,11 @@
                 <view class="bg-img" style="padding-bottom:0;height:300rpx;"
                       wx:if="{{logoImg !== ''&&logoImg !== null}}">
                     <image src="{{logoImg}}" mode="aspectFill" bind:tap="chooseImage"></image>
+                    <view class="cu-tag bg-red"
+                          bind:tap="deletechooseImage"
+                          data-idcard="logoImg">
+                        <text class='cuIcon-deletefill padding-sm'></text>
+                    </view>
                 </view>
                 <view wx:else class="solids" style="padding-bottom:0;height:300rpx;"
                       bind:tap="chooseImage" data-name="医生头像"
@@ -175,7 +180,7 @@
                             <view class="cu-tag bg-red"
                                   bind:tap="deletechooseImage"
                                   data-idcard="idCardImageBack">
-                                <text class='cuIcon-close'></text>
+                                <text class='cuIcon-close padding-xs'></text>
                             </view>
                         </view>
                         <view wx:else class="solids" bind:tap="chooseImage"
@@ -187,7 +192,7 @@
                             <view class="cu-tag bg-red"
                                   bind:tap="deletechooseImage"
                                   data-idcard="idCardImageFront">
-                                <text class='cuIcon-close'></text>
+                                <text class='cuIcon-close padding-xs'></text>
                             </view>
                         </view>
                         <view wx:else class="solids" bind:tap="chooseImage"
@@ -242,7 +247,7 @@
                         <view class="cu-tag bg-red"
                               bind:tap="deletechooseImage"
                               data-idcard="doctorLicense">
-                            <text class='cuIcon-close'></text>
+                            <text class='cuIcon-close padding-xs'></text>
                         </view>
                     </view>
                     <view wx:else class="solids"

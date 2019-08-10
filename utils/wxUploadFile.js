@@ -6,6 +6,11 @@ function wxUploadFiles(params) {
                 resolve(respone)
             },
             fail: error => {
+                wx.showToast({
+                    title: `上传失败`,
+                    image: '/pages/assets/images/icon/error.png',
+                    mask: false
+                })
                 reject(error)
             },
             complete:respone => {

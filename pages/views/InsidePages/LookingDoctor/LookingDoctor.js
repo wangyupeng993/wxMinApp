@@ -1,7 +1,5 @@
-const QQMapWX = require('../../../../utils/Map/qqmap-wx-jssdk')
 const service = require('../../../api/request/index.js')
-let qqmapsdk;
-const key = 'NNQBZ-UW43U-OCVVE-2VCKL-3WO32-JEBOU'
+const WXMAP = require('../../../api/Map/index.js')
 Page({
     data: {
         markers: [],
@@ -44,15 +42,7 @@ Page({
     backPrevPage () {
         wx.navigateBack(-1)
     },
-    /*handleclick (params) {
-        const {markerId} = params
-        wx.navigateTo({
-            url: '/pages/views/InsidePages/DoctorInfo/DoctorInfo'
-        })
-        console.log(markerId)
-    },*/
     getUserLocation () {
-        const qqmapsdk = new QQMapWX({key})
         let {markers} = this.data
         wx.getLocation({
             type: 'wgs84',
