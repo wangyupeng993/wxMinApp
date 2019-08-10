@@ -20,7 +20,8 @@
     "pages/views/InsidePages/address/address",
     "pages/views/InsidePages/checkinPlatform/checkinPlatform",
     "pages/views/InsidePages/checkinInfo/checkinInfo",
-    "pages/views/InsidePages/article/article"
+    "pages/views/InsidePages/article/article",
+    "pages/views/InsidePages/ConcernedDoctors/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

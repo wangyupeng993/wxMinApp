@@ -1,0 +1,37 @@
+<view class="el-header">
+    <navigator open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   text-colour="#333333"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-black text-lg margin-top-xs">关注医生</view>
+</view>
+<view wx:if="{{doctors.length > 0}}" class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
+        <view wx:for="{{doctors}}" wx:key="*/this"
+              class="padding-xs doctor inline-block solid-bottom">
+            <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo" hover-class="none">
+                <image class="fl margin-right-sm margin-top-lg"
+                       src="../../../assets/images/home/product@2x.png"></image>
+                <view class="fl">
+                    <view class="padding-tb-xs text-lg">霍莉（主治医生）</view>
+                    <view class="text-gray">皮肤科 妇幼保健院</view>
+                    <view class="text-gray">擅长 痘痘</view>
+                    <view>
+                        <text class="text-yellow cuIcon-favorfill"></text>
+                        <text class="text-gray">5.0</text>
+                        <text class="text-gray margin-left-sm">1801回答</text>
+                    </view>
+                    <view class="margin-top-sm">
+                        <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
+                        <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
+                        <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+<view wx:else class="text-center text-xl text-grey text-bold padding-top-xl">
+    {{tipsText}}
+</view>
