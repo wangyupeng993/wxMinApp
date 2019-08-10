@@ -115,6 +115,15 @@ const service = {
             data
         })
     },
+    // 获取首页医师讲堂
+    getHomePhysician: (data) => {
+        return wxRequest({
+            url: `${URL}/index/doctor/forums`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
     // 获取药品分类
     getDrugsclass: (data) => {
         return wxRequest({
@@ -166,6 +175,24 @@ const service = {
             url: `${URL}/doctor/settled/in`,
             method: 'POST',
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 获取首页文章
+    getHomeArticle: (data) => {
+        return wxRequest({
+            url: `${URL}/index/articles`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 获取文章分类
+    getArticleclass: (data) => {
+        return wxRequest({
+            url: `${URL}/article/catalogs`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
     }

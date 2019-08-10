@@ -26,7 +26,9 @@ Page({
         badge: 22,
         name: '医师讲堂'
       }],
-      follow: []
+      follow: [],
+      forums: [], // 医师讲堂
+      article: [] // 皮肤小知识
     },
     onLoad () {
       const doctor = wx.getStorageSync('doctor')
@@ -45,6 +47,24 @@ Page({
                   console.log(respone.data)
                   this.setData({
                       follow: respone.data.data.map(item => item)
+                  })
+              })
+              .catch(error => {
+                  console.log(error)
+              })
+          service.getHomeArticle()
+              .then(respone => {
+                  this.setData({
+                      article: respone.data.data.map(item => item)
+                  })
+              })
+              .catch(error => {
+                  console.log(error)
+              })
+          service.getHomePhysician()
+              .then(respone => {
+                  this.setData({
+                      forums: respone.data.data.map(item => item)
                   })
               })
               .catch(error => {

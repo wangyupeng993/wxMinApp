@@ -35,6 +35,9 @@
             <view class="cu-list">
                 <view class="action border-title">
                     <text class="text-xl">医师讲堂</text>
+                    <navigator url="/pages/views/InsidePages/physician/physician" class="fr" hover-class="none">
+                        <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,1)" />
+                    </navigator>
                 </view>
                 <swiper-type bind:handleclick="classroom" image-effect="ImageText"></swiper-type>
             </view>
@@ -58,6 +61,9 @@
             <view class="cu-list">
                 <view class="action border-title">
                     <text class="text-xl">皮肤小知识</text>
+                    <navigator url="/pages/views/InsidePages/article/article" class="fr" hover-class="none">
+                        <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,1)" />
+                    </navigator>
                 </view>
                 <swiper-type bind:handleclick="hospitaldetails" image-effect="ImageText"></swiper-type>
             </view>

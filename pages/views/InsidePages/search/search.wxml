@@ -11,9 +11,12 @@
         <text class="cuIcon-search"></text>
         <input type="text" bindinput="searchInputVal"
                placeholder="搜索症状/疾病/药品"
+               disabled="{{searchtype === 'hospital'}}"
                bindfocus="searchInputfous"
                confirm-type="search" />
-        <el-button round name="搜索" bind:handleclick="searchInfo" colour="#f5f5f5" text-colour="#333333"></el-button>
+        <el-button round name="搜索" bind:handleclick="searchInfo"
+                   disabled="{{searchtype === 'hospital'}}"
+                   colour="#f5f5f5" text-colour="#333333" />
     </view>
 </view>
 <view class="padding-lg flex-sub text-center" wx:if="{{!focus}}">
@@ -78,10 +81,10 @@
             <view wx:for="{{searchResult}}" wx:key="*/this"
                   class="padding-sm hospital inline-block solid-bottom"
                   wx:if="{{searchtype === 'hospital'}}">
-                <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
+                <image class="fl margin-right-sm" src="{{item.image}}"></image>
                 <view class="fl">
-                    <view class="padding-tb-xs text-lg">达芙文（阿达帕林凝胶）</view>
-                    <view class="text-gray">法国高德美制药公司</view>
+                    <view class="padding-tb-xs text-lg">{{item.hospitalName}}</view>
+                    <view class="text-gray">{{item.hospitalName}}</view>
                     <view class="text-blue text-sm padding-top-xs">三级甲等</view>
                 </view>
             </view>

@@ -9,7 +9,11 @@ Page({
     },
     onLoad () {},
     onReady () {},
-    onShow () {},
+    onShow () {
+        if (this.data.searchtype === 'hospital') {
+            this.getUserLocation()
+        }
+    },
     onHide () {},
     onUnload () {},
     searchInfo () {
@@ -37,8 +41,6 @@ Page({
                 .catch(error => {
                     console.log(error)
                 })
-        }else if (searchtype === 'hospital') {
-
         }
     },
     // input获取焦点
@@ -58,7 +60,55 @@ Page({
     switchsearchtype (ev) {
         const {searchType} = ev.currentTarget.dataset
         this.setData({
-            searchtype: searchType
+            searchtype: searchType,
+            searchResult: []
+        })
+        if (searchType === 'hospital') {
+            this.getUserLocation()
+        }
+    },
+    getUserLocation () {
+        wx.getLocation({
+            type: 'wgs84',
+            altitude: true,
+            success: respone => {
+                console.log(respone)
+                const {latitude,longitude} = respone
+                service.getHospitals({
+                    distinct: 2000,
+                    latitude: latitude,
+                    longitude: longitude,
+                    pageNo: 1,
+                    pageSize: 99
+                }).then(respone => {
+                    const searchResult = respone.data.data.map(item => {
+                        return {
+                            ...item,
+                            image: '/pages/assets/images/icon/yiyuan.png'
+                        }
+                    })
+                    this.setData({searchResult})
+                }).catch(error => {})
+            },
+            fail: error => {
+                wx.showModal({
+                    title: '提示',
+                    content: '前往小程序设置界面，授权获取地理位置',
+                    confirmText: '前往',
+                    success: (respone) => {
+                        if (respone.confirm) {
+                            wx.openSetting({
+                                success:(respone) => {},
+                                fail: (error) => {}
+                            })
+                        } else if (respone.cancel) {
+                            wx.navigateBack(-2)
+                        }
+                    },
+                    fail: (error) => {}
+                })
+                console.log(error)
+            }
         })
     },
     loadmore () {},

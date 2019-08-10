@@ -1,0 +1,44 @@
+<view class="el-header text-center">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   text-colour="#333333"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-black text-lg margin-top-xs">皮肤小知识</view>
+</view>
+
+<view class="el-container">
+    <view class="cu-bar search">
+        <view class="search-form">
+            <text class="cuIcon-search"></text>
+            <input type="text" bindinput="searchInputVal"
+                   placeholder="搜索皮肤小知识文章"
+                   confirm-type="search" />
+            <el-button round name="搜索" bind:handleclick="searchArticle" colour="#f5f5f5" text-colour="#333333" />
+        </view>
+    </view>
+    <view class="padding-lr-sm padding-tb-xs">
+        <scroll-view scroll-x class="nav" scroll-with-animation>
+            <view wx:for="{{navTab}}" wx:key="*/this" data-catalogid="{{item.catalogId}}"
+                  bind:tap="SwitchNavTab"
+                  class="cu-item {{catalogId === item.catalogId?'text-black text-lg text-bold':'text-gray text-sm'}}">
+                {{item.catalogName}}
+            </view>
+        </scroll-view>
+    </view>
+    <view class="course padding-lr-sm padding-tb-xs" wx:if="{{article > 0}}">
+        <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+            <view wx:for="{{article}}" wx:key="*/this"
+                  class="course-list bg-white radius shadow-lg padding-bottom-lg margin-bottom-lg">
+                <navigator url="/pages/views/InsidePages/ClassroomInfo/ClassroomInfo" hover-class="none">
+                    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg"></image>
+                    <view class="text-lg text-black padding-tb-sm padding-lr-lg">日常如何预防真菌感染</view>
+                    <view class="text-xs text-gray padding-lr-lg">何亮.浙江大学医学附属第二医院…</view>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+    <view wx:else class="text-center text-xl text-grey text-bold">
+        暂无数据......
+    </view>
+</view>
