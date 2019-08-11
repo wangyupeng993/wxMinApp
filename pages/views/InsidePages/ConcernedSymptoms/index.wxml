@@ -8,7 +8,7 @@
 </view>
 <view wx:if="{{symptoms.length > 0}}" class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
-        <view wx:for="{{20}}" wx:key="*/this"
+        <view wx:for="{{symptoms}}" wx:key="*/this"
               class="padding-sm drug inline-block solid-bottom">
             <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
             <view class="fl">

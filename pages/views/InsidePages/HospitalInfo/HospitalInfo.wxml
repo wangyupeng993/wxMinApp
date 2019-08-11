@@ -14,9 +14,9 @@
                 <image src="../../../assets/images/home/user.png"></image>
             </view>
             <view class="fl padding-xs">
-                <view class="text-green text-sm padding-bottom-xs padding-left-xs">三甲医院 医保</view>
-                <view class="text-black text-bold padding-bottom-xs padding-left-xs">浙江大学附属第二医院</view>
-                <view class="text-black text-sm padding-left-xs">杭州市迎泽区南内环街149号</view>
+                <view class="text-green text-sm padding-bottom-xs padding-left-xs">{{hospitainfo.hospitalTags}}</view>
+                <view class="text-black text-bold padding-bottom-xs padding-left-xs">{{hospitainfo.hospitalName}}</view>
+                <view class="text-black text-sm padding-left-xs">{{hospitainfo.address}}</view>
             </view>
             <view class="fr margin-top-lg margin-right-lg">
                 <el-button small="sm" round name="关注"
@@ -32,11 +32,11 @@
         </view>
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">联系电话</view>
-            <view class="text-sm text-blue">0377-283789</view>
+            <view class="text-sm text-blue">{{hospitainfo.contactPhone}}</view>
         </view>
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">地址</view>
-            <view class="text-sm text-blue">杭州市迎泽区南内环街149号</view>
+            <view class="text-sm text-blue">{{hospitainfo.address}}</view>
         </view>
         <view class="padding" style="width:100%;">
             <view class="text-black text-lg padding-tb-xs">评价列表</view>
