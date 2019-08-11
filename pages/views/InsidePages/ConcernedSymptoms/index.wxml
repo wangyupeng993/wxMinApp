@@ -9,12 +9,8 @@
 <view wx:if="{{symptoms.length > 0}}" class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
         <view wx:for="{{symptoms}}" wx:key="*/this"
-              class="padding-sm drug inline-block solid-bottom">
-            <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
-            <view class="fl">
-                <view class="padding-tb-sm text-lg">达芙文（阿达帕林凝胶）</view>
-                <view class="text-gray">法国高德美制药公司</view>
-            </view>
+              class="padding-sm drug inline-block solid-bottom text-indent-lg">
+            {{item.symptomName}}
         </view>
     </scroll-view>
 </view>

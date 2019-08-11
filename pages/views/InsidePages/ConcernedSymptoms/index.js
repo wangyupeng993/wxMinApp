@@ -17,7 +17,7 @@ Page({
                 const symptoms = respone.data.data.map(item => item)
                 const tipsText = symptoms.length > 0? '':'暂无您关注的病症......'
                 this.setData({symptoms,tipsText})
-                console.log(respone.data)
+                console.log(respone.data.data)
             })
             .catch(error => {
                 console.log(error)

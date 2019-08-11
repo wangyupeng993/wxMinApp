@@ -85,9 +85,9 @@ Page({
     },
     hospitaldetails (ev) {
         console.log(ev)
-        wx.navigateTo({
+        /*wx.navigateTo({
             url: '/pages/views/InsidePages/HospitalInfo/HospitalInfo'
-        })
+        })*/
     },
     classroom (ev) {
         console.log(ev)

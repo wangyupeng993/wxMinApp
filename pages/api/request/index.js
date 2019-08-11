@@ -1,6 +1,6 @@
 const wxRequest = require('../../../utils/request.js')
 const request = require('../../../utils/wxUploadFile.js')
-const URL = 'http://m.ykangk.com' // 测试接口
+const URL = 'https://m.ykangk.com' // 测试接口
 const FORMHEADER = {'content-type': 'application/x-www-form-urlencoded'}
 const JSONHEADER = {'content-type': 'application/json'}
 const service = {
