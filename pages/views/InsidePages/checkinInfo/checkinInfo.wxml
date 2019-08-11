@@ -121,6 +121,7 @@
             </view>
             <view class="btn-area margin-lr-sm margin-top-sm">
                 <button class="block bg-blue text-white round"
+                        disabled="{{idCardImageBack===''||idCardImageFront===''||hospitalLevel===''||medicaid===''||hospitalLicenses===''}}"
                         form-type="submit">认证</button>
             </view>
         </form>
@@ -259,6 +260,7 @@
             </view>
             <view class="btn-area margin-lr-sm margin-top-sm">
                 <button class="block bg-blue text-white round"
+                        disabled="{{logoImg === ''||hospitalId===''||doctorAcademicTitle===''||idCardImageBack===''||idCardImageFront===''||workYear===''||doctorLicense===''}}"
                         form-type="submit">认证</button>
             </view>
         </form>

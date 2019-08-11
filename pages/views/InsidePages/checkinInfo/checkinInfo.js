@@ -215,6 +215,16 @@ Page({
         const {value} = ev.detail
         const address = value.hospitalAddress || value.address
         let DiseaseIds = []
+        for (var item in value) {
+            if (value[item] === '') {
+                wx.showToast({
+                    title: '信息填写不完整，请完善信息！！！',
+                    image: '/pages/assets/images/icon/error.png',
+                    duration: 3000
+                })
+                return false
+            }
+        }
         const {checkin,idCardImageBack,idCardImageFront,
             medicaid,hospitalLevel,hospitalLicenses,
             hospitalId,doctorAcademicTitle,doctorLicense,workYear,logoImg} = this.data
