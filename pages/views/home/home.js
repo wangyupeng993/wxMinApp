@@ -10,7 +10,7 @@ Page({
         color: 'red',
         name: '找医生'
       }, {
-        url: '/pages/views/InsidePages/LookingDrugs/LookingDrugs',
+        url: '/pages/views/InsidePages/DrugsClass/DrugsClass',
         icon: '../../assets/images/home/drug@2x.png',
         badge: 1,
         name: '找药品'
@@ -52,11 +52,20 @@ Page({
               .catch(error => {
                   console.log(error)
               })
+          // 获取文章
           service.getHomeArticle()
               .then(respone => {
-                  this.setData({
-                      article: respone.data.data.map(item => item)
+                  const article = respone.data.data.map(item => {
+                      return {
+                          id: item.articleId,
+                          author: `作者：${item.articleAuthor}`,
+                          title: item.articleTitle,
+                          name: item.catalogName,
+                          catalogId: item.catalogId,
+                          image: ''
+                      }
                   })
+                  this.setData({article})
               })
               .catch(error => {
                   console.log(error)

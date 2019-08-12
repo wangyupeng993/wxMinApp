@@ -26,14 +26,14 @@
             </view>
         </scroll-view>
     </view>
-    <view class="course padding-lr-sm padding-tb-xs" wx:if="{{article > 0}}">
+    <view class="course padding-lr-sm padding-tb-xs" wx:if="{{article.length > 0}}">
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
             <view wx:for="{{article}}" wx:key="*/this"
                   class="course-list bg-white radius shadow-lg padding-bottom-lg margin-bottom-lg">
-                <navigator url="/pages/views/InsidePages/ClassroomInfo/ClassroomInfo" hover-class="none">
-                    <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg"></image>
-                    <view class="text-lg text-black padding-tb-sm padding-lr-lg">日常如何预防真菌感染</view>
-                    <view class="text-xs text-gray padding-lr-lg">何亮.浙江大学医学附属第二医院…</view>
+                <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
+                    <image src="{{item.image}}"></image>
+                    <view class="text-lg text-black padding-tb-sm padding-lr-lg">{{item.articleTitle}}</view>
+                    <view class="text-sm text-gray padding-lr-lg">作者：{{item.articleAuthor}}</view>
                 </navigator>
             </view>
         </scroll-view>

@@ -14,11 +14,11 @@ page{
 }
 
 .el-container{
-    height:100%;
+    height:99%;
 }
 
 .el-container .course{
-    height:92%;
+    height:85%;
 }
 
 .course .course-list image{

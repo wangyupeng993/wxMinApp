@@ -19,7 +19,7 @@
                    colour="#f5f5f5" text-colour="#333333" />
     </view>
 </view>
-<view class="padding-lg flex-sub text-center" wx:if="{{!focus}}">
+<!--<view class="padding-lg flex-sub text-center" wx:if="{{!focus}}">
     <el-button class="button-margin" round name="Shoes" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Sport wears" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Caps" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
@@ -28,8 +28,8 @@
     <el-button class="button-margin" round name="Apple" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Shoes" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
     <el-button class="button-margin" round name="Sport wears" colour="rgba(0,0,0,0.03)" text-colour="#333333" />
-</view>
-<view class="el-container" wx:if="{{focus}}">
+</view>-->
+<view class="el-container">
     <view class="flex text-center padding-lr-sm">
         <el-button class="basis-df" block name="药品" data-search-type="drug"
                     colour="{{searchtype === 'drug'? '': '#f1f1f1'}}"
@@ -49,44 +49,51 @@
             <view wx:for="{{searchResult}}" wx:key="*/this"
                   class="padding-sm drug inline-block solid-bottom"
                   wx:if="{{searchtype === 'drug'}}">
-                <image class="fl margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
-                <view class="fl">
-                    <view class="padding-tb-sm text-lg">达芙文（阿达帕林凝胶）</view>
-                    <view class="text-gray">法国高德美制药公司</view>
-                </view>
+                <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
+                    <image class="fl margin-right-sm" src="{{item.drugImgUrl}}"></image>
+                    <view class="fl">
+                        <view class="padding-tb-sm text-lg">{{item.drugName}}</view>
+                        <view class="text-gray">法国高德美制药公司</view>
+                        <view class="text-blue">￥{{item.price}}</view>
+                    </view>
+                </navigator>
             </view>
 
             <view wx:for="{{searchResult}}" wx:key="*/this"
                   class="padding-xs doctor inline-block solid-bottom"
                   wx:if="{{searchtype === 'doctor'}}">
-                <image class="fl margin-right-sm margin-top-lg"
-                       src="../../../assets/images/home/product@2x.png"></image>
-                <view class="fl">
-                    <view class="padding-tb-xs text-lg">霍莉（主治医生）</view>
-                    <view class="text-gray">皮肤科 妇幼保健院</view>
-                    <view class="text-gray">擅长 痘痘</view>
-                    <view>
-                        <text class="text-yellow cuIcon-favorfill"></text>
-                        <text class="text-gray">5.0</text>
-                        <text class="text-gray margin-left-sm">1801回答</text>
+                <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid=?{{item.doctorId}}">
+                    <image class="fl margin-right-sm margin-top-lg"
+                           src="../../../assets/images/home/product@2x.png"></image>
+                    <view class="fl">
+                        <view class="padding-tb-xs text-lg">霍莉（主治医生）</view>
+                        <view class="text-gray">皮肤科 妇幼保健院</view>
+                        <view class="text-gray">擅长 痘痘</view>
+                        <view>
+                            <text class="text-yellow cuIcon-favorfill"></text>
+                            <text class="text-gray">5.0</text>
+                            <text class="text-gray margin-left-sm">1801回答</text>
+                        </view>
+                        <view class="margin-top-sm">
+                            <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
+                            <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
+                            <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>
+                        </view>
                     </view>
-                    <view class="margin-top-sm">
-                        <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
-                        <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
-                        <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>
-                    </view>
-                </view>
+                </navigator>
             </view>
 
             <view wx:for="{{searchResult}}" wx:key="*/this"
                   class="padding-sm hospital inline-block solid-bottom"
                   wx:if="{{searchtype === 'hospital'}}">
-                <image class="fl margin-right-sm" src="{{item.image}}"></image>
-                <view class="fl">
-                    <view class="padding-tb-xs text-lg">{{item.hospitalName}}</view>
-                    <view class="text-gray">{{item.hospitalName}}</view>
-                    <view class="text-blue text-sm padding-top-xs">三级甲等</view>
-                </view>
+                <navigator url="/pages/views/InsidePages/HospitalInfo/HospitalInfo?hospitalid={{item.hospitalId}}">
+                    <image class="fl margin-right-sm" src="{{item.image}}"></image>
+                    <view class="fl">
+                        <view class="padding-tb-xs text-lg">{{item.hospitalName}}</view>
+                        <view class="text-gray">{{item.hospitalName}}</view>
+                        <view class="text-blue text-sm padding-top-xs">三级甲等</view>
+                    </view>
+                </navigator>
             </view>
 
         </scroll-view>

@@ -245,7 +245,17 @@ Page({
                         skillfulDiseaseIds:DiseaseIds,
                         hospitalId: hospitalId.hospitalId,...value
                     }).then(respone => {
-                        console.log(respone.data)
+                        const {code} = respone.data
+                        if (Number(code) === 200) {
+                            wx.showToast({
+                                title: '提交成功，待审核',
+                                icon: 'success',
+                                duration: 3000
+                            })
+                            setTimeout(() => {
+                                wx.navigateBack(-1)
+                            },3000)
+                        }
                     }).catch(error => {
                         console.log(error)
                     }) : service.hospitalsettledin({
@@ -256,7 +266,17 @@ Page({
                         hospitalLicenses: [hospitalLicenses],
                         ...value
                     }).then(respone => {
-                        console.log(respone.data)
+                        const {code} = respone.data
+                        if (Number(code) === 200) {
+                            wx.showToast({
+                                title: '提交成功，待审核',
+                                icon: 'success',
+                                duration: 3000
+                            })
+                            setTimeout(() => {
+                                wx.navigateBack(-1)
+                            },3000)
+                        }
                     }).catch(error => {
                         console.log(error)
                     })

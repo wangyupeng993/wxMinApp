@@ -11,7 +11,7 @@
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
         <view class="padding-sm inline-block solid-bottom shadow">
             <view class="fl doctor-image">
-                <image src="../../../assets/images/home/user.png"></image>
+                <image src="../../../assets/images/icon/yiyuan.png"></image>
             </view>
             <view class="fl padding-xs">
                 <view class="text-green text-sm padding-bottom-xs padding-left-xs">{{hospitainfo.hospitalTags}}</view>

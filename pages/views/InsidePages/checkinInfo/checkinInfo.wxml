@@ -224,6 +224,11 @@
                     <input type="number" placeholder="请输入医生电话" name="phone" />
                 </view>
                 <view class="padding-sm flex-sub solid-bottom">
+                    <view class="cu-bar bg-white">
+                        <view class="action">
+                            请选择上传类型：
+                        </view>
+                    </view>
                     <el-button bind:handleclick="getDiseaseIds"
                                class="button-margin margin-lr-xs"
                                attribute-value="{{item.id}}"

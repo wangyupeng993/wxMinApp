@@ -13,22 +13,22 @@
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
         <view class="Drugs-swiper">
             <swiper class="screen-swiper Drugs-swiper"  indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
-                <swiper-item wx:for="{{5}}" wx:key="*/this">
-                    <image src="../../../assets/images/home/product-2@2x.png" mode="aspectFill"></image>
+                <swiper-item wx:for="{{1}}" wx:key="*/this">
+                    <image src="{{druginfo.drugImgUrl}}" mode="aspectFill"></image>
                 </swiper-item>
             </swiper>
         </view>
         <view class="padding-tb-xs solid-bottom">
-            <view class="text-lg text-bold text-black padding-tb-sm padding-lr-lg">盐酸西替嗪片</view>
-            <view class="padding-lr-lg">
+            <view class="text-lg text-bold text-black padding-tb-sm padding-lr-lg">{{druginfo.drugName}}</view>
+            <!--<view class="padding-lr-lg">
                 <text class="text-sm text-blue margin-right-sm">$42</text>
                 <text class="text-xs text-black">$62</text>
-            </view>
+            </view>-->
         </view>
         <view class="padding-tb padding-lr-lg solid-bottom inline-block" style="width:100%;">
             <view class="fl">
-                <el-button samll="sm" name="4.5" colour="#3858D6" />
-                <text class="text-black margin-left-sm">Very Good</text>
+<!--                <el-button samll="sm" name="4.5" colour="#3858D6" />-->
+                <text class="margin-left-sm text-blue">￥{{druginfo.price}}</text>
             </view>
             <view class="fr text-blue margin-top-xs">
                 <text class="margin-right-sm">发起拼团</text>
@@ -38,8 +38,7 @@
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">药品说明</view>
             <view class="text-sm text-gray padding-tb-xs text-justify line-height">
-                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-                <text class="text-bold text-olive">More</text>
+                {{druginfo.drugDescription}}
             </view>
         </view>
         <view class="padding-lg solid-bottom text-lg">选择规格</view>

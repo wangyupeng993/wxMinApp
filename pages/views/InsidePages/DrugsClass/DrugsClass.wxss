@@ -2,7 +2,7 @@
     top:20rpx;
 }
 .el-container{
-    height:100%;
+    height:99%;
 }
 
 .basis-df image{
@@ -17,5 +17,5 @@
 }
 
 .class-product{
-    height:91%;
+    height:83%;
 }

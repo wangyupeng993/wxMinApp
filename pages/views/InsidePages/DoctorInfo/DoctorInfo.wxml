@@ -12,12 +12,12 @@
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
         <view class="padding-sm inline-block solid-bottom shadow">
             <view class="fl doctor-image">
-                <image src="../../../assets/images/home/user.png"></image>
+                <image src="{{doctorinfo.doctorLogoUrl}}"></image>
             </view>
             <view class="fl padding-xs">
-                <view class="text-green text-sm padding-bottom-xs padding-left-xs">皮肤科 主治医师</view>
-                <view class="text-black text-bold padding-bottom-xs padding-left-xs">霍利</view>
-                <view class="text-black text-sm padding-left-xs">浙江大学附属第二医院</view>
+                <view class="text-green text-sm padding-bottom-xs padding-left-xs">{{doctorinfo.academicTitle}}</view>
+                <view class="text-black text-bold padding-bottom-xs padding-left-xs">{{doctorinfo.doctorName}}</view>
+                <view class="text-black text-sm padding-left-xs">{{doctorinfo.hospitalName}}</view>
             </view>
             <view class="fr margin-top-lg margin-right-lg">
                 <el-button small="sm" round name="关注"
@@ -27,7 +27,7 @@
         <view class="flex  p-xs padding-tb-sm mb-sm solid-bottom">
             <view class="flex-treble padding-sm margin-lr-xs">
                 <view class="fl padding-xs">
-                    <view class="text-black text-bold text-lg padding-bottom-xs text-center">10年</view>
+                    <view class="text-black text-bold text-lg padding-bottom-xs text-center">{{doctorinfo.workAge}}</view>
                     <view class="text-black text-xs padding-left-xs">从业年限</view>
                 </view>
             </view>
@@ -47,19 +47,19 @@
         <view class="flex padding-sm solid-bottom">
             <view class="flex-treble margin-lr-xs text-center">
                 <checkbox-group class="margin-right-sm inline-block">
-                    <checkbox class="blue"></checkbox>
+                    <checkbox class="blue" checked disabled></checkbox>
                 </checkbox-group>
                 <text class="text-xs">平时响应：1小时</text>
             </view>
             <view class="flex-treble margin-lr-xs text-center">
                 <checkbox-group class="margin-right-sm inline-block">
-                    <checkbox class="blue"></checkbox>
+                    <checkbox class="blue" checked disabled></checkbox>
                 </checkbox-group>
                 <text class="text-xs">三甲医院</text>
             </view>
             <view class="flex-treble margin-lr-xs text-center">
                 <checkbox-group class="margin-right-sm inline-block">
-                    <checkbox class="blue"></checkbox>
+                    <checkbox class="blue" checked disabled></checkbox>
                 </checkbox-group>
                 <text class="text-xs">医师认证</text>
             </view>
@@ -67,16 +67,8 @@
         <view class="padding solid-bottom">
             <view class="text-black text-bold text-lg padding-bottom-sm padding-left-xs">擅长疾病</view>
             <view>
-                <el-button class="margin-lr-xs" small="sm" round name="湿疹"
-                           text-colour="#ffffff"
-                           colour="#3858D6" />
-                <el-button class="margin-lr-xs" small="sm" round name="炎症"
-                           text-colour="#ffffff"
-                           colour="#3858D6" />
-                <el-button class="margin-lr-xs" small="sm" round name="皮疹"
-                           text-colour="#ffffff"
-                           colour="#3858D6" />
-                <el-button class="margin-lr-xs" small="sm" round name="青春痘"
+                <el-button wx:for="{{doctorinfo.skillfulDiseases}}" wx:key="*/this"
+                           class="margin-lr-xs" small="sm" round name="{{item}}"
                            text-colour="#ffffff"
                            colour="#3858D6" />
             </view>
@@ -84,8 +76,8 @@
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">个人简介</view>
             <view class="text-sm text-gray padding-tb-xs text-justify line-height">
-                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-                <text class="text-bold text-olive">More</text>
+                {{doctorinfo.description}}
+<!--                <text class="text-bold text-olive">More</text>-->
             </view>
         </view>
         <view class="padding" style="width:100%;">

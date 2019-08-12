@@ -1,35 +1,8 @@
-<!--
-<view class="el-header">
-    <navigator open-type="navigateBack" hover-class="none">
-        <el-button small="lg" icon="cuIcon-back_android"
-                   text-colour="#ffffff"
-                   colour="rgba(255,255,255,0)" />
-    </navigator>
-</view>
-
-<view class="el-container">
-    <view class="padding-xs flex-sub text-center flex-center">
-        <view>
-            <el-button animation="{{Animation}}"
-                       class="button-margin"
-                       attribute-value="{{item.id}}"
-                       wx:for="{{Doctorlist}}"
-                       small="sm" wx:key="*/this"
-                       round name="{{item.name}}"
-                       img-url="{{item.img}}"
-                       colour="rgba(255,255,255,0)" />
-        </view>
-    </view>
-    <view class="ps-bottom">
-        <swiper-type image-effect="RecommendCard" bind:handleclick="handleclick" class="shadow"></swiper-type>
-    </view>
-</view>-->
-
 <cover-view class="el-header">
     <cover-view bind:tap="backPrevPage" class="padding-sm text-lg">返回</cover-view>
 </cover-view>
 <map id="myMap"
-     bindcallouttap="lookhospital"
+     bindmarkertap="lookhospital"
      markers="{{markers}}"
      style="width:100%;height:100%;"
      longitude="{{longitude}}"

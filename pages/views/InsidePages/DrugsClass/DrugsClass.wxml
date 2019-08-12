@@ -7,6 +7,17 @@
 </view>
 
 <view class="el-container">
+    <view class="cu-bar search">
+        <view class="search-form">
+            <text class="cuIcon-search"></text>
+            <input type="text" bindinput="searchInputVal"
+                   placeholder="搜索药品"
+                   confirm-type="search" />
+            <el-button round name="搜索" bind:handleclick="searchInfo"
+                       disabled="{{searchtype === 'hospital'}}"
+                       colour="#f5f5f5" text-colour="#333333" />
+        </view>
+    </view>
         <view class="padding-lr-sm padding-tb-xs">
             <scroll-view scroll-x class="nav padding-bottom-sm" scroll-with-animation>
                 <view wx:for="{{navTab}}" wx:key="*/this" data-item-id="{{item.catalogId}}"
@@ -16,7 +27,7 @@
                 </view>
             </scroll-view>
         </view>
-        <view class="class-product padding-tb-xs" wx:if="{{inDrugs.length > 0 && outDrugs.length > 0}}">
+        <view class="class-product padding-tb-xs" wx:if="{{inDrugs.length > 0 || outDrugs.length > 0}}">
             <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
                 <view class="padding-lr-sm flex flex-wrap" wx:if="{{inDrugs.length > 0}}">
                     <view class="text-center margin-bottom-sm padding-bottom-sm padding-top-sm text-xl solid-top solid-bottom"
@@ -24,10 +35,10 @@
                         内服
                     </view>
                     <view class="basis-df radius padding-bottom" wx:for="{{inDrugs}}" wx:key="*/this">
-                        <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
-                            <image src="../../../assets/images/home/product@2x.png"></image>
-                            <view class="text-indent-lg padding-tb-xs">¥34.00</view>
-                            <view class="text-indent-lg">盐酸西替嗪片</view>
+                        <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
+                            <image src="{{item.drugImgUrl}}"></image>
+                            <view class="text-indent-lg padding-tb-xs text-blue">¥{{item.price}}</view>
+                            <view class="text-indent-lg">{{item.drugName}}</view>
                         </navigator>
                     </view>
                 </view>
@@ -37,7 +48,7 @@
                         外用
                     </view>
                     <view class="basis-df radius padding-bottom" wx:for="{{outDrugs}}" wx:key="*/this">
-                        <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo" hover-class="none">
+                        <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
                             <image src="../../../assets/images/home/product@2x.png"></image>
                             <view class="text-indent-lg padding-tb-xs">¥34.00</view>
                             <view class="text-indent-lg">盐酸西替嗪片</view>

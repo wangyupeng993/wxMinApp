@@ -79,6 +79,14 @@ const service = {
             data
         })
     },
+    // 获取医生信息
+    getDoctorsinfo: (data = {}) => {
+        return wxRequest({
+            url:`${URL}/doctor/${data.doctorid}`,
+            method: 'GET',
+            header: {...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')}
+        })
+    },
     // 获取附近医院列表
     getHospitals: (data = {}) => {
         return wxRequest({
@@ -150,10 +158,26 @@ const service = {
             data
         })
     },
+    // 获取药品信息接口
+    getDrugInfo: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/drug/${data.drugid}`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')}
+        })
+    },
     // 搜索药品接口
     searchdrugs: (data = {}) => {
         return wxRequest({
             url: `${URL}/index/search/drugs`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    searchInOutdrugs: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/drug/find`,
             method: 'POST',
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
@@ -201,6 +225,15 @@ const service = {
             url: `${URL}/article/catalogs`,
             method: 'GET',
             header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 获取文章列表
+    getArticleslist: (data ={}) => {
+        return wxRequest({
+            url: `${URL}/articles`,
+            method: 'post',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
     },

@@ -1,11 +1,28 @@
+const service = require('../../../api/request/index.js')
 Page({
-    data: {},
-    onLoad () {},
+    data: {
+        doctorinfo: {}
+    },
+    onLoad (ev) {
+        const {doctorid} = ev
+        if (doctorid) {
+            this.getDoctorsinfo({doctorid})
+        }
+    },
     onReady () {},
     onShow () {},
     onUnload () {},
-    loadmore () {
-        console.log('加载更多')
+    loadmore () {},
+    getDoctorsinfo (params) {
+        service.getDoctorsinfo(params)
+            .then(respone => {
+                this.setData({
+                    doctorinfo:respone.data.data
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     // 分享
     onShareAppMessage () {

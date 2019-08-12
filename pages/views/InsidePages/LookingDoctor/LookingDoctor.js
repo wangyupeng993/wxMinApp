@@ -57,40 +57,20 @@ Page({
                     pageNo: 1,
                     pageSize: 99
                 }).then(respone => {
-                    const markers = respone.data.data.map(item => item)
+                    const markers = respone.data.data.map(item => {
+                        return {
+                            id:item.doctorId,
+                            latitude: Number(item.addressLatitude),
+                            longitude: Number(item.addressLongitude),
+                            iconPath: item.doctorLogoUrl,
+                            width: 50,
+                            height: 50
+                        }
+                    })
                     this.setData({markers,latitude,longitude})
                     }).catch(error => {
                         console.log(error)
                     })
-                /*qqmapsdk.search({
-                    keyword: 'kfc',
-                    location: `${latitude},${longitude}`,  //设置周边搜索中心点
-                    success: (respone) => {
-                        markers = respone.data.map(item => {
-                            return {
-                                id: item.id,
-                                title: item.title,
-                                latitude: item.location.lat,
-                                longitude: item.location.lng,
-                                iconPath: '../../../assets/images/home/user.png',
-                                width: 50,
-                                height: 50,
-                                callout:{
-                                    content: `${item.title} \n地址：${item.address} \n电话：${item.tel}`,
-                                    color: '#0081ff',
-                                    padding: 10,
-                                    borderRadius: 6
-                                }
-                            }
-                        })
-                        this.setData({
-                            markers,
-                            latitude,
-                            longitude
-                        })
-                    },
-                    fail: (error) => {}
-                })*/
             },
             fail: (error) => {
                 wx.showModal({
@@ -113,12 +93,11 @@ Page({
         })
     },
     // 查看医生详情
-    lookDoctor (params) {
-        const {markerId} = params
+    lookDoctor (ev) {
+        const {markerId} = ev
         wx.navigateTo({
-            url: '/pages/views/InsidePages/DoctorInfo/DoctorInfo'
+            url: `/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid=${markerId}`
         })
-        console.log(markerId)
     },
     // 按钮动效
     AnimationScale () {

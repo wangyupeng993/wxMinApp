@@ -4,15 +4,11 @@ Page({
         navClassTab: 0,
         navTab: [],
         inDrugs: [],
-        outDrugs: []
+        outDrugs: [],
+        searchname: ''
     },
     onLoad (ev) {
-        const {catalogId} = ev
-        this.setData({
-            navClassTab: Number(catalogId)
-        })
         this.getDrugsclass()
-        this.getDrugsclasslist({catalogId:Number(catalogId)})
     },
     onReady () {},
     onShow () {},
@@ -23,7 +19,8 @@ Page({
         service.getDrugsclass()
             .then(respone => {
                 const navTab = respone.data.data.map(item => item)
-                this.setData({navTab})
+                this.setData({navTab,navClassTab: Number(navTab[0].catalogId)})
+                this.getDrugsclasslist({catalogId:Number(navTab[0].catalogId)})
             })
             .catch(error => {
                 console.log(error)
@@ -45,6 +42,24 @@ Page({
             this.setData({navClassTab: itemId})
             this.getDrugsclasslist({catalogId: itemId})
         }
+    },
+    searchInfo (ev) {
+        service.searchInOutdrugs({name: this.data.searchname})
+            .then(respone => {
+                const inDrugs = respone.data.data.map(item => item)
+                this.setData({
+                    inDrugs,
+                    outDrugs: [],
+                    navClassTab: 0
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    searchInputVal (ev) {
+        const {value} = ev.detail
+        this.setData({searchname: value})
     },
     // 分享
     onShareAppMessage () {

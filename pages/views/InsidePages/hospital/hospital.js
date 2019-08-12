@@ -61,13 +61,7 @@ Page({
                             latitude: item.addressLatitude,
                             longitude: item.addressLongitude,
                             width: 60,
-                            height: 60,
-                            callout:{
-                                content: `${item.hospitalName}`,
-                                color: '#0081ff',
-                                padding: 10,
-                                borderRadius: 6
-                            }
+                            height: 60
                         }
                     })
                     this.setData({markers,latitude,longitude})

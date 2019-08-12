@@ -1,25 +1,25 @@
 <!-- {{DotStyle?'square-dot':'round-dot'}} -->
-<swiper wx:if="{{imageEffect === 'screen'}}" class="screen-swiper shadow shadow-lg" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'screen'&&swiperList.length > 0}}" class="screen-swiper shadow shadow-lg" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key="*/this">
-    <image bind:tap="onHandleClick" src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}" data-item="{{item}}"></image>
+    <image bind:tap="onHandleClick" src="{{item.image}}" mode="aspectFill" data-item="{{item}}"></image>
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'card'}}"  class="card-swiper shadow shadow-lg" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'card'&&swiperList.length > 0}}"  class="card-swiper shadow shadow-lg" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
-      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <image src="{{item.image}}" mode="aspectFill"></image>
     </view>
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'ImageText'}}"  class="card-swiper image-text-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'ImageText'&&swiperList.length > 0}}"  class="card-swiper image-text-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
-      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-      <view class="text-df text-indent">专注视觉的小程序组件库</view>
+      <image src="{{item.image}}" mode="aspectFill"></image>
+      <view class="text-df text-indent">{{item.title}}</view>
       <view class="text-sm text-indent">
-        <text class="text-grey">何亮.浙江大学医学附属第二医院…</text>
+        <text class="text-grey">{{item.author}}</text>
       </view>
       <view class="text-xs text-indent">
         <text class="text-blue">¥1.00</text>
@@ -29,7 +29,7 @@
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'VisitingCard'}}"  class="card-swiper visiting-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
+<swiper wx:if="{{imageEffect === 'VisitingCard'&&swiperList.length > 0}}"  class="card-swiper visiting-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
       <view class="fl padding-xs visiting-card-image">
@@ -49,7 +49,7 @@
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'RecommendCard'}}"  class="card-swiper recommend-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
+<swiper wx:if="{{imageEffect === 'RecommendCard'&&swiperList.length > 0}}"  class="card-swiper recommend-card-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view bind:tap="onHandleClick" class="swiper-item bg-white card-shadow" data-id="{{item.id}}">
       <view class="fl padding-sm recommend-card-image">

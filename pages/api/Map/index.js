@@ -8,11 +8,9 @@ const WXMAP = {
             qqmapsdk.search({
                 ...data,
                 success: respone => {
-                    console.log(respone.data)
                     resolve(respone)
                 },
                 fail: error => {
-                    console.log(error)
                     reject(error)
                 }
             })
@@ -26,6 +24,19 @@ const WXMAP = {
                     resolve(respone)
                 },
                 fail:error => {
+                    reject(error)
+                }
+            })
+        })
+    },
+    direction: (data = {}) => {
+        return new Promise((reslove, reject) => {
+            qqmapsdk.direction({
+                ...data,
+                success: respone => {
+                    reslove(respone)
+                },
+                fail: error => {
                     reject(error)
                 }
             })
