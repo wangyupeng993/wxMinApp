@@ -22,7 +22,11 @@
     "pages/views/InsidePages/checkinInfo/checkinInfo",
     "pages/views/InsidePages/article/article",
     "pages/views/InsidePages/ConcernedDoctors/index",
-    "pages/views/InsidePages/ConcernedSymptoms/index"
+    "pages/views/InsidePages/ConcernedSymptoms/index",
+    "pages/views/InsidePages/Collection/index",
+    "pages/views/InsidePages/Collectionclassroom/index",
+    "pages/views/InsidePages/Collectiondurgs/index",
+    "pages/views/InsidePages/RoutePlanning/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,7 +37,7 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于获取周边的搜索信息"
+      "desc": "你的位置信息将用于获取周边的搜索信息以及规划路线"
     }
   },
   "sitemapLocation": "sitemap.json"

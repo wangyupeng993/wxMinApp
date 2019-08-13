@@ -1,15 +1,14 @@
-<view class="text-center padding-sm">
+<view class="el-header text-center padding-sm">
     <navigator class="fl" open-type="navigateBack" hover-class="none">
         <el-button small="lg" icon="icon cuIcon-back_android"
                    text-colour="#000000"
                    colour="rgba(255,255,255,0)" />
     </navigator>
     <view class="title">医院详情</view>
-    <view class="fr icon cuIcon-favor padding-xs margin-right-lg"></view>
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
-        <view class="padding-sm inline-block solid-bottom shadow">
+        <view class="padding-sm inline-block solid-bottom shadow margin-top-xl">
             <view class="fl doctor-image">
                 <image src="../../../assets/images/icon/yiyuan.png"></image>
             </view>
@@ -18,6 +17,7 @@
                 <view class="text-black text-bold padding-bottom-xs padding-left-xs">{{hospitainfo.hospitalName}}</view>
                 <view class="text-black text-sm padding-left-xs">{{hospitainfo.address}}</view>
             </view>
+            <view class="fr icon cuIcon-favor padding-xs margin-right-sm margin-top-sm"></view>
             <view class="fr margin-top-lg margin-right-lg">
                 <el-button small="sm" round name="关注"
                            colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
@@ -65,6 +65,7 @@
 
 <view class="questions">
     <el-button block name="查看地图"
+               bind:handleclick="SeeRoute"
                text-colour="#ffffff"
                colour="#3858D6" />
 </view>

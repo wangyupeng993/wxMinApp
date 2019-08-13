@@ -1,0 +1,23 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg margin-top-sm inline-block">收藏讲堂</view>
+</view>
+<view class="el-container padding-lr-sm" wx:if="{{classroom.length > 0}}">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view wx:for="{{classroom}}" wx:key="*/this"
+              class="course-list bg-white radius shadow-lg padding-bottom-lg margin-bottom-lg">
+            <navigator url="/pages/views/InsidePages/ClassroomInfo/ClassroomInfo" hover-class="none">
+                <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg"></image>
+                <view class="text-lg text-black padding-tb-sm padding-lr-lg">日常如何预防真菌感染</view>
+                <view class="text-xs text-gray padding-lr-lg">何亮.浙江大学医学附属第二医院…</view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+<view wx:else class="text-center text-xl text-grey text-bold">
+    暂无您收藏的讲堂......
+</view>

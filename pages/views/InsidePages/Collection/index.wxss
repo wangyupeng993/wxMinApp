@@ -1,0 +1,9 @@
+.el-header{
+    top:30rpx;
+}
+.el-header .title{
+    margin-left:-130rpx;
+}
+.el-container{
+    height:100%;
+}

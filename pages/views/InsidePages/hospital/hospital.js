@@ -86,12 +86,12 @@ Page({
                     },
                     fail: (error) => {}
                 })
-
             }
         })
     },
     lookhospital (ev) {
         const {markerId} = ev
+        console.log(ev)
         wx.navigateTo({
             url: `/pages/views/InsidePages/HospitalInfo/HospitalInfo?hospitalid=${markerId}`
         })

@@ -254,6 +254,24 @@ const service = {
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
+    },
+    // 获取用户收藏药品
+    getCollectiondurgs: (data) => {
+        return wxRequest({
+            url: `${URL}/user/drugs`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 获取用户收藏讲堂
+    getCollectionclassroom: (data) => {
+        return wxRequest({
+            url: `${URL}/user/forums`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
     }
 }
 module.exports = service

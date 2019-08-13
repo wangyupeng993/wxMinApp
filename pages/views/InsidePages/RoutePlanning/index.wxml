@@ -1,0 +1,9 @@
+<cover-view class="el-header">
+    <cover-view bind:tap="backPrevPage" class="padding-sm text-lg">返回</cover-view>
+</cover-view>
+<map style="width:100%;height:100%;"
+        longitude="{{longitude}}" latitude="{{latitude}}"
+        scale='14'
+        polyline="{{polyline}}"
+        show-location>
+</map>

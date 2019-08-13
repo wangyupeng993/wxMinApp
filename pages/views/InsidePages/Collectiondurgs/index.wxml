@@ -1,0 +1,24 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg margin-top-sm inline-block">收藏药品</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view class="padding-lr-sm flex flex-wrap" wx:if="{{durgs.length > 0}}">
+            <view class="basis-df radius padding-bottom" wx:for="{{durgs}}" wx:key="*/this">
+                <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
+                    <image src="/pages/assets/images/home/product@2x.png"></image>
+                    <view class="text-indent-lg padding-tb-xs text-blue">¥{{item}}</view>
+                    <view class="text-indent-lg">{{item}}</view>
+                </navigator>
+            </view>
+        </view>
+        <view wx:else class="text-center text-xl text-grey text-bold">
+            暂无您收藏的药品......
+        </view>
+    </scroll-view>
+</view>

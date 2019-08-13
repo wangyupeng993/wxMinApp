@@ -1,3 +1,9 @@
+.el-header {
+    top:30rpx;
+}
+.el-header .title{
+    margin-left:-140rpx;
+}
 .icon{
     font-size:52rpx;
 }
@@ -10,7 +16,7 @@
 
 .el-container{
     position:relative;
-    height:84%;
+    height:94%;
 }
 
 .el-container view:nth-of-type(1).inline-block{
