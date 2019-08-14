@@ -1,0 +1,19 @@
+<view class="el-header text-center">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="cuIcon-back_android"
+                   text-colour="#333333"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-black text-lg margin-top-sm"></view>
+</view>
+
+<view class="el-container padding-lg">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view class="text-lg text-bold padding-tb-sm">{{article.articleTitle}}</view>
+        <view class="text-sm padding-tb-sm">作者：
+            <text class="text-cyan">{{article.articleAuthor}}</text>
+            <text class="text-cyan margin-left-sm">{{article.authorDescription}}</text>
+        </view>
+        <rich-text nodes="{{html}}"></rich-text>
+    </scroll-view>
+</view>

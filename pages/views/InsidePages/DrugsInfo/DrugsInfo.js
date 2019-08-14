@@ -7,6 +7,7 @@ Page({
     onLoad (ev) {
         const {drugid} = ev
         if (drugid) {
+            this.setData({drugid})
             this.getDrugInfo({drugid})
         }
     },
@@ -22,6 +23,17 @@ Page({
                     druginfo:respone.data.data
                 })
                 console.log(respone.data.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    drugcollect () {
+        const {druginfo} = this.data
+        if (druginfo.isCollect) return false
+        service.drugcollect({drugId: this.data.drugid, isCollect: true})
+            .then(respone => {
+                console.log(respone.data)
             })
             .catch(error => {
                 console.log(error)

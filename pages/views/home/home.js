@@ -98,14 +98,17 @@ Page({
             url: '/pages/views/InsidePages/HospitalInfo/HospitalInfo'
         })*/
     },
+    articledetails (ev) {
+        const {item} = ev.detail
+        wx.navigateTo({
+            url: `/pages/views/InsidePages/articledetails/index?articleid=${item.id}`
+        })
+    },
     classroom (ev) {
         console.log(ev)
         wx.navigateTo({
             url: '/pages/views/InsidePages/ClassroomInfo/ClassroomInfo'
         })
-    },
-    loadmore () {
-        console.log('加载更多')
     },
     // 分享
     onShareAppMessage () {

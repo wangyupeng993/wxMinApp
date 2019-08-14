@@ -20,7 +20,8 @@
                 {{druginfo.drugName}}
             </view>
             <el-button class="fr margin-right-lg" small="lg" icon="icon cuIcon-favor"
-                       text-colour="#000000"
+                       text-colour="{{druginfo.isCollect?'#8dc63f':'#000000'}}"
+                       bind:handleclick="drugcollect"
                        colour="rgba(255,255,255,1)" />
             <!--<view class="padding-lr-lg">
                 <text class="text-sm text-blue margin-right-sm">$42</text>

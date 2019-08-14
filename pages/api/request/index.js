@@ -237,6 +237,32 @@ const service = {
             data
         })
     },
+    // 获取文章内容
+    getArticlecontent: (data) => {
+        return wxRequest({
+            url: `${URL}/article/${data.articleid}`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')}
+        })
+    },
+    // 关注医生
+    doctorcollect: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/doctor/collect`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 收藏药品
+    drugcollect: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/drug/collect`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
     // 个人关注医生
     getconcernedDoctors: (data) => {
         return wxRequest({

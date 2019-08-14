@@ -1,0 +1,14 @@
+.el-header {
+    top:20rpx;
+}
+.el-header .icon{
+    font-size:52rpx;
+}
+.el-header .title{
+    display:inline-block;
+    margin-left:-140rpx;
+}
+
+.el-container{
+    height:100%;
+}

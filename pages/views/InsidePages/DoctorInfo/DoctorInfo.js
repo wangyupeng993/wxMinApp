@@ -24,6 +24,22 @@ Page({
                 console.log(error)
             })
     },
+    doctorcollect () {
+        const {doctorinfo} = this.data
+        if (doctorinfo.isCollect) return false
+        service.doctorcollect({doctorId: doctorinfo.doctorId, isCollect: true})
+            .then(respone => {
+                const {code} = respone.data
+                if (Number(code) === 200 && code) {
+                    wx.showToast({
+                        title: '关注成功',
+                        icon: 'success',
+                        duration: 2000
+                    })
+                }
+            })
+            .catch(error => {})
+    },
     // 分享
     onShareAppMessage () {
         return {

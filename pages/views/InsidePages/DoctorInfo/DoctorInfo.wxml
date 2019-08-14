@@ -18,9 +18,8 @@
                 <view class="text-black text-bold padding-bottom-xs padding-left-xs">{{doctorinfo.doctorName}}</view>
                 <view class="text-black text-sm padding-left-xs">{{doctorinfo.hospitalName}}</view>
             </view>
-            <view class="fr icon cuIcon-favor padding-xs margin-right-lg margin-top-sm"></view>
             <view class="fr margin-top-lg margin-right-lg">
-                <el-button small="sm" round name="关注"
+                <el-button small="sm" round name="{{doctorinfo.isCollect?'已关注':'关注'}}" bind:handleclick="doctorcollect"
                            colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
             </view>
         </view>

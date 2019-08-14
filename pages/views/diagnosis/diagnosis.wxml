@@ -3,9 +3,9 @@
         <el-button small="lg" icon="cuIcon-back_android"
                    colour="rgba(255,255,255,0)" />
     </navigator>
-    <view class="title text-white text-bold text-lg">AI检测，科学自诊</view>
-    <el-button class="fr" small="lg" icon="cuIcon-question"
-               colour="rgba(255,255,255,0)" />
+    <view class="title text-white text-bold text-lg margin-top-sm">AI检测，科学自诊</view>
+    <!--<el-button class="fr" small="lg" icon="cuIcon-question"
+               colour="rgba(255,255,255,0)" />-->
 </view>
 
 <camera wx:if="{{openCamera}}" flash="off" binderror="error" class="openCamera">

@@ -10,13 +10,17 @@
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
         <view wx:for="{{doctors}}" wx:key="*/this"
               class="padding-xs doctor inline-block solid-bottom">
-            <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo" hover-class="none">
+            <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}" hover-class="none">
                 <image class="fl margin-right-sm margin-top-lg"
-                       src="../../../assets/images/home/product@2x.png"></image>
+                       src="{{item.doctorLogoUrl}}"></image>
                 <view class="fl">
-                    <view class="padding-tb-xs text-lg">霍莉（主治医生）</view>
-                    <view class="text-gray">皮肤科 妇幼保健院</view>
-                    <view class="text-gray">擅长 痘痘</view>
+                    <view class="padding-tb-xs text-lg">{{item.doctorName}}（{{item.academicTitle}}）</view>
+                    <view class="text-gray">{{item.department}} {{item.hospitalName}}</view>
+                    <view class="inline-block text-gray">
+                        <text>擅长:</text>
+                        <text wx:for="{{item.skillfulDiseases}}" wx:for-item="items" wx:key="*/this"
+                        class="inline-block margin-lr-xs">{{items}}</text>
+                    </view>
                     <view>
                         <text class="text-yellow cuIcon-favorfill"></text>
                         <text class="text-gray">5.0</text>

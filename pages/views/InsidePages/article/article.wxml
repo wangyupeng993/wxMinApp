@@ -30,7 +30,7 @@
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
             <view wx:for="{{article}}" wx:key="*/this"
                   class="course-list bg-white radius shadow-lg padding-bottom-lg margin-bottom-lg">
-                <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
+                <navigator url="/pages/views/InsidePages/articledetails/index?articleid={{item.articleId}}" hover-class="none">
                     <image src="{{item.image}}"></image>
                     <view class="text-lg text-black padding-tb-sm padding-lr-lg">{{item.articleTitle}}</view>
                     <view class="text-sm text-gray padding-lr-lg">作者：{{item.articleAuthor}}</view>

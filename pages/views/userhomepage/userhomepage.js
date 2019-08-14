@@ -63,6 +63,7 @@ Page({
             })
     },
     getPhoneNumber (params) {
+        console.log(params)
         const {userInfo} = this.data
         const {encryptedData, iv} = params.detail
         this.getUserPhone({

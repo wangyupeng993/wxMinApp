@@ -1,6 +1,6 @@
 <view class="el-relative" wx:if="{{doctor !== '' && doctor &&doctor !== null}}">
     <view class="el-container">
-        <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
+        <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
             <navigator url="/pages/views/InsidePages/search/search" hover-class="none">
                 <view class="cu-bar search">
                     <view class="search-form">
@@ -48,13 +48,15 @@
                 </view>
                 <view class="cu-list grid col-5 no-border" style="border:none;">
                     <view class="cu-item" wx:for="{{follow}}" wx:key>
-                        <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo" hover-class="none">
-                            <image src="../../assets/images/home/user.png" style="border-radius:50%;"></image>
-                            <text>张盛宇</text>
+                        <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}" hover-class="none">
+                            <image src="{{item.doctorLogoUrl}}" style="border-radius:50%;"></image>
+                            <text class="text-cut">{{item.doctorName}}</text>
                         </navigator>
                     </view>
                     <view class="cu-item">
-                        <view class="follow inline-block text-blue text-center text-lg cuIcon-add"></view>
+                        <navigator url="/pages/views/InsidePages/LookingDoctor/LookingDoctor" hover-class="none">
+                            <view class="follow inline-block text-blue text-center text-lg cuIcon-add"></view>
+                        </navigator>
                     </view>
                 </view>
             </view>
@@ -65,7 +67,7 @@
                         <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,1)" />
                     </navigator>
                 </view>
-                <swiper-type bind:handleclick="hospitaldetails"
+                <swiper-type bind:handleclick="articledetails"
                              swiper-list="{{article}}"
                              image-effect="ImageText"></swiper-type>
             </view>
