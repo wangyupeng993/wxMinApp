@@ -72,9 +72,16 @@ Page({
               })
           service.getHomePhysician()
               .then(respone => {
-                  this.setData({
-                      forums: respone.data.data.map(item => item)
+                  const forums = respone.data.data.map(item => {
+                      return {
+                          id: item.forumId,
+                          author: `${item.doctorName}.${item.hospitalName}`,
+                          title: item.forumTitle,
+                          image: item.logoUrl,
+                          money: `¥${item.forumPrice}`
+                      }
                   })
+                  this.setData({forums})
               })
               .catch(error => {
                   console.log(error)
@@ -104,10 +111,10 @@ Page({
             url: `/pages/views/InsidePages/articledetails/index?articleid=${item.id}`
         })
     },
-    classroom (ev) {
-        console.log(ev)
+    classroominfo (ev) {
+        const {item} = ev.detail
         wx.navigateTo({
-            url: '/pages/views/InsidePages/ClassroomInfo/ClassroomInfo'
+            url: `/pages/views/InsidePages/ClassroomInfo/ClassroomInfo?forumid=${item.id}`
         })
     },
     // 分享

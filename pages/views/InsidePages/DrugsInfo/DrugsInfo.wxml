@@ -33,10 +33,10 @@
 <!--                <el-button samll="sm" name="4.5" colour="#3858D6" />-->
                 <text class="margin-left-sm text-blue">￥{{druginfo.price}}</text>
             </view>
-            <view class="fr text-blue margin-top-xs">
+            <!--<view class="fr text-blue margin-top-xs">
                 <text class="margin-right-sm">发起拼团</text>
                 <text class="text-sm cuIcon-question"></text>
-            </view>
+            </view>-->
         </view>
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">药品说明</view>
@@ -54,7 +54,12 @@
     </scroll-view>
 </view>
 <view class="questions">
-    <view class="flex flex-wrap">
+    <view class="flex">
+        <view class="basis-df">
+            <navigator url="/pages/views/InsidePages/ShoppingCart/ShoppingCart" hover-class="none">
+                <el-button block name="发起拼团" colour="#e54d42" text-colour="#ffffff" />
+            </navigator>
+        </view>
         <view class="basis-df">
             <navigator url="/pages/views/InsidePages/ShoppingCart/ShoppingCart" hover-class="none">
                 <el-button block name="加入购物车" colour="#E1E1E1" text-colour="#333333" />

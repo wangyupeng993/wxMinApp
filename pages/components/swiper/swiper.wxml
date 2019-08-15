@@ -13,7 +13,9 @@
   </swiper-item>
 </swiper>
 
-<swiper wx:if="{{imageEffect === 'ImageText'&&swiperList.length > 0}}"  class="card-swiper image-text-swiper" bindchange="cardSwiper" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
+<swiper wx:if="{{imageEffect === 'ImageText'&&swiperList.length > 0}}"  class="card-swiper image-text-swiper"
+        bindchange="cardSwiper" circular="true" autoplay="true" interval="5000"
+        duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
   <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}" wx:key="*/this">
     <view bind:tap="onHandleClick" class="swiper-item card-shadow" data-item="{{item}}">
       <image src="{{item.image}}" mode="aspectFill"></image>
@@ -21,8 +23,8 @@
       <view class="text-sm text-indent">
         <text class="text-grey">{{item.author}}</text>
       </view>
-      <view class="text-xs text-indent">
-        <text class="text-blue">¥1.00</text>
+      <view class="text-sm text-indent">
+        <text class="text-blue">{{item.money}}</text>
         <text class="text-gray fr margin-right">1179人参与</text>
       </view>
     </view>

@@ -140,6 +140,31 @@ const service = {
             data
         })
     },
+    // 获取讲堂详情
+    getPhysicianinfo: (data) => {
+        return wxRequest({
+            url: `${URL}/doctor/forum/${data.forumid}`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')}
+        })
+    },
+    // 收藏讲堂
+    forumcollect: (data) => {
+        return wxRequest({
+            url: `${URL}/forum/collect`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 获取讲堂目录
+    forumresources: (data) => {
+        return wxRequest({
+            url: `${URL}/doctor/forum/resources/${data.forumid}`,
+            method: 'GET',
+            header:{...FORMHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')}
+        })
+    },
     // 获取药品分类
     getDrugsclass: (data) => {
         return wxRequest({

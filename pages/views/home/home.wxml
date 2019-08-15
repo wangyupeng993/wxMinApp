@@ -39,7 +39,7 @@
                         <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,1)" />
                     </navigator>
                 </view>
-                <swiper-type bind:handleclick="classroom" image-effect="ImageText"></swiper-type>
+                <swiper-type bind:handleclick="classroominfo" swiper-list="{{forums}}" image-effect="ImageText"></swiper-type>
             </view>
 
             <view class="cu-list">

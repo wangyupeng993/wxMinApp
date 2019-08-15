@@ -38,6 +38,11 @@
                 <view class="fl padding-top-xs margin-left-lg">购买的药品</view>
                 <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
             </view>
+            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                <view class="fl padding-xs text-black text-bold radius icon cuIcon-cart"></view>
+                <view class="fl padding-top-xs margin-left-lg">购物车</view>
+                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+            </view>
             <navigator url="/pages/views/InsidePages/ConcernedDoctors/index" hover-class="none">
                 <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
                     <view class="fl padding-xs text-black text-bold radius icon cuIcon-friendfamous"></view>

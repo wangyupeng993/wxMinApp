@@ -4,23 +4,30 @@
                    text-colour="#000000"
                    colour="rgba(255,255,255,0)" />
     </navigator>
-    <el-button class="fr margin-right-lg" small="lg" icon="icon cuIcon-favor"
-               text-colour="#000000"
-               colour="rgba(255,255,255,1)" />
 </view>
 
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
-        <view class="Drugs-swiper">
+        <view wx:if="{{videosrc === ''||!videosrc}}" class="Drugs-swiper">
             <swiper class="screen-swiper Drugs-swiper"  indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#ffffff" indicator-active-color="#0081ff">
-                <swiper-item wx:for="{{5}}" wx:key="*/this">
-                    <image src="../../../assets/images/Image@2x.png" mode="aspectFill"></image>
+                <swiper-item wx:for="{{classroomImage}}" wx:key="*/this">
+                    <image src="{{item}}" mode="aspectFill"></image>
                 </swiper-item>
             </swiper>
         </view>
+        <video class="Drugs-swiper" wx:if="{{videosrc !== ''}}" src="{{videosrc}}" autoplay></video>
         <view class="padding-tb-lg padding-lr-sm">
-            <view class="text-xl text-bold padding-bottom-sm padding-left-sm">日常如何预防真菌感染</view>
-            <view class="text-sm text-blue padding-left-sm">¥1.00</view>
+            <view class="text-xl padding-bottom-sm padding-left-sm">
+                <text class="text-bold">{{classroom.forumTitle}}</text>
+                <el-button class="fr margin-right-sm" small="lg" icon="icon cuIcon-favor"
+                           bind:handleclick="forumcollect"
+                           text-colour="{{classroom.isCollect?'#8dc63f':'#000000'}}"
+                           colour="rgba(255,255,255,1)" />
+            </view>
+            <view class="text-lg text-gray padding-bottom-sm padding-left-sm">
+                {{classroom.doctorName}}.{{classroom.hospitalName}}
+            </view>
+            <view class="text-sm text-blue padding-left-sm">¥{{classroom.forumPrice}}</view>
         </view>
         <view class="padding-tb-sm padding-lr-lg solid-bottom solid-top">
             <view class="flex text-center">
@@ -32,14 +39,14 @@
         <view class="padding solid-bottom" wx:if="{{intr === 0}}">
             <view class="text-black text-lg padding-tb-xs">课堂介绍</view>
             <view class="text-sm text-gray padding-tb-xs text-justify line-height">
-                A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.
-                <text class="text-bold text-olive">More</text>
+                <rich-text nodes="{{doctorMessage}}"></rich-text>
             </view>
         </view>
-        <view class="padding-sm" wx:if="{{intr === 1}}" wx:for="{{10}}" wx:key="*/this">
+        <view class="padding-sm"bind:tap="playVideo" data-item="{{item}}"
+              wx:if="{{intr === 1}}" wx:for="{{resources}}" wx:key="*/this">
             <view class="padding-sm bg-gray radius">
                 <text class="text-sm cuIcon-recordfill margin-right-sm"></text>
-                <text class="text-sm text-black">PHP高级编程指南-Swoole千万PV异步任务多进程开发</text>
+                <text class="text-sm text-black">{{item.chapterTitle}}</text>
             </view>
         </view>
         <view class="padding" style="width:100%;" wx:if="{{intr === 2}}">

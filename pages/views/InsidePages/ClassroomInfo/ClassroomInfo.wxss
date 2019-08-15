@@ -1,11 +1,17 @@
+.el-header{
+    top:20rpx;
+}
 .el-container{
     position:absolute;
     top:0;
     height:92%;
 }
-
+.cuIcon-favor{
+    font-size:52rpx;
+}
 .Drugs-swiper{
     position:relative;
+    width:100vw;
     height:954rpx;
 }
 
