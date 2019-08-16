@@ -15,6 +15,11 @@
     height:954rpx;
 }
 
+.videpay{
+    width:100vw;
+    height:425rpx;
+}
+
 .doctor-image{
     width:136rpx;
     height:136rpx;

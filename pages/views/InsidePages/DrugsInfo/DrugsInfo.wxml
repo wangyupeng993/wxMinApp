@@ -36,7 +36,7 @@
             <!--<view class="fr text-blue margin-top-xs">
                 <text class="margin-right-sm">发起拼团</text>
                 <text class="text-sm cuIcon-question"></text>
-            </view>-->
+            </view> drugContent-->
         </view>
         <view class="padding solid-bottom">
             <view class="text-black text-lg padding-tb-xs">药品说明</view>
@@ -44,26 +44,64 @@
                 {{druginfo.drugDescription}}
             </view>
         </view>
-        <view class="padding-lg solid-bottom text-lg">选择规格</view>
+        <!--<view class="padding-lg solid-bottom text-lg">选择规格</view>
         <view class="padding-lg solid-bottom">
             <el-button samll="sm" name="20ml" colour="{{specs === '20ml' ? '#3858D6':'#F3F3F3'}}" text-colour="{{specs === '20ml' ? '#ffffff':'#333333'}}" class="margin-lr-sm" />
             <el-button samll="sm" name="30ml" colour="#F3F3F3" text-colour="#333333" class="margin-lr-sm" />
             <el-button samll="sm" name="40ml" colour="#F3F3F3" text-colour="#333333" class="margin-lr-sm" />
             <el-button samll="sm" name="50ml" colour="#F3F3F3" text-colour="#333333" class="margin-lr-sm" />
+        </view>-->
+        <view class="padding-tb-sm padding-lr-lg solid-bottom solid-top">
+            <view class="flex text-center">
+                <view bind:tap="intrSwitch" data-type="0" class="basis-sm text-lg {{intr === 0?'text-blue text-bold':'text-gray'}}">药品详情</view>
+                <view bind:tap="intrSwitch" data-type="1" class="basis-sm text-lg {{intr === 1?'text-blue text-bold':'text-gray'}}">评价列表</view>
+                <view bind:tap="intrSwitch" data-type="2" class="basis-sm text-lg {{intr === 2?'text-blue text-bold':'text-gray'}}">拼单列表</view>
+            </view>
+        </view>
+        <view class="padding solid-bottom" wx:if="{{intr === 0}}">
+            <rich-text nodes="{{html}}"></rich-text>
+        </view>
+        <view class="padding" style="width:100%;" wx:if="{{intr === 1}}">
+            <view class="inline-block padding-xs solid-bottom" wx:for="{{5}}" wx:key="*/this" style="width:100%;">
+                <view class="fl comment-image">
+                    <image src="../../../assets/images/home/user.png"></image>
+                </view>
+                <view class="fr padding-xs" style="width:529rpx;">
+                    <view class="padding-bottom-sm">
+                        <text class="text-lg">Samuel Smith</text>
+                        <view class="fr">
+                            <text class="cuIcon-favorfill text-olive" wx:for="{{5}}" wx:key="*/this"></text>
+                        </view>
+                    </view>
+                    <view class="text-sm text-justify line-height-sm">
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                        Wonderful jean, perfect gift for my girl for our anniversary!
+                    </view>
+                    <view class="fr text-sm text-blue padding-tb-sm">
+                        <text class="fr">回复</text>
+                        <text class="fr cuIcon-mark padding-lr-sm" style="font-size:32rpx !important;"></text>
+                    </view>
+                </view>
+            </view>
         </view>
     </scroll-view>
 </view>
 <view class="questions">
     <view class="flex">
-        <view class="basis-df">
+        <view class="basis-xs">
             <navigator url="/pages/views/InsidePages/ShoppingCart/ShoppingCart" hover-class="none">
-                <el-button block name="发起拼团" colour="#e54d42" text-colour="#ffffff" />
+                <el-button class="fr" small="lg" icon="icon cuIcon-cartfill"
+                           text-colour="#8dc63f"
+                           colour="rgba(255,255,255,1)" />
             </navigator>
         </view>
         <view class="basis-df">
-            <navigator url="/pages/views/InsidePages/ShoppingCart/ShoppingCart" hover-class="none">
-                <el-button block name="加入购物车" colour="#E1E1E1" text-colour="#333333" />
-            </navigator>
+            <el-button block name="发起拼团" colour="#e54d42" text-colour="#ffffff" />
+        </view>
+        <view class="basis-lg">
+            <el-button block name="加入购物车" colour="#E1E1E1" text-colour="#333333" />
         </view>
         <view class="basis-df">
             <navigator url="/pages/views/InsidePages/pay/pay" hover-class="none">

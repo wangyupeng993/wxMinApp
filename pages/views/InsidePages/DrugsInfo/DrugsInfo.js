@@ -1,8 +1,11 @@
 const service = require('../../../api/request/index.js')
 Page({
     data: {
-      specs: '20ml',
-      druginfo: {}
+        specs: '20ml',
+        druginfo: {},
+        html: '',
+        intr: 0,
+        commentId: ''
     },
     onLoad (ev) {
         const {drugid} = ev
@@ -19,8 +22,12 @@ Page({
     getDrugInfo (params) {
         service.getDrugInfo(params)
             .then(respone => {
+                const {drugContent} = respone.data.data
                 this.setData({
-                    druginfo:respone.data.data
+                    druginfo:respone.data.data,
+                    html: drugContent.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ')
+                        .replace(/<section/g, '<div')
+                        .replace(/\/section>/g, '\div>')
                 })
                 console.log(respone.data.data)
             })
@@ -38,6 +45,12 @@ Page({
             .catch(error => {
                 console.log(error)
             })
+    },
+    intrSwitch (ev) {
+        const {type} = ev.currentTarget.dataset
+        this.setData({
+            intr: Number(type)
+        })
     },
     // 分享
     onShareAppMessage () {

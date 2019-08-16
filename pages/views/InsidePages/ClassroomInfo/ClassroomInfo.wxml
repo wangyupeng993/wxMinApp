@@ -15,7 +15,7 @@
                 </swiper-item>
             </swiper>
         </view>
-        <video class="Drugs-swiper" wx:if="{{videosrc !== ''}}" src="{{videosrc}}" autoplay></video>
+        <video class="videpay" wx:if="{{videosrc !== ''}}" src="{{videosrc}}" autoplay></video>
         <view class="padding-tb-lg padding-lr-sm">
             <view class="text-xl padding-bottom-sm padding-left-sm">
                 <text class="text-bold">{{classroom.forumTitle}}</text>
@@ -67,6 +67,10 @@
                         Wonderful jean, perfect gift for my girl for our anniversary!
                         Wonderful jean, perfect gift for my girl for our anniversary!
                         Wonderful jean, perfect gift for my girl for our anniversary!
+                    </view>
+                    <view class="fr text-sm text-blue padding-tb-sm">
+                        <text class="fr">回复</text>
+                        <text class="fr cuIcon-mark padding-lr-sm" style="font-size:32rpx !important;"></text>
                     </view>
                 </view>
             </view>

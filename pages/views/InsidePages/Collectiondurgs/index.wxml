@@ -12,13 +12,16 @@
             <view class="basis-df radius padding-bottom" wx:for="{{durgs}}" wx:key="*/this">
                 <navigator url="/pages/views/InsidePages/DrugsInfo/DrugsInfo?drugid={{item.drugId}}" hover-class="none">
                     <image src="/pages/assets/images/home/product@2x.png"></image>
-                    <view class="text-indent-lg padding-tb-xs text-blue">¥{{item}}</view>
-                    <view class="text-indent-lg">{{item}}</view>
+                    <view class="text-indent-lg padding-tb-xs text-blue">¥{{item.price}}</view>
+                    <view class="text-indent-lg">{{item.drugName}}</view>
                 </navigator>
             </view>
         </view>
-        <view wx:else class="text-center text-xl text-grey text-bold">
-            暂无您收藏的药品......
+        <view wx:else class="text-center text-xl text-grey text-bold margin-top-xl padding-top-xl">
+            <image src="/pages/assets/images/icon/Collector@2x.png"
+                   class="margin-top-xl"
+                   style="width:132rpx;height:113rpx;"></image>
+            <view class="padding-tb-sm">暂无您收藏的药品......</view>
         </view>
     </scroll-view>
 </view>

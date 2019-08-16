@@ -323,6 +323,15 @@ const service = {
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
+    },
+    // 获取品论列表
+    getcommentslist: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/comments`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
     }
 }
 module.exports = service

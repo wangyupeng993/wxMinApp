@@ -1,12 +1,14 @@
 const service = require('../../../api/request/index.js')
 Page({
     data: {
-        doctorinfo: {}
+        doctorinfo: {},
+        comments: []
     },
     onLoad (ev) {
         const {doctorid} = ev
         if (doctorid) {
             this.getDoctorsinfo({doctorid})
+            this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'DOCTOR'})
         }
     },
     onReady () {},
@@ -39,6 +41,15 @@ Page({
                 }
             })
             .catch(error => {})
+    },
+    getcommentslist (params) {
+        service.getcommentslist(params)
+            .then(respone => {
+                console.log(respone.data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     // 分享
     onShareAppMessage () {

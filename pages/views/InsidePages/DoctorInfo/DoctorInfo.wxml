@@ -98,6 +98,10 @@
                         Wonderful jean, perfect gift for my girl for our anniversary!
                         Wonderful jean, perfect gift for my girl for our anniversary!
                     </view>
+                    <view class="fr text-sm text-blue padding-tb-sm">
+                        <text class="fr">回复</text>
+                        <text class="fr cuIcon-mark padding-lr-sm" style="font-size:32rpx !important;"></text>
+                    </view>
                 </view>
             </view>
         </view>

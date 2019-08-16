@@ -18,6 +18,9 @@
         </view>
     </scroll-view>
 </view>
-<view wx:else class="text-center text-xl text-grey text-bold">
-    暂无您收藏的讲堂......
+<view wx:else class="text-center text-xl text-grey text-bold margin-top-xl padding-top-xl">
+    <image src="/pages/assets/images/icon/Collector@2x.png"
+           class="margin-top-xl"
+           style="width:132rpx;height:113rpx;"></image>
+    <view class="padding-tb-sm">暂无您收藏的讲堂......</view>
 </view>

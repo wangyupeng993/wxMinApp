@@ -79,7 +79,12 @@ Page({
     playVideo (ev) {
         const {item} = ev.currentTarget.dataset
         this.setData({
-            videosrc: item.resourceUrl
+            videosrc: ''
+        })
+        wx.nextTick(() => {
+            this.setData({
+                videosrc: item.resourceUrl
+            })
         })
         console.log(ev.currentTarget.dataset)
     },

@@ -4,10 +4,26 @@
 .el-container{
     position:absolute;
     top:0;
+    height:93%;
 }
-.cuIcon-favor{
+.cuIcon-favor,.cuIcon-cartfill{
     font-size:52rpx;
 }
+
+.doctor-image{
+    width:136rpx;
+    height:136rpx;
+}
+.comment-image{
+    width:90rpx;
+    height:90rpx;
+}
+
+.doctor-image image, .comment-image image{
+    height:100%;
+    border-radius:50%;
+}
+
 .Drugs-swiper{
     position:relative;
     height:954rpx;
