@@ -5,13 +5,15 @@ Page({
         druginfo: {},
         html: '',
         intr: 0,
-        commentId: ''
+        commentId: '',
+        comments: []
     },
     onLoad (ev) {
         const {drugid} = ev
         if (drugid) {
             this.setData({drugid})
             this.getDrugInfo({drugid})
+            this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'DRUG'})
         }
     },
     onReady () {},
@@ -52,6 +54,23 @@ Page({
             intr: Number(type)
         })
     },
+    // 获取评论列表
+    getcommentslist (params) {
+        service.getcommentslist(params)
+            .then(respone => {
+                const comments = respone.data.data.map(item => item)
+                this.setData({comments})
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    // 提交回复
+    bindFormSubmit(ev) {
+        console.log(ev)
+    },
+    // 回复评论
+    replycomments (ev) {},
     // 分享
     onShareAppMessage () {
         return {

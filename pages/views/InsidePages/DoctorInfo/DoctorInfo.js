@@ -2,7 +2,8 @@ const service = require('../../../api/request/index.js')
 Page({
     data: {
         doctorinfo: {},
-        comments: []
+        comments: [],
+        commentId: ''
     },
     onLoad (ev) {
         const {doctorid} = ev
@@ -15,6 +16,7 @@ Page({
     onShow () {},
     onUnload () {},
     loadmore () {},
+    // 获取医生信息
     getDoctorsinfo (params) {
         service.getDoctorsinfo(params)
             .then(respone => {
@@ -42,14 +44,20 @@ Page({
             })
             .catch(error => {})
     },
+    // 获取评论列表
     getcommentslist (params) {
         service.getcommentslist(params)
             .then(respone => {
-                console.log(respone.data)
+                const comments = respone.data.data.map(item => item)
+                this.setData({comments})
             })
             .catch(error => {
                 console.log(error)
             })
+    },
+    // 提交回复
+    bindFormSubmit(ev) {
+        console.log(ev)
     },
     // 分享
     onShareAppMessage () {

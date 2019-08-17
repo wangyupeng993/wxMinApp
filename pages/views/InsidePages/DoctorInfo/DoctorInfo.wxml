@@ -76,34 +76,52 @@
             <view class="text-black text-lg padding-tb-xs">个人简介</view>
             <view class="text-sm text-gray padding-tb-xs text-justify line-height">
                 {{doctorinfo.description}}
-<!--                <text class="text-bold text-olive">More</text>-->
             </view>
         </view>
-        <view class="padding" style="width:100%;">
+        <view wx:if="{{comments.length > 0}}" class="padding" style="width:100%;">
             <view class="text-black text-lg padding-tb-xs">评价列表</view>
-            <view class="inline-block padding-xs solid-bottom" wx:for="{{5}}" wx:key="*/this" style="width:100%;">
+            <view style="width:100%;"
+                  class="inline-block padding-xs solid-bottom"
+                  wx:for="{{comments}}" wx:key="*/this">
                 <view class="fl comment-image">
                     <image src="../../../assets/images/home/user.png"></image>
                 </view>
                 <view class="fr padding-xs" style="width:529rpx;">
                     <view class="padding-bottom-sm">
-                        <text class="text-lg">Samuel Smith</text>
+                        <text class="text-lg">{{item.nickname}}</text>
                         <view class="fr">
-                            <text class="cuIcon-favorfill text-olive" wx:for="{{5}}" wx:key="*/this"></text>
+                            <text class="cuIcon-favorfill text-olive" wx:for="{{item.level}}" wx:key="*/this"></text>
                         </view>
                     </view>
-                    <view class="text-sm text-justify line-height-sm">
-                        Wonderful jean, perfect gift for my girl for our anniversary!
-                        Wonderful jean, perfect gift for my girl for our anniversary!
-                        Wonderful jean, perfect gift for my girl for our anniversary!
-                        Wonderful jean, perfect gift for my girl for our anniversary!
-                    </view>
-                    <view class="fr text-sm text-blue padding-tb-sm">
+                    <view class="text-sm text-justify line-height-sm">{{item.content}}</view>
+                    <view wx:if="{{commentId === ''}}"
+                          class="fr text-sm text-blue padding-tb-sm"
+                          data-commentid="{{item.commentId}}">
                         <text class="fr">回复</text>
                         <text class="fr cuIcon-mark padding-lr-sm" style="font-size:32rpx !important;"></text>
                     </view>
+                    <view wx:if="{{commentId === item.commentId}}"
+                          class="inline-block padding-tb-xs"
+                          style="with:100%;">
+                        <form bindsubmit="bindFormSubmit">
+                            <textarea class="solid padding-sm" style="height:200rpx;"
+                                      placeholder="请输入你的评论（150字以内）"
+                                      name="content" maxlength="150" />
+                            <view class="flex margin-top-sm">
+                                <button class="basis-df bg-red">取消</button>
+                                <button class="basis-df bg-blue" form-type="submit">提交</button>
+                            </view>
+                        </form>
+                    </view>
                 </view>
             </view>
+        </view>
+        <view wx:else="{{comments.length <= 0}}"
+              class="text-center text-xl text-grey text-bold margin-top-xl padding-top-xl">
+            <image src="/pages/assets/images/icon/orderlist@2x.png"
+                   class="margin-top-xl"
+                   style="width:132rpx;height:113rpx;"></image>
+            <view class="padding-tb-sm">暂无评论，赶快去抢个沙发吧~~</view>
         </view>
     </scroll-view>
 </view>
