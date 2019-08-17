@@ -78,25 +78,6 @@
                         </view>
                     </view>
                     <view class="text-sm text-justify line-height-sm">{{item.content}}</view>
-                    <view wx:if="{{commentId === ''}}"
-                          class="fr text-sm text-blue padding-tb-sm"
-                          data-commentid="{{item.commentId}}">
-                        <text class="fr">回复</text>
-                        <text class="fr cuIcon-mark padding-lr-sm" style="font-size:32rpx !important;"></text>
-                    </view>
-                    <view wx:if="{{commentId === item.commentId}}"
-                          class="inline-block padding-tb-xs"
-                          style="with:100%;">
-                        <form bindsubmit="bindFormSubmit">
-                            <textarea class="solid padding-sm" style="height:200rpx;"
-                                      placeholder="请输入你的评论（150字以内）"
-                                      name="content" maxlength="150" />
-                            <view class="flex margin-top-sm">
-                                <button class="basis-df bg-red">取消</button>
-                                <button class="basis-df bg-blue" form-type="submit">提交</button>
-                            </view>
-                        </form>
-                    </view>
                 </view>
             </view>
 
