@@ -1,0 +1,39 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg">购买的药品</view>
+</view>
+<view class="el-container padding-lr-sm">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
+        <view>
+            <view class="flex padding-sm drug solid-bottom">
+                <image class="margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
+                <view class="inline-block" style="width:100%;">
+                    <view class="padding-tb-sm text-lg">扑感敏</view>
+                    <view class="text-gray">法国高德美制药公司</view>
+                    <view class="text-blue">
+                        <text>￥12.1</text>
+                        <view class="fr text-grey text-lg">
+                            <text class="cuIcon-commentfill"></text>
+                            <text class="padding-xs margin-right-xs">评价</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="inline-block margin-top-sm" style="width:100%;">
+                <form bindsubmit="bindFormSubmit">
+                    <textarea class="solid padding-sm" placeholder="输入您的评论 （150字以内）"
+                              name="commentContent" maxlength="150"
+                              style="width:100%;height:200rpx;" />
+                    <view class="flex margin-top-sm">
+                        <button class="bg-red basis-df">取 消</button>
+                        <button class="bg-blue basis-df" form-type="submit">提 交</button>
+                    </view>
+                </form>
+            </view>
+        </view>
+    </scroll-view>
+</view>

@@ -1,0 +1,29 @@
+.el-header {
+    top:20rpx;
+}
+.el-header .title{
+    display:inline-block;
+    line-height:64rpx;
+    margin-left:-140rpx;
+}
+.el-container{
+    height:100%;
+}
+
+.drug,.doctor,.hospital{
+    width:100%;
+}
+.drug image,.hospital image{
+    width:150rpx;
+    height:150rpx;
+}
+
+.doctor image{
+    width:200rpx;
+    height:200rpx;
+    border-radius:500000rpx;
+}
+.doctor .solid::after {
+    border-radius:100rpx;
+    border: 1rpx solid #1cbbb4;
+}

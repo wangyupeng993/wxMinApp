@@ -27,7 +27,10 @@
     "pages/views/InsidePages/Collection/index",
     "pages/views/InsidePages/Collectionclassroom/index",
     "pages/views/InsidePages/Collectiondurgs/index",
-    "pages/views/InsidePages/RoutePlanning/index"
+    "pages/views/InsidePages/RoutePlanning/index",
+    "pages/views/InsidePages/consultation/index",
+    "pages/views/InsidePages/buyClassroom/index",
+    "pages/views/InsidePages/buyDrugs/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

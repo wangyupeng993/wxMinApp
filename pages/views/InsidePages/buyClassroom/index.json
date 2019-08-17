@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "el-button": "/pages/components/button/button"
+  }
+}

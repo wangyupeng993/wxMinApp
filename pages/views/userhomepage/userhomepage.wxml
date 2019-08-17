@@ -23,21 +23,27 @@
             </view>
         </view>
         <view class="padding-tb-lg margin-top-xl text-xl">
-            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
-                <view class="fl padding-xs text-black text-bold radius icon cuIcon-write"></view>
-                <view class="fl padding-top-xs margin-left-lg">我的问诊</view>
-                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
-            </view>
-            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
-                <view class="fl padding-xs text-black text-bold radius icon cuIcon-record"></view>
-                <view class="fl padding-top-xs margin-left-lg">购买的讲堂</view>
-                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
-            </view>
-            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
-                <view class="fl padding-xs text-black text-bold radius icon cuIcon-goods"></view>
-                <view class="fl padding-top-xs margin-left-lg">购买的药品</view>
-                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
-            </view>
+            <navigator url="/pages/views/InsidePages/consultation/index">
+                <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-write"></view>
+                    <view class="fl padding-top-xs margin-left-lg">我的问诊</view>
+                    <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+                </view>
+            </navigator>
+            <navigator url="/pages/views/InsidePages/buyClassroom/index">
+                <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-record"></view>
+                    <view class="fl padding-top-xs margin-left-lg">购买的讲堂</view>
+                    <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+                </view>
+            </navigator>
+            <navigator url="/pages/views/InsidePages/buyDrugs/index">
+                <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-goods"></view>
+                    <view class="fl padding-top-xs margin-left-lg">购买的药品</view>
+                    <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+                </view>
+            </navigator>
             <navigator url="/pages/views/InsidePages/ShoppingCart/ShoppingCart" hover-class="none">
                 <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
                     <view class="fl padding-xs text-black text-bold radius icon cuIcon-cart"></view>
@@ -109,10 +115,8 @@
         </navigator>
     </view>
     <view class="action  text-blue">
-        <navigator url="/pages/views/userhomepage/userhomepage" hover-class="none">
-            <view class="cuIcon-my"></view>
-            我的
-        </navigator>
+        <view class="cuIcon-my"></view>
+        我的
     </view>
 </view>
 
