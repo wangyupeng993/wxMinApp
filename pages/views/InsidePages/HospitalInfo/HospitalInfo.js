@@ -1,5 +1,6 @@
 const service = require('../../../api/request/index.js')
 const QQMAPWX = require('../../../api/Map/index.js')
+const checkSession = require('../../../api/checkSession/index.js')
 Page({
     data: {
         hospitainfo: null,
@@ -9,8 +10,31 @@ Page({
         commentId: ''
     },
     onLoad (ev) {
-        this.gethospitainfo({hospitalId: ev.hospitalid})
-        this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'HOSPITAL'})
+        checkSession().then(async respone => {
+            await this.gethospitainfo({hospitalId: ev.hospitalid})
+            await this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'HOSPITAL'})
+        }).catch(error => {
+                wx.login({
+                    timeout: 50000,
+                    success: respone => {
+                        const {code} = respone
+                        wx.setStorageSync('wxcode', code)
+                        service.Login({jsCode: code,nickname: wx.getStorageSync('getUserInfo').nickName})
+                            .then(async respone => {
+                                const {code} = respone.data
+                                if (Number(code) === 200) {
+                                    const {key} = respone.data.data
+                                    await wx.setStorageSync('sessionid', key)
+                                    await this.gethospitainfo({hospitalId: ev.hospitalid})
+                                    await this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'HOSPITAL'})
+                                }
+                            })
+                            .catch(error => {})
+                    },
+                    fail: error => {}
+                })
+            })
+
     },
     onReady() {},
     onShow () {},

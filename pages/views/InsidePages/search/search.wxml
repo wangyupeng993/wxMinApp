@@ -62,7 +62,7 @@
             <view wx:for="{{searchResult}}" wx:key="*/this"
                   class="padding-xs doctor inline-block solid-bottom"
                   wx:if="{{searchtype === 'doctor'}}">
-                <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid=?{{item.doctorId}}">
+                <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}">
                     <image class="fl margin-right-sm margin-top-lg"
                            src="../../../assets/images/home/product@2x.png"></image>
                     <view class="fl">

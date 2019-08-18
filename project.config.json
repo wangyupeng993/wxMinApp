@@ -13,7 +13,7 @@
 		"autoAudits": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
-		"checkSiteMap": true,
+		"checkSiteMap": false,
 		"uploadWithSourceMap": true,
 		"babelSetting": {
 			"ignore": [],

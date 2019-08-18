@@ -341,6 +341,15 @@ const service = {
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
+    },
+    // 获取购买讲堂列表
+    getBuyforumslist: (data) => {
+        return wxRequest({
+            url: `${URL}/user/order/forums`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
     }
 }
 module.exports = service

@@ -8,23 +8,34 @@
 </view>
 <view class="el-container padding-lr-sm">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <view class="course-list bg-white radius shadow-lg padding-bottom-lg margin-bottom-lg">
-            <image src=""></image>
-            <view class="text-lg text-black padding-tb-sm padding-lr-lg">forumTitle</view>
-            <view class="text-sm text-gray padding-lr-lg padding-bottom-xs">doctorName.hospitalName</view>
-            <view class="text-lg text-blue padding-lr-lg">￥forumPrice</view>
+        <view class="course-list bg-white radius shadow-lg padding-bottom-lg margin-bottom-lg"
+        wx:for="{{classroom}}" wx:key="*/this">
+            <navigator url="/pages/views/InsidePages/ClassroomInfo/ClassroomInfo?forumid={{item.forumId}}" hover-class="none">
+                <image src="{{item.logoUrl}}"></image>
+                <view class="text-lg text-black padding-tb-sm padding-lr-lg">{{item.forumTitle}}</view>
+                <view class="text-sm text-gray padding-lr-lg padding-bottom-xs">{{item.doctorName}}.{{item.hospitalName}}</view>
+                <view class="text-lg text-blue padding-lr-lg">￥{{item.forumPrice}}</view>
+            </navigator>
             <view class="inline-block text-lg text-blue padding-lr-lg" style="width:100%;">
-                <view class="fr margin-left-xl text-grey text-lg">
+                <view bind:tap="comments" data-forumid="{{item.forumId}}"
+                      class="fr margin-left-xl text-grey text-lg">
                     <text class="cuIcon-commentfill"></text>
                     <text class="padding-xs margin-right-xs">评价</text>
                 </view>
             </view>
-            <view class="inline-block margin-top-sm" style="width:100%;">
+            <view wx:if="{{levelID === item.forumId}}"
+                  class="inline-block margin-top-sm" style="width:100%;">
                 <form bindsubmit="bindFormSubmit">
                     <textarea class="solid padding-sm" placeholder="输入您的评论 （150字以内）" name="commentContent" maxlength="150"
                               style="width:100%;height:200rpx;" />
+                    <view class="padding-tb-sm">
+                        <text class="margin-left-sm">请对此课堂进行评分：</text>
+                        <text class="cuIcon-favorfill {{item === score[index]?'text-olive':'text-grey'}} padding-xs"
+                              data-scoreid="{{item}}" bind:tap="scoreSelected"
+                              wx:for="{{5}}" wx:key="*/this"></text>
+                    </view>
                     <view class="flex margin-top-sm">
-                        <button class="bg-red basis-df"> 取消 </button>
+                        <button class="bg-red basis-df" bind:tap="cancelcomments"> 取消 </button>
                         <button class="bg-blue basis-df" form-type="submit"> 提交 </button>
                     </view>
                 </form>

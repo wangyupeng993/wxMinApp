@@ -1,3 +1,5 @@
+const service = require('../../../api/request/index.js')
+const checkSession = require('../../../api/checkSession/index.js')
 Page({
     data:{},
     onLoad () {},

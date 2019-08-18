@@ -1,0 +1,11 @@
+.el-header {
+    top:20rpx;
+}
+.el-header .title{
+    display:inline-block;
+    line-height:64rpx;
+    margin-left:-140rpx;
+}
+.el-container{
+    height:100%;
+}

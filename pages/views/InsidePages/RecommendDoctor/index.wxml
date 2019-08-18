@@ -1,0 +1,33 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg">为您推荐医生</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
+        <view class="padding-xs doctor inline-block solid-bottom">
+            <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}">
+                <image class="fl margin-right-sm margin-top-lg"
+                       src="../../../assets/images/home/product@2x.png"></image>
+                <view class="fl">
+                    <view class="padding-tb-xs text-lg">doctorName（academicTitle）</view>
+                    <view class="text-gray">department hospitalName</view>
+                    <view class="text-gray">擅长 skillfulDisease</view>
+                    <view>
+                        <text class="text-yellow cuIcon-favorfill"></text>
+                        <text class="text-gray">5.0</text>
+                        <text class="text-gray margin-left-sm">1801回答</text>
+                    </view>
+                    <view class="margin-top-sm">
+                        <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
+                        <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
+                        <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>

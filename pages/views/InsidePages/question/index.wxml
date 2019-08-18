@@ -1,0 +1,58 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg">快速提问</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
+        <view class="flex padding-sm solid-bottom">
+            <view class="flex-treble margin-lr-xs text-center">
+                <checkbox-group class="margin-right-sm inline-block">
+                    <checkbox class="blue" checked disabled></checkbox>
+                </checkbox-group>
+                <text class="text-sm">三甲医院医师</text>
+            </view>
+            <view class="flex-treble margin-lr-xs text-center">
+                <checkbox-group class="margin-right-sm inline-block">
+                    <checkbox class="blue" checked disabled></checkbox>
+                </checkbox-group>
+                <text class="text-sm">专业回复</text>
+            </view>
+            <view class="flex-treble margin-lr-xs text-center">
+                <checkbox-group class="margin-right-sm inline-block">
+                    <checkbox class="blue" checked disabled></checkbox>
+                </checkbox-group>
+                <text class="text-sm">隐私保护</text>
+            </view>
+        </view>
+
+        <view class="inline-block margin-top-sm padding-lr-sm" style="width:100%;">
+            <form bindsubmit="bindFormSubmit">
+                <textarea class="solid padding-sm"
+                          placeholder="输入您的年龄、性别、症状以及就诊经理，便于医生进行准确分析，我们会保证您的隐私安全"
+                          name="commentContent" maxlength="150"
+                          style="width:100%;height:300rpx;" />
+
+                <view class="padding-tb-sm text-grey">上传你的附件，仅对解答医生课件，可上传9个</view>
+                <view class="grid col-4 grid-square flex-sub margin-top-sm">
+                    <view class="bg-img" wx:for="{{FilePath}}" wx:key="*/this"wx:if="{{FilePath.length > 0}}">
+                        <image src="{{item}}" mode="aspectFill"></image>
+                        <view class="cu-tag bg-red"
+                              data-idcard="hospitalLicenses">
+                            <text class='cuIcon-close'></text>
+                        </view>
+                    </view>
+                    <view class="solids" wx:if="{{FilePath.length < 9}}"
+                          bind:tap="chooseImage" data-name="医疗机构证书"
+                          data-idcard="hospitalLicenses">
+                        <text class='cuIcon-cameraadd'></text>
+                    </view>
+                </view>
+                <button class="bg-blue margin-top-sm" form-type="submit"> 提交 </button>
+            </form>
+        </view>
+    </scroll-view>
+</view>

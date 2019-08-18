@@ -1,5 +1,6 @@
 const app = getApp().globalData
 const service = require('../../api/request/index.js')
+const checkSession = require('../../api/checkSession/index.js')
 Page({
     data: {
       enterHome: false,
@@ -33,88 +34,119 @@ Page({
     onLoad () {
       const doctor = wx.getStorageSync('doctor')
       const symptom = wx.getStorageSync('symptom')
-      this.setData({
-        doctor: doctor,
-        symptom: symptom
-      })
-      if (doctor === '' || !doctor || doctor === null||symptom === ''||!symptom||symptom === null) {
-          wx.redirectTo({
-              url: '/pages/views/initPage/initPage'
-          })
-      }else{
-          service.followDoctor()
-              .then(respone => {
-                  console.log(respone.data)
-                  this.setData({
-                      follow: respone.data.data.map(item => item)
-                  })
-              })
-              .catch(error => {
-                  console.log(error)
-              })
-          // 获取文章
-          service.getHomeArticle()
-              .then(respone => {
-                  const article = respone.data.data.map(item => {
-                      return {
-                          id: item.articleId,
-                          author: `作者：${item.articleAuthor}`,
-                          title: item.articleTitle,
-                          name: item.catalogName,
-                          catalogId: item.catalogId,
-                          image: ''
-                      }
-                  })
-                  this.setData({article})
-              })
-              .catch(error => {
-                  console.log(error)
-              })
-          service.getHomePhysician()
-              .then(respone => {
-                  const forums = respone.data.data.map(item => {
-                      return {
-                          id: item.forumId,
-                          author: `${item.doctorName}.${item.hospitalName}`,
-                          title: item.forumTitle,
-                          image: item.logoUrl,
-                          money: `¥${item.forumPrice}`
-                      }
-                  })
-                  this.setData({forums})
-              })
-              .catch(error => {
-                  console.log(error)
-              })
-      }
-      console.log('页面加载的时候执行，只执行一次')
+      this.setData({doctor: doctor,symptom: symptom})
+    doctor === '' || !doctor || doctor === null||symptom === ''||!symptom||symptom === null? wx.redirectTo({
+        url: '/pages/views/initPage/initPage'
+    }) : checkSession()
+        .then(respone => {
+            this.followDoctor()
+            this.getHomeArticle()
+            this.getHomePhysician()
+        })
+        .catch(error => {
+            wx.login({
+                timeout: 50000,
+                success: respone => {
+                    const {code} = respone
+                    wx.setStorageSync('wxcode', code)
+                    service.Login({jsCode: code,nickname: wx.getStorageSync('getUserInfo').nickName})
+                        .then(respone => {
+                            const {code} = respone.data
+                            if (Number(code) === 200) {
+                                const {key} = respone.data.data
+                                wx.setStorageSync('sessionid', key)
+                                wx.nextTick(() => {
+                                    this.followDoctor()
+                                    this.getHomeArticle()
+                                    this.getHomePhysician()
+                                })
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+
+                },
+                fail: error => {
+                    console.log(error)
+                }
+            })
+        })
     },
-    onReady () {
-        console.log('页面渲染完成之后执行，只执行一次')
-    },
+    onReady () {},
     onShow () {},
-    onHide () {
-        console.log('页面隐藏就是执行')
+    onHide () {},
+    onUnload () {},
+    // 获取关注医生
+    followDoctor () {
+        service.followDoctor()
+            .then(respone => {
+                console.log(respone.data)
+                this.setData({
+                    follow: respone.data.data.map(item => item)
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
-    onUnload () {
-        console.log('页面卸载的时候就会执行，只执行一次')
+    // 获取首页文章
+    getHomeArticle () {
+        service.getHomeArticle()
+            .then(respone => {
+                const article = respone.data.data.map(item => {
+                    return {
+                        id: item.articleId,
+                        author: `作者：${item.articleAuthor}`,
+                        title: item.articleTitle,
+                        name: item.catalogName,
+                        catalogId: item.catalogId,
+                        image: ''
+                    }
+                })
+                this.setData({article})
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
-    hospitaldetails (ev) {
-        console.log(ev)
-        /*wx.navigateTo({
-            url: '/pages/views/InsidePages/HospitalInfo/HospitalInfo'
-        })*/
+    // 获取首页课堂
+    getHomePhysician () {
+        service.getHomePhysician()
+            .then(respone => {
+                const forums = respone.data.data.map(item => {
+                    return {
+                        id: item.forumId,
+                        author: `${item.doctorName}.${item.hospitalName}`,
+                        title: item.forumTitle,
+                        image: item.logoUrl,
+                        money: `¥${item.forumPrice}`
+                    }
+                })
+                this.setData({forums})
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
+    // 文章详情页面
     articledetails (ev) {
         const {item} = ev.detail
         wx.navigateTo({
             url: `/pages/views/InsidePages/articledetails/index?articleid=${item.id}`
         })
     },
+    // 课堂详情页面
     classroominfo (ev) {
         const {item} = ev.detail
         wx.navigateTo({
             url: `/pages/views/InsidePages/ClassroomInfo/ClassroomInfo?forumid=${item.id}`
+        })
+    },
+    // 快速提问页面
+    question () {
+        wx.navigateTo({
+            url: `/pages/views/InsidePages/question/index`
         })
     },
     // 分享

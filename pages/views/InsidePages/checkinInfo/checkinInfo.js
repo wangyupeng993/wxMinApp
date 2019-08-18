@@ -1,4 +1,5 @@
 const service = require('../../../api/request/index.js')
+const checkSession = require('../../../api/checkSession/index.js')
 const WXMAP = require('../../../api/Map/index.js')
 Page({
     data:{
@@ -76,26 +77,57 @@ Page({
     onLoad (ev) {
         const {checkin} = ev
         this.setData({checkin})
-        if (checkin === 'personal') {
-            service.getHospitalsAll()
-                .then(respone => {
-                    const hospitalGrade = respone.data.data.map(item => item)
-                    this.setData({hospitalGrade})
+        checkSession().then(respone => {
+            if (checkin === 'personal') {
+                this.getHospitalsAll()
+                this.getSymptoms()
+            }
+        }).catch(error => {
+                wx.login({
+                    timeout: 50000,
+                    success: respone => {
+                        const {code} = respone
+                        wx.setStorageSync('wxcode', code)
+                        service.Login({
+                            jsCode: code,
+                            nickname: wx.getStorageSync('getUserInfo').nickName
+                        }).then(respone => {
+                                const {code} = respone.data
+                                if (Number(code) === 200) {
+                                    const {key} = respone.data.data
+                                    wx.setStorageSync('sessionid', key)
+                                    if (checkin === 'personal') {
+                                        this.getHospitalsAll()
+                                        this.getSymptoms()
+                                    }
+                                }
+                            }).catch(error => {})
+                    },
+                    fail: error => {}
                 })
-                .catch(error => {
-                    console.log(error)
+            })
+
+    },
+    getHospitalsAll () {
+        service.getHospitalsAll()
+            .then(respone => {
+                const hospitalGrade = respone.data.data.map(item => item)
+                this.setData({hospitalGrade})
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    getSymptoms () {
+        service.getSymptoms()
+            .then(respone => {
+                this.setData({
+                    Disease:respone.data.data.map(item => item)
                 })
-            service.getSymptoms()
-                .then(respone => {
-                    console.log(respone.data.data)
-                    this.setData({
-                        Disease:respone.data.data.map(item => item)
-                    })
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     },
     // 医生从业年份
     bindDateChange(ev) {

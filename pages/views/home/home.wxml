@@ -24,7 +24,8 @@
                         <text class="text-black text-bold">皮肤小问题，快速问医生</text>
                     </view>
                     <view class="padding" style="color:#51565F;">三甲医院主治及以上医师，已解答120万个问题</view>
-                    <el-button round name="快速提问" block colour="linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)"></el-button>
+                    <el-button round name="快速提问" block bind:handleclick="question"
+                               colour="linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)" />
                 </view>
             </view>
 

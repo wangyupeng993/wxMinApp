@@ -30,7 +30,9 @@
     "pages/views/InsidePages/RoutePlanning/index",
     "pages/views/InsidePages/consultation/index",
     "pages/views/InsidePages/buyClassroom/index",
-    "pages/views/InsidePages/buyDrugs/index"
+    "pages/views/InsidePages/buyDrugs/index",
+    "pages/views/InsidePages/question/index",
+    "pages/views/InsidePages/RecommendDoctor/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

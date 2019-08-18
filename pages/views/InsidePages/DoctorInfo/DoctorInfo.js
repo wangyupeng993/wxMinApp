@@ -1,4 +1,5 @@
 const service = require('../../../api/request/index.js')
+const checkSession = require('../../../api/checkSession/index.js')
 Page({
     data: {
         doctorinfo: {},
@@ -7,10 +8,36 @@ Page({
     },
     onLoad (ev) {
         const {doctorid} = ev
-        if (doctorid) {
-            this.getDoctorsinfo({doctorid})
-            this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'DOCTOR'})
-        }
+        checkSession().then(async respone => {
+            if (doctorid) {
+                await this.getDoctorsinfo({doctorid})
+                await this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'DOCTOR'})
+            }
+        }).catch(error => {
+                wx.login({
+                    timeout: 50000,
+                    success: respone => {
+                        const {code} = respone
+                        wx.setStorageSync('wxcode', code)
+                        service.Login({
+                            jsCode: code,
+                            nickname: wx.getStorageSync('getUserInfo').nickName
+                        }).then(async respone => {
+                                const {code} = respone.data
+                                if (Number(code) === 200) {
+                                    const {key} = respone.data.data
+                                    wx.setStorageSync('sessionid', key)
+                                    if (doctorid) {
+                                        await this.getDoctorsinfo({doctorid})
+                                        await this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'DOCTOR'})
+                                    }
+                                }
+                            }).catch(error => {})
+                    },
+                    fail: error => {}
+                })
+            })
+
     },
     onReady () {},
     onShow () {},
