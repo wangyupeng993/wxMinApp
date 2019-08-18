@@ -36,18 +36,10 @@ Page({
             }
         })
     },
-    onReady () {
-        console.log('页面渲染完成之后执行，只执行一次')
-    },
-    onShow () {
-        console.log('页面显示就会执行')
-    },
-    onHide () {
-        console.log('页面隐藏就是执行')
-    },
-    onUnload () {
-        console.log('页面卸载的时候就会执行，只执行一次')
-    },
+    onReady () {},
+    onShow () {},
+    onHide () {},
+    onUnload () {},
     // 获取用户手机号
     getUserPhone (parmas = {}) {
         service.getUserPhone(parmas)
@@ -70,6 +62,11 @@ Page({
             encrypted:encodeURIComponent(encryptedData),
             iv: iv,
             nickname: userInfo.nickName
+        })
+    },
+    statistics () {
+        wx.navigateTo({
+            url: '/pages/views/InsidePages/statistics/index'
         })
     },
     // 分享

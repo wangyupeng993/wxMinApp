@@ -4,7 +4,7 @@
                    text-colour="#000000"
                    colour="rgba(255,255,255,0)" />
     </navigator>
-    <view class="text-bold text-lg margin-top-sm">收货地址</view>
+    <view class="title text-bold text-lg margin-top-xs">收货地址</view>
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
@@ -19,8 +19,10 @@
     </scroll-view>
 </view>
 <view class="padding-lr-lg padding-tb-sm inline-block bg-white" style="width:100%;">
-    <view class="inline-block padding-tb-sm" style="width:100%;border:2rpx dashed #0081ff;">
-        <view class="text-blue text-center">添加地址</view>
-    </view>
+    <navigator url="/pages/views/InsidePages/newsAddress/index" hover-class="none">
+        <view class="inline-block padding-tb-sm" style="width:100%;border:2rpx dashed #0081ff;">
+            <view class="text-blue text-center">添加地址</view>
+        </view>
+    </navigator>
 </view>
 <el-button block round name="保存" colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />

@@ -86,6 +86,12 @@ Page({
     bindFormSubmit(ev) {
         console.log(ev)
     },
+    // 像医生提问
+    questiondoctor (ev) {
+        wx.navigateTo({
+            url: '/pages/views/InsidePages/chat/index'
+        })
+    },
     // 分享
     onShareAppMessage () {
         return {

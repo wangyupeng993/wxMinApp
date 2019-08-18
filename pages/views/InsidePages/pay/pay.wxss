@@ -1,5 +1,10 @@
 .el-header{
-    top:40rpx;
+    top:30rpx;
+}
+.el-header .title{
+    display: inline-block;
+    line-height:64rpx;
+    margin-left:-140rpx;
 }
 .product{
     width:200rpx;

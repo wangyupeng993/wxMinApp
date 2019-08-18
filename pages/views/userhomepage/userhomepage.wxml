@@ -1,13 +1,13 @@
 <view class="el-container padding-lr-lg">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <view class="padding-tb-xs text-xl inline-block" style="width:100%;">
+        <!--<view class="padding-tb-xs text-xl inline-block" style="width:100%;">
             <view class="fr cu-avatar padding-lr-sm padding-tb-sm text-bold text-grey cuIcon-notice">
                 <view class="cu-tag badge">99+</view>
             </view>
             <view class="fr cu-avatar padding-lr-sm margin-right-sm padding-tb-sm text-bold text-grey cuIcon-mark">
                 <view class="cu-tag badge">99+</view>
             </view>
-        </view>
+        </view>-->
         <view class="padding-tb-sm inline-block" style="width:100%;">
             <view class="userinfo">
                 <view class="fl user-header-image">
@@ -18,7 +18,8 @@
                     <view class="text-sm text-bold text-grey">{{phone}}</view>
                 </view>
                 <view class="fr solid round">
-                    <el-button name="医生统计" colour="rgba(255,255,255,0)" text-colour="#727C8E"></el-button>
+                    <el-button name="医生统计" bind:handleclick="statistics"
+                               colour="rgba(255,255,255,0)" text-colour="#727C8E"></el-button>
                 </view>
             </view>
         </view>
@@ -86,16 +87,18 @@
                     <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
                 </view>
             </navigator>
-            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
-                <view class="fl padding-xs text-black text-bold radius icon cuIcon-notice"></view>
-                <view class="fl padding-top-xs margin-left-lg">用户反馈</view>
-                <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
-            </view>
-            <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+            <navigator url="/pages/views/InsidePages/feedback/index" hover-class="none">
+                <view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
+                    <view class="fl padding-xs text-black text-bold radius icon cuIcon-notice"></view>
+                    <view class="fl padding-top-xs margin-left-lg">用户反馈</view>
+                    <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
+                </view>
+            </navigator>
+            <!--<view class="padding-xs margin-bottom-lg inline-block" style="width:100%;">
                 <view class="fl padding-xs text-black text-bold radius icon cuIcon-exit"></view>
                 <view class="fl padding-top-xs margin-left-lg">登出</view>
                 <view class="fr padding-xs text-black text-bold cuIcon-right"></view>
-            </view>
+            </view>-->
         </view>
     </scroll-view>
 </view>

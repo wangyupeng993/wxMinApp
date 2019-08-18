@@ -108,6 +108,6 @@
 </view>
 <view class="questions">
     <el-button block name="向霍利医生提问（¥39.0）"
-               text-colour="#ffffff"
+               text-colour="#ffffff" bind:handleclick="questiondoctor"
                colour="#3858D6" />
 </view>

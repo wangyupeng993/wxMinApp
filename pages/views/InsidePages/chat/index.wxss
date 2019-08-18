@@ -1,3 +1,6 @@
+page{
+    background-color:rgba(240,240,240,1);
+}
 .el-header{
     top:30rpx;
 }
@@ -7,5 +10,5 @@
     margin-left:-140rpx;
 }
 .el-container{
-    height:80%;
+    height:91%;
 }

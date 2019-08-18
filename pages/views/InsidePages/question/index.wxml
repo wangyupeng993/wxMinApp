@@ -46,7 +46,7 @@
                         </view>
                     </view>
                     <view class="solids" wx:if="{{FilePath.length < 9}}"
-                          bind:tap="chooseImage" data-name="医疗机构证书"
+                          bind:tap="chooseImage"
                           data-idcard="hospitalLicenses">
                         <text class='cuIcon-cameraadd'></text>
                     </view>

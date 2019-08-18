@@ -97,6 +97,10 @@ image {
 	border-radius: 6rpx;
 }
 
+.hidden{
+	overflow: hidden;
+}
+
 /* ==================
           图片
  ==================== */

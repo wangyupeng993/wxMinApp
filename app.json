@@ -32,7 +32,11 @@
     "pages/views/InsidePages/buyClassroom/index",
     "pages/views/InsidePages/buyDrugs/index",
     "pages/views/InsidePages/question/index",
-    "pages/views/InsidePages/RecommendDoctor/index"
+    "pages/views/InsidePages/RecommendDoctor/index",
+    "pages/views/InsidePages/feedback/index",
+    "pages/views/InsidePages/newsAddress/index",
+    "pages/views/InsidePages/chat/index",
+    "pages/views/InsidePages/statistics/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

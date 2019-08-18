@@ -4,7 +4,7 @@
                    text-colour="#000000"
                    colour="rgba(255,255,255,0)" />
     </navigator>
-    <view class="text-bold text-lg margin-top-sm">购物车</view>
+    <view class="titile text-bold text-lg margin-top-xs">购物车</view>
 </view>
 <view class="el-container">
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
@@ -28,4 +28,5 @@
         </view>
     </scroll-view>
 </view>
-<el-button block round name="去结算" colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
+<el-button block round name="去结算" bind:handleclick="settleaccounts"
+           colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />

@@ -1,0 +1,44 @@
+<view class="el-header text-center padding-sm">
+    <navigator class="fl" open-type="navigateBack" hover-class="none">
+        <el-button small="lg" icon="icon cuIcon-back_android"
+                   text-colour="#000000"
+                   colour="rgba(255,255,255,0)" />
+    </navigator>
+    <view class="title text-bold text-lg margin-top-xs">我的统计</view>
+</view>
+<view class="el-container">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+        <view class="flex justify-center align-center balance bg-olive">
+            <view class="text-center">
+                <view class="text-black text-lg text-bold">我的收入（元）</view>
+                <view class="text-xsl margin-top-lg">345.00</view>
+            </view>
+        </view>
+        <view class="padding-tb-sm padding-lr-lg solid-bottom solid-top bg-gray">
+            <view class="flex text-center">
+                <view bind:tap="intrSwitch" data-type="0" class="basis-df text-lg {{intr === 0?'text-blue text-bold':'text-black'}}">访问量</view>
+                <view bind:tap="intrSwitch" data-type="1" class="basis-df text-lg {{intr === 1?'text-blue text-bold':'text-black'}}">账单</view>
+            </view>
+        </view>
+        <view wx:if="{{intr === 0}}" class="count flex justify-center align-center ">
+            <view class="padding-sm text-center round hidden">
+                <view class="margin-top-xl">
+                    <view class="text-gray">访问量</view>
+                    <view class="text-xxl margin-top-sm">2664</view>
+                </view>
+            </view>
+        </view>
+
+        <view wx:if="{{intr === 1}}">
+            <view class="flex padding-xs doctor solid-bottom">
+                <image class="fl margin-right-sm round"
+                       src="../../../assets/images/home/product@2x.png"></image>
+                <view class="basis-df">
+                    <view class="padding-tb-xs text-lg">名称</view>
+                    <view class="text-gray">日期</view>
+                </view>
+                <view class="fr basis-xs text-bold text-lg text-right padding-lr-xl margin-top-lg">+50</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
