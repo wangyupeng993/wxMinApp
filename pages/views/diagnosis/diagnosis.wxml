@@ -1,4 +1,4 @@
-<view class="el-header text-center">
+<view class="el-header text-center" wx:if="{{!openCamera}}">
     <navigator class="fl" open-type="navigateBack" hover-class="none">
         <el-button small="lg" icon="cuIcon-back_android"
                    colour="rgba(255,255,255,0)" />
@@ -10,26 +10,36 @@
 
 <camera wx:if="{{openCamera}}" flash="off" binderror="error" class="openCamera">
     <cover-view style="width:100%;height:100vh;">
-        <cover-image src="../../assets/images/diagnosis/hand@2x.png"></cover-image>
+        <cover-image src="{{ImagePath}}"></cover-image>
         <cover-view class="closeCamera" bind:tap="closeCamera">关闭</cover-view>
-        <cover-view bind:tap="takePhoto" class="getPhoto">
-            <cover-view>拍摄</cover-view>
+
+        <cover-view wx:if="{{ImagePath === ''}}" bind:tap="takePhoto" class="getPhoto">
+            <cover-image src="../../assets/images/icon/photo.png"></cover-image>
+        </cover-view>
+
+        <cover-view wx:if="{{ImagePath !== ''}}" class="getImagePath">
+            <cover-view bind:tap="takePhotoBack">
+                <cover-image src="../../assets/images/icon/back.png"></cover-image>
+            </cover-view>
+            <cover-view bind:tap="takePhotoSure">
+                <cover-image src="../../assets/images/icon/Correct.png"></cover-image>
+            </cover-view>
         </cover-view>
     </cover-view>
 </camera>
 
-<view class="el-container">
+<view class="el-container" wx:if="{{!openCamera}}">
     <view class="el-row">
         <view class="hand">
             <image src="../../assets/images/diagnosis/hand@2x.png"></image>
         </view>
         <view class="text-lg text-center">
-            <checkbox-group class="inline-block">
-                <checkbox class="blue margin-right-sm"></checkbox><text class="text-white">免责申明</text>
+            <checkbox-group class="inline-block" bindchange="checkboxChange">
+                <checkbox class="blue margin-right-sm" checked="{{checked}}"></checkbox><text class="text-white">免责申明</text>
             </checkbox-group>
         </view>
     </view>
-    <view class="self-diagnosis">
+    <view class="self-diagnosis {{checked ?'show': 'cu-modal'}}">
         <el-button bind:handleclick="openCamera" round name="开始自诊" block
                    colour="linear-gradient(90deg,rgba(161,185,246,1) 0%,rgba(49,101,236,1) 100%)" />
     </view>

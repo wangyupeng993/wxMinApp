@@ -1,13 +1,19 @@
 Page({
-    data: {},
-    onLoad () {},
+    data: {
+        result: ''
+    },
+    onLoad (ev) {
+        if (ev.name) {
+            this.setData({
+                result: ev.name
+            })
+        }
+    },
     onReady () {},
     onShow () {},
     onHide () {},
     onUnload () {},
-    loadmore () {
-        console.log('问诊页，加载更多~~')
-    },
+    loadmore () {},
     // 分享
     onShareAppMessage () {
         return {

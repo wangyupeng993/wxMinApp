@@ -10,6 +10,9 @@
         <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" bindscrolltolower="loadmore">
             <view class="report">
                 <image src="../../../assets/images/report/report.png"></image>
+                <view class="result">
+                    <text>{{result}}</text>
+                </view>
             </view>
             <view class="flex-sub solid-bottom">
                 <view class="text-xl padding-sm">
@@ -22,20 +25,20 @@
             </view>
             <view class="padding solid-bottom">
                 <el-button name="良好" colour="#3858D6"></el-button>
-                <text class="text-bold padding-sm">皮肤状态良好</text>
+                <text class="text-bold padding-sm">皮肤状态：{{result}}</text>
                 <text class="fr text-blue padding-tb-sm padding-lr-xs text-bold text-sm cuIcon-question"></text>
                 <text class="fr text-blue padding-tb-sm padding-lr-xs text-sm">49 Reviews</text>
             </view>
             <view class="padding">
                 <swiper-type image-effect="VisitingCard"></swiper-type>
             </view>
-            <view class="padding-lr-sm">
+            <!--<view class="padding-lr-sm">
                 <view class="padding-tb-sm action border-title">
                     <text class="text-xl">推荐药品</text>
                     <el-button class="fr" round name="更多" text-colour="#656565" colour="rgba(240,240,240,0)"></el-button>
                 </view>
                 <el-product></el-product>
-            </view>
+            </view>-->
         </scroll-view>
     </view>
 

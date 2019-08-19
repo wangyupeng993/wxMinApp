@@ -77,10 +77,41 @@ page{
     width:204rpx;
     height:204rpx;
     font-size:30rpx;
-    color:#fff;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#3165EC;
+    background:#ffffff;
     border-radius:50%;
+}
+
+.getPhoto cover-image{
+    width:100rpx;
+    height:82rpx;
+}
+
+.getImagePath{
+    position: absolute;
+    bottom:30rpx;
+    width:100vw;
+    height:204rpx;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.getImagePath cover-view{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:150rpx;
+    height:150rpx;
+    background:#ffffff;
+    border-radius:50%;
+    margin-left:110rpx;
+    margin-right:110rpx;
+}
+
+.getImagePath cover-view cover-image {
+    width:100rpx;
+    height: 100rpx;
 }

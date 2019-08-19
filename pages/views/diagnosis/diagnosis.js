@@ -1,5 +1,9 @@
+const service = require('../../api/request/index.js')
 Page({
-    data: {},
+    data: {
+        checked: false,
+        ImagePath: ''
+    },
     onLoad () {
         this.CameraContext = wx.createCameraContext()
         console.log('页面加载的时候执行，只执行一次')
@@ -17,34 +21,74 @@ Page({
         console.log('页面卸载的时候就会执行，只执行一次')
     },
     openCamera () {
-        wx.navigateTo({
+       /* wx.navigateTo({
             url: '/pages/views/InsidePages/report/report'
-        })
-        /*this.setData({
-            openCamera: true
         })*/
+        this.setData({
+            openCamera: true
+        })
     },
     closeCamera () {
-        console.log('关闭相机')
         this.setData({
-            openCamera: false
+            openCamera: false,
+            ImagePath: ''
+        })
+    },
+    checkboxChange (ev) {
+        this.setData({
+            checked: !this.data.checked
         })
     },
     // 拍摄照片
     takePhoto () {
-        /*const CameraContext = wx.createCameraContext()
+        const CameraContext = wx.createCameraContext()
         CameraContext.takePhoto({
             quality: 'high',
             success: respone => {
-                console.log(respone)
+                this.setData({
+                    ImagePath: respone.tempImagePath
+                })
             },
             error:error => {
                 console.log(error)
             }
-        })*/
+        })
         /*wx.navigateTo({
             url: '/pages/views/InsidePages/report/report'
         })*/
+    },
+    // 重拍
+    takePhotoBack () {
+        this.setData({
+            ImagePath: ''
+        })
+    },
+    takePhotoSure () {
+        if (this.data.ImagePath !== '') {
+            wx.getFileSystemManager().readFile({
+                filePath: this.data.ImagePath, //选择图片返回的相对路径
+                encoding: 'base64',
+                success: respone => { //成功的回调
+                    const imageBase64 = `${respone.data}`
+                    service.skindiseaserecognize({imageBase64})
+                        .then(respone => {
+                            const {name} =respone.data.data
+                            wx.navigateTo({
+                                url: `/pages/views/InsidePages/report/report?name=${name}`,
+                                success: () => {
+                                    this.setData({
+                                        ImagePath: '',
+                                        openCamera: false
+                                    })
+                                }
+                            })
+                        })
+                        .catch(error => {
+                            console.log(error, '上传图片错误')
+                        })
+                }
+            })
+        }
     },
     //分享
     onShareAppMessage () {

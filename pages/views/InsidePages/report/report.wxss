@@ -16,6 +16,7 @@
 }
 
 .el-container .report{
+    position: relative;
     width:702rpx;
     height:408rpx;
     margin:0 auto;
@@ -23,6 +24,17 @@
 .el-container .report image{
     width:100%;
     height:100%;
+}
+
+.el-container .report .result{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 /* 底部导航 */
