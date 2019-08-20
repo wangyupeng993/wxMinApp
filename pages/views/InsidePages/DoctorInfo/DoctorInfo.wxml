@@ -45,7 +45,7 @@
         </view>
         <view class="flex padding-sm solid-bottom">
             <view class="flex-treble margin-lr-xs text-center">
-                <checkbox-group class="margin-right-sm inline-block">
+                <checkbox-group class="margin-right-xs inline-block">
                     <checkbox class="blue" checked disabled></checkbox>
                 </checkbox-group>
                 <text class="text-xs">平时响应：1小时</text>

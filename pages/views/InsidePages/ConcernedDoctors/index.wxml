@@ -10,7 +10,7 @@
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
         <view wx:for="{{doctors}}" wx:key="*/this"
               class="padding-xs doctor inline-block solid-bottom">
-            <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}" hover-class="none">
+            <navigator class="flex" url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}" hover-class="none">
                 <image class="fl margin-right-sm margin-top-lg"
                        src="{{item.doctorLogoUrl}}"></image>
                 <view class="fl">
@@ -26,7 +26,7 @@
                         <text class="text-gray">5.0</text>
                         <text class="text-gray margin-left-sm">1801回答</text>
                     </view>
-                    <view class="margin-top-sm">
+                    <view class="margin-top-sm text-sm">
                         <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
                         <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
                         <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>

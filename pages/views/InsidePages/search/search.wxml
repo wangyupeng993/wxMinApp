@@ -62,7 +62,7 @@
             <view wx:for="{{searchResult}}" wx:key="*/this"
                   class="padding-xs doctor inline-block solid-bottom"
                   wx:if="{{searchtype === 'doctor'}}">
-                <navigator url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}">
+                <navigator class="flex" url="/pages/views/InsidePages/DoctorInfo/DoctorInfo?doctorid={{item.doctorId}}">
                     <image class="fl margin-right-sm margin-top-lg"
                            src="../../../assets/images/home/product@2x.png"></image>
                     <view class="fl">
@@ -74,7 +74,7 @@
                             <text class="text-gray">5.0</text>
                             <text class="text-gray margin-left-sm">1801回答</text>
                         </view>
-                        <view class="margin-top-sm">
+                        <view class="margin-top-sm text-xs">
                             <text class="padding-xs text-cyan solid margin-right-xs">平均响应：1小时</text>
                             <text class="padding-xs text-cyan solid margin-right-xs">从业20年</text>
                             <text class="padding-xs text-cyan solid margin-right-xs">业内专家</text>
