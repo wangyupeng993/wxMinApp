@@ -47,6 +47,15 @@ page{
     height:100vh;
 }
 
+.openCamera .ImageGIF{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:900rpx;
+    height:900rpx;
+    margin:-570rpx 0 0 -450rpx;
+}
+
 .closeCamera{
     position: absolute;
     top:0rpx;

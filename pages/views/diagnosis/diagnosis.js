@@ -2,7 +2,8 @@ const service = require('../../api/request/index.js')
 Page({
     data: {
         checked: false,
-        ImagePath: ''
+        ImagePath: '',
+        ImageGIF: 'https://yhealth.oss-cn-shenzhen.aliyuncs.com/ZgMkGpLJHh_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.B7QfzTT8Hlmz2d6fc9f518ca7e47b8b35993b00bc39b.gif'
     },
     onLoad () {
         this.CameraContext = wx.createCameraContext()
@@ -46,7 +47,8 @@ Page({
             quality: 'high',
             success: respone => {
                 this.setData({
-                    ImagePath: respone.tempImagePath
+                    ImagePath: respone.tempImagePath,
+                    ImageGIF:'../../assets/images/technology.png'
                 })
             },
             error:error => {
@@ -78,7 +80,8 @@ Page({
                                 success: () => {
                                     this.setData({
                                         ImagePath: '',
-                                        openCamera: false
+                                        openCamera: false,
+                                        ImageGIF: 'https://yhealth.oss-cn-shenzhen.aliyuncs.com/ZgMkGpLJHh_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.B7QfzTT8Hlmz2d6fc9f518ca7e47b8b35993b00bc39b.gif'
                                     })
                                 }
                             })
