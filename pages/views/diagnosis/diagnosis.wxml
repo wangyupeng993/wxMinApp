@@ -19,11 +19,14 @@
         </cover-view>
 
         <cover-view wx:if="{{ImagePath !== ''}}" class="getImagePath">
-            <cover-view bind:tap="takePhotoBack">
+            <cover-view bind:tap="takePhotoBack" class="margin-lr-lg">
                 <cover-image src="../../assets/images/icon/back.png"></cover-image>
             </cover-view>
-            <cover-view bind:tap="takePhotoSure">
-                <cover-image src="../../assets/images/icon/Correct.png"></cover-image>
+            <cover-view bind:tap="takePhotoNumber" class="margin-lr-lg">
+                <cover-image src="../../assets/images/icon/jixutianjia.png"></cover-image>
+            </cover-view>
+            <cover-view bind:tap="takePhotoSure" class="margin-lr-lg">
+                <cover-image src="../../assets/images/icon/shangchuan.png"></cover-image>
             </cover-view>
         </cover-view>
     </cover-view>

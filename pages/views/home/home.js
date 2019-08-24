@@ -14,7 +14,7 @@ Page({
         url: '/pages/views/InsidePages/DrugsClass/DrugsClass',
         icon: '../../assets/images/home/drug@2x.png',
         badge: 1,
-        name: '找药品'
+        name: '找商品'
       }, {
         url: '/pages/views/InsidePages/hospital/hospital',
         icon: '../../assets/images/home/hospital@2x.png',

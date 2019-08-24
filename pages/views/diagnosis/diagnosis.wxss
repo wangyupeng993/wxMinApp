@@ -116,8 +116,6 @@ page{
     height:150rpx;
     background:#ffffff;
     border-radius:50%;
-    margin-left:110rpx;
-    margin-right:110rpx;
 }
 
 .getImagePath cover-view cover-image {
