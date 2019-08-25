@@ -353,7 +353,7 @@ const service = {
     },
     skindiseaserecognize:(data = {} ) => {
         return wxRequest({
-            url: `${URL}/skin/disease/recognize`,
+            url: `${URL}/skin/disease/multi/recognize`,
             method: 'POST',
             data
         })

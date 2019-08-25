@@ -11,7 +11,7 @@
             <view class="report">
                 <image src="../../../assets/images/report/report.png"></image>
                 <view class="result">
-                    <text>{{result}}</text>
+                    <text>{{result[0].name}}</text>
                 </view>
             </view>
             <view class="flex-sub solid-bottom">
@@ -19,15 +19,19 @@
                     <text class="text-black text-bold">问诊报告</text>
                 </view>
                 <view class="padding-sm">
-                    <text class="text-blue text-bold">$42</text>
-                    <text class="text-xs text-bold padding-lr-lg">$62</text>
+                    <text class="text-gray text-bold">有一定的几率是：</text>
+                    <text class="text-blue text-bold inline-block margin-lr-xs"
+                          wx:if="{{index > 0}}"
+                          wx:for="{{result}}" wx:key="*/this">
+                        {{item.name}}
+                    </text>
                 </view>
             </view>
             <view class="padding solid-bottom">
                 <el-button name="良好" colour="#3858D6"></el-button>
-                <text class="text-bold padding-sm">皮肤状态：{{result}}</text>
-                <text class="fr text-blue padding-tb-sm padding-lr-xs text-bold text-sm cuIcon-question"></text>
-                <text class="fr text-blue padding-tb-sm padding-lr-xs text-sm">49 Reviews</text>
+                <text class="text-bold padding-sm">皮肤状态：{{result[0].name}}</text>
+                <!--<text class="fr text-blue padding-tb-sm padding-lr-xs text-bold text-sm cuIcon-question"></text>
+                <text class="fr text-blue padding-tb-sm padding-lr-xs text-sm">49 Reviews</text>-->
             </view>
             <view class="padding">
                 <swiper-type image-effect="VisitingCard"></swiper-type>

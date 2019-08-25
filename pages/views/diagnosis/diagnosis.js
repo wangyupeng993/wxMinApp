@@ -101,12 +101,14 @@ Page({
                 const imageBase64 = `${respone.data}`
                 ImageFile.push(imageBase64 )
                 this.setData({ImageFile})
+                console.log(ImageFile.length,'图片文件=================================')
                 wx.nextTick(() => {
-                    service.skindiseaserecognize({imageBase64})
+                    service.skindiseaserecognize({imageBase64List: ImageFile})
                         .then(respone => {
-                            const {name} =respone.data.data
+                            const {scoreResultViewList} = respone.data.data
+                            console.log(respone.data.data,'症状列表====================================')
                             wx.navigateTo({
-                                url: `/pages/views/InsidePages/report/report?name=${name}`,
+                                url: `/pages/views/InsidePages/report/report?scoreResultViewList=${JSON.stringify(scoreResultViewList)}`,
                                 success: () => {
                                     this.setData({
                                         ImagePath: '',

@@ -1,11 +1,12 @@
 Page({
     data: {
-        result: ''
+        result: []
     },
     onLoad (ev) {
-        if (ev.name) {
+        console.log(JSON.parse(ev.scoreResultViewList),'============================================')
+        if (ev.scoreResultViewList) {
             this.setData({
-                result: ev.name
+                result: JSON.parse(ev.scoreResultViewList)
             })
         }
     },
