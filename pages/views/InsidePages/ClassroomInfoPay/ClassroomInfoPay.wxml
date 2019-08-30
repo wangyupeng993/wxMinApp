@@ -15,6 +15,7 @@
                 <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg"></image>
                 <view class="text-lg text-black padding-tb-sm padding-lr-lg">日常如何预防真菌感染</view>
                 <view class="text-xs text-gray padding-lr-lg">何亮.浙江大学医学附属第二医院…</view>
+                <view class="text-lg text-blue padding-lr-lg">￥11.2</view>
             </view>
         </view>
         <view class="padding-lr-lg padding-tb-xs text-lg">
@@ -27,22 +28,18 @@
         </view>
         <view class="padding-tb-lg padding-lr-sm solid-top solid-bottom text-lg">
             <view class="padding-bottom-sm inline-block" style="width:100%;">
-                <text class="fl text-gray">Subtotal</text>
-                <text class="fr text-black">$160.00</text>
-            </view>
-            <view class="padding-bottom-sm inline-block" style="width:100%;">
-                <text class="fl text-gray">Discount</text>
+                <text class="fl text-gray">优惠</text>
                 <text class="fr text-black">5%</text>
             </view>
             <view class="inline-block" style="width:100%;">
-                <text class="fl text-gray">Shipping</text>
-                <text class="fr text-black">$10.00</text>
+                <text class="fl text-gray">快递</text>
+                <text class="fr text-black">¥10.00</text>
             </view>
         </view>
         <view class="padding-sm text-lg">
             <view class="inline-block padding-bottom-lg" style="width:100%;">
-                <text class="text-gray fl">Total</text>
-                <text class="text-black fr">$162.00</text>
+                <text class="text-gray fl">合计</text>
+                <text class="text-black fr">¥162.00</text>
             </view>
         </view>
     </scroll-view>

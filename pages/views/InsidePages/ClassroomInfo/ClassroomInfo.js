@@ -110,7 +110,21 @@ Page({
                 videosrc: item.resourceUrl
             })
         })
-        console.log(ev.currentTarget.dataset)
+    },
+    // 购买讲堂
+    payforum () {
+        const orderItems = [{itemId:this.data.classroom.itemId,itemCount: 1}]
+        service.payunifiedOrder({
+            orderItems,
+            contactAddress: '福建省厦门市翔安区新店镇',
+            contactName: '路远',
+            contactPhone:'18106969999',
+            orderType: 'FORUM'
+        }).then(respone => {
+                console.log(respone)
+            }).catch(error => {
+                console.log(error)
+        })
     },
     onShareAppMessage () {}
 })
