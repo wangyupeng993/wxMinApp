@@ -98,6 +98,14 @@ Page({
     },
     // 回复评论
     replycomments (ev) {},
+    // 购买药品
+    navigatorPay() {
+        const {druginfo} = this.data
+        delete druginfo.drugContent
+        wx.navigateTo({
+            url:`/pages/views/InsidePages/pay/pay?goods=${JSON.stringify(druginfo)}`
+        })
+    },
     // 分享
     onShareAppMessage () {
         return {

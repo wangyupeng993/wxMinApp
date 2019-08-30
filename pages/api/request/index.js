@@ -351,10 +351,21 @@ const service = {
             data
         })
     },
+    // AI图片识别
     skindiseaserecognize:(data = {} ) => {
         return wxRequest({
             url: `${URL}/skin/disease/multi/recognize`,
             method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 支付预下单
+    payunifiedOrder: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/pay/unifiedOrder`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
     }

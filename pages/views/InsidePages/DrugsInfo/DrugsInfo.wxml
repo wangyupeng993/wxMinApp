@@ -116,9 +116,7 @@
             <el-button block name="加入购物车" colour="#E1E1E1" text-colour="#333333" />
         </view>
         <view class="basis-df">
-            <navigator url="/pages/views/InsidePages/pay/pay" hover-class="none">
-                <el-button block name="立即购买" colour="#3858D6" />
-            </navigator>
+            <el-button block name="立即购买" bind:handleclick="navigatorPay" colour="#3858D6" />
         </view>
     </view>
 </view>

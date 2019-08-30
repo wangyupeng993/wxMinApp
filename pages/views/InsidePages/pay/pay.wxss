@@ -7,8 +7,8 @@
     margin-left:-140rpx;
 }
 .product{
-    width:200rpx;
-    height:208rpx;
+    width:250rpx;
+    height:258rpx;
 }
 .product image{
     width:100%;
