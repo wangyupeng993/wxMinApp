@@ -66,9 +66,22 @@ Page({
             contactAddress: '福建省厦门市翔安区新店镇',
             contactName: '路远',
             contactPhone:'18106969999',
-            orderType: 'DRGUS'
+            orderType: 'DRUG'
         }).then(respone => {
-            console.log(respone)
+            const {nonceStr,timeStamp,signType,paySign} = respone.data.data
+            if (nonceStr&&timeStamp&&signType&&paySign&&respone.data.data.package) {
+                console.log(nonceStr,timeStamp,signType,paySign)
+                wx.requestPayment({
+                    nonceStr,timeStamp,signType,paySign,
+                    package:respone.data.data.package,
+                    success:respone => {
+                        console.log(respone.data)
+                    },
+                    fail: error => {
+                        console.log(error)
+                    }
+                })
+            }
         }).catch(error => {
                 console.log(error)
             })
