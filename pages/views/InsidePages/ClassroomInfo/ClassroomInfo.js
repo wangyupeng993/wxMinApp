@@ -7,12 +7,14 @@ Page({
         classroomImage: [],
         doctorMessage: '',
         resources: [],
-        videosrc: ''
+        videosrc: '',
+        comments: []
     },
     onLoad (ev) {
         checkSession().then(async respone => {
             await this.getPhysicianinfo({forumid: ev.forumid})
             await this.forumresources({forumid: ev.forumid})
+            await this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'FORUM'})
         }).catch(error => {
                 wx.login({
                     timeout: 50000,
@@ -29,6 +31,7 @@ Page({
                                     await wx.setStorageSync('sessionid', key)
                                     await this.getPhysicianinfo({forumid: ev.forumid})
                                     await this.forumresources({forumid: ev.forumid})
+                                    await this.getcommentslist({pageNo: 1, pageSize: 30, resourceType: 'FORUM'})
                                 }
                             }).catch(error => {})
                     },
@@ -94,6 +97,17 @@ Page({
                 this.setData({
                     resources: respone.data.data
                 })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },
+    // 获取评论列表
+    getcommentslist (params) {
+        service.getcommentslist(params)
+            .then(respone => {
+                const comments = respone.data.data.map(item => item)
+                this.setData({comments})
             })
             .catch(error => {
                 console.log(error)
