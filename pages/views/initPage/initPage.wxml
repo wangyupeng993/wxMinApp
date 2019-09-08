@@ -79,7 +79,7 @@
       class="init-page padding-top-xl margin-top-xl text-center text-lg text-blue">
     只有授权了才能获取数据哦~~
 </view>
-<view class="cu-modal bottom-modal {{userInfo === ''?'show':''}}">
+<view class="cu-modal bottom-modal {{userInfo === ''||userInfo === null||!userInfo?'show':''}}">
     <view class="cu-dialog">
         <view class="padding-xl">
             <view class="user-header-image">

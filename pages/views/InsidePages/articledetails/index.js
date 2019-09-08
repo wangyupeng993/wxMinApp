@@ -44,7 +44,7 @@ Page({
 
                 if (articleContent) {
                     this.setData({
-                        html:articleContent.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block" ')
+                        html:articleContent.replace(/<img/gi, '<img style="max-width:100%;height:auto;display:block"')
                             .replace(/<section/g, '<div')
                             .replace(/\/section>/g, '\div>')
                     })
