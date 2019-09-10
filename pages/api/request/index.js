@@ -351,6 +351,15 @@ const service = {
             data
         })
     },
+    // 获取购买药品列表
+    getBuydrugslist: (data) => {
+        return wxRequest({
+            url: `${URL}/user/order/drugs`,
+            method: 'post',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
     // AI图片识别
     skindiseaserecognize:(data = {} ) => {
         return wxRequest({

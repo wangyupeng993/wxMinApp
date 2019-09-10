@@ -7,23 +7,51 @@
     <view class="title text-bold text-lg">购买的药品</view>
 </view>
 <view class="el-container padding-lr-sm">
-    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" >
-        <view>
-            <view class="flex padding-sm drug solid-bottom">
-                <image class="margin-right-sm" src="../../../assets/images/home/product@2x.png"></image>
-                <view class="inline-block" style="width:100%;">
-                    <view class="padding-tb-sm text-lg">扑感敏</view>
-                    <view class="text-gray">法国高德美制药公司</view>
-                    <view class="text-blue">
-                        <text>￥12.1</text>
-                        <view class="fr text-grey text-lg">
-                            <text class="cuIcon-commentfill"></text>
-                            <text class="padding-xs margin-right-xs">评价</text>
+    <view class="padding-tb-xs flex text-center solid-bottom solid-top">
+        <view wx:for="{{navTab}}" wx:key="*/this" data-item-type="{{item.value}}"
+              bind:tap="SwitchNavTab"
+              class="basis-xl text-lg padding-tb-sm {{navClassTab === item.value?'text-black text-bold':'text-gray'}}">
+            {{item.label}}
+        </view>
+    </view>
+    <scroll-view wx:if="{{drugs.length > 0}}" class="scrollView" scroll-y="true" lower-threshold="200" >
+        <view wx:for="{{drugs}}" wx:key="*/this">
+            <view class="solid-bottom padding-bottom-sm">
+                <view class="text-lg text-grey padding-tb-xs padding-lr-sm solid-bottom">
+                    {{item.updateDate}}
+                </view>
+
+                <view wx:for="{{item.orderItems}}" wx:for-item="items" wx:key="*/this"
+                        class="flex padding-sm drug solid-bottom">
+                    <image class="margin-right-sm" src="{{items.itemImgUrl}}"></image>
+                    <view class="inline-block" style="width:100%;">
+                        <view class="padding-tb-sm text-lg">{{items.itemName}}</view>
+                   <!--     <view class="text-gray">法国高德美制药公司</view>-->
+                        <view class="text-blue">
+                            <text>￥{{items.itemPrice}}</text>
+                            <view bind:tap="comments" data-orderid="{{item.orderId}}"
+                                  wx:if="{{item.orderStatus === '已完成'}}"
+                                  class="fr text-grey text-lg">
+                                <text class="cuIcon-commentfill"></text>
+                                <text class="padding-xs margin-right-xs">评价</text>
+                            </view>
                         </view>
                     </view>
                 </view>
+
+                <view class="padding-lr-sm padding-tb-xs text-right text-lg text-black">
+                    <text class="margin-lr-sm">共<text class="text-blue">{{item.itemTotalCount}}</text>商品</text>
+                    <text>实付金额<text class="text-blue">￥{{item.payAmount}}</text></text>
+                </view>
+                <view class="text-right text-sm">
+                    <view class="inline-block padding-tb-xs padding-lr-sm bg-blue text-white text-lg radius">
+                        去付款
+                    </view>
+                </view>
             </view>
-            <view class="inline-block margin-top-sm" style="width:100%;">
+
+            <view wx:if="{{levelID === item.orderId}}"
+                  class="inline-block margin-top-sm" style="width:100%;">
                 <form bindsubmit="bindFormSubmit">
                     <textarea class="solid padding-sm" placeholder="输入您的评论 （150字以内）"
                               name="commentContent" maxlength="150"
@@ -36,4 +64,10 @@
             </view>
         </view>
     </scroll-view>
+    <view wx:else class="text-center text-xl text-grey text-bold margin-top-xl padding-top-xl">
+        <image src="/pages/assets/images/icon/orderlist@2x.png"
+               class="margin-top-xl"
+               style="width:132rpx;height:113rpx;"></image>
+        <view class="padding-tb-sm">暂无数据......</view>
+    </view>
 </view>

@@ -9,7 +9,9 @@
 .el-container{
     height:100%;
 }
-
+.scrollView{
+    height:90%;
+}
 .drug,.doctor,.hospital{
     width:100%;
 }
