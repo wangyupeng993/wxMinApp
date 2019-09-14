@@ -7,16 +7,32 @@
     <view class="title text-bold text-lg margin-top-xs">收货地址</view>
 </view>
 <view class="el-container">
-    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <radio-group>
-            <view class="flex padding-lg inline-block" style="width:100%;" wx:for="{{20}}" wx:key="*/this">
-                <view class="fl text-justify" style="width:85%;">福建省厦门市翔安区新店镇</view>
-                <view class="padding-lr-xs fr">
+    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" wx:if="{{address.length > 0}}">
+        <radio-group style="width:100%;">
+            <view class="flex padding-lg solid-bottom" wx:for="{{address}}" wx:key="*/this"
+            bind:longpress="showDELETE" bind:tap="hideDELETE">
+                <view class="basis-xl text-justify">
+                    <view class="text-xl">
+                        <text>{{item.receiverName}}</text>
+                        <text class="margin-left-xl">{{item.receiverPhone}}</text>
+                    </view>
+                    <view>{{item.receiverAddress}}</view>
+                </view>
+                <view wx:if="{{!delete}}" class="basis-xs padding-lr-xs flex-center">
                         <radio class="blue radio"></radio>
+                </view>
+                <view wx:if="{{delete}}" class="basis-xs text-red text-xxl padding-lr-xs flex-center"
+                      catch:tap="deleteaddress" data-delete-id="{{item.id}}">
+                        <text class="cuIcon-deletefill"></text>
                 </view>
             </view>
         </radio-group>
     </scroll-view>
+    <view wx:else class="text-center text-xl text-grey text-bold padding-top-xl">
+        <image src="/pages/assets/images/icon/orderlist@2x.png"
+               style="width:132rpx;height:113rpx;"></image>
+        <view class="padding-tb-sm">暂无数据......</view>
+    </view>
 </view>
 <view class="padding-lr-lg padding-tb-sm inline-block bg-white" style="width:100%;">
     <navigator url="/pages/views/InsidePages/newsAddress/index" hover-class="none">
@@ -25,4 +41,5 @@
         </view>
     </navigator>
 </view>
-<el-button block round name="保存" colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
+<el-button block round name="保存"
+           colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />

@@ -11,14 +11,14 @@
         <view class="inline-block margin-top-sm" style="width:100%;">
             <form bindsubmit="bindFormSubmit">
                     <textarea class="solid padding-sm bg-white" placeholder="请填写10个字以上的问题描述以便我们提供更好的帮助"
-                              name="commentContent" maxlength="-1"
+                              name="feedbackContent" maxlength="-1"
                               style="width:100%;height:300rpx;" />
                 <view class="padding-tb-sm text-grey">图片（选图，提供问题截图），可上传4张</view>
                 <view class="grid col-4 grid-square flex-sub margin-top-sm">
                     <view class="bg-img" wx:for="{{FilePath}}" wx:key="*/this"wx:if="{{FilePath.length > 0}}">
                         <image src="{{item}}" mode="aspectFill"></image>
-                        <view class="cu-tag bg-red"
-                              data-idcard="hospitalLicenses">
+                        <view class="cu-tag bg-red" bind:tap="deletechooseImage"
+                              data-index="{{index}}">
                             <text class='cuIcon-close'></text>
                         </view>
                     </view>

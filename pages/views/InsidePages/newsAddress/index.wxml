@@ -6,30 +6,36 @@
     </navigator>
     <view class="title text-bold text-lg margin-top-xs">设置收货信息</view>
 </view>
-<view class="el-container padding-lr-sm">
-    <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
-        <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">姓名:</view>
-        <view class="cu-form-group solid-bottom">
-            <input placeholder="请输入收货人姓名" name="name" />
-        </view>
-        <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">电话号码:</view>
-        <view class="cu-form-group solid-bottom">
-            <input type="number" placeholder="请输入收货人电话号码" name="tel" />
-        </view>
-        <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">城市:</view>
-        <view class="cu-form-group solid-bottom">
-            <picker mode="region" value="{{city}}"
-                    bindchange="bindRegionChange">
-                <view class="picker">
-                    <text class="fl text-darkGray">{{city[0]}} {{city[1]}} {{city[2]}}</text>
-                </view>
-            </picker>
-        </view>
-        <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">详细地址:</view>
-        <view class="cu-form-group solid-bottom">
-            <input placeholder="请输入收货人详细地址" name="address" />
-        </view>
-    </scroll-view>
-</view>
-<el-button block round name="保存"
-           colour="linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%)" />
+<form bindsubmit="bindFormSubmit">
+    <view class="el-container padding-lr-sm">
+        <scroll-view class="scrollView" scroll-y="true" lower-threshold="200">
+            <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">姓名:</view>
+            <view class="cu-form-group solid-bottom">
+                <input placeholder="请输入收货人姓名" name="receiverName" />
+            </view>
+            <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">电话号码:</view>
+            <view class="cu-form-group solid-bottom">
+                <input type="number" placeholder="请输入收货人电话号码" name="receiverPhone" />
+            </view>
+            <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">城市:</view>
+            <view class="cu-form-group solid-bottom">
+                <picker mode="region" value="{{city}}"
+                        bindchange="bindRegionChange">
+                    <view class="picker">
+                        <text class="fl text-darkGray">{{city[0]}} {{city[1]}} {{city[2]}}</text>
+                    </view>
+                </picker>
+            </view>
+            <view class="title text-lg text-darkGray padding-lr-sm text-indent-xs margin-top-sm">详细地址:</view>
+            <view class="cu-form-group solid-bottom">
+                <input placeholder="请输入收货人详细地址" name="receiverAddress" />
+            </view>
+        </scroll-view>
+    </view>
+    <view class="padding-lr-sm">
+        <button form-type="submit" class="round block text-white"
+                style="background:linear-gradient(90deg,rgba(106,255,128,1) 0%,rgba(117,140,219,1) 100%);">
+            保存
+        </button>
+    </view>
+</form>

@@ -377,6 +377,33 @@ const service = {
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
+    },
+    // 用户反馈
+    userfeedback: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/user/feedback/save`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 用户收货地址
+    useraddress: (data) => {
+        return wxRequest({
+            url: `${URL}/user/receive/list`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
+    },
+    // 新增收货地址
+    newuseraddress: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/user/receive/save`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
+            data
+        })
     }
 }
 module.exports = service

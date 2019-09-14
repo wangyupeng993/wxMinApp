@@ -39,11 +39,13 @@
                     </view>
                 </view>
 
-                <view class="padding-lr-sm padding-tb-xs text-right text-lg text-black">
+                <view class="padding-lr-sm padding-tb-xs text-right text-lg text-black"
+                      wx:if="{{item.orderStatus === '待支付'}}">
                     <text class="margin-lr-sm">共<text class="text-blue">{{item.itemTotalCount}}</text>商品</text>
                     <text>实付金额<text class="text-blue">￥{{item.payAmount}}</text></text>
                 </view>
-                <view class="text-right text-sm">
+                <view class="text-right text-sm"
+                      wx:if="{{item.orderStatus === '待支付'}}">
                     <view class="inline-block padding-tb-xs padding-lr-sm bg-blue text-white text-lg radius">
                         去付款
                     </view>
