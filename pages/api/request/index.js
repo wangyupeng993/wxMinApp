@@ -404,6 +404,14 @@ const service = {
             header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')},
             data
         })
+    },
+    // 删除收货地址
+    deleteadress: (data = {}) => {
+        return wxRequest({
+            url: `${URL}/user/receive/delete/${data.id}`,
+            method: 'POST',
+            header: {...JSONHEADER, 'X-Yhealth-Authentication': wx.getStorageSync('sessionid')}
+        })
     }
 }
 module.exports = service

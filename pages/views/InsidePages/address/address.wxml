@@ -10,6 +10,7 @@
     <scroll-view class="scrollView" scroll-y="true" lower-threshold="200" wx:if="{{address.length > 0}}">
         <radio-group style="width:100%;">
             <view class="flex padding-lg solid-bottom" wx:for="{{address}}" wx:key="*/this"
+                  data-item-id="{{item.id}}"
             bind:longpress="showDELETE" bind:tap="hideDELETE">
                 <view class="basis-xl text-justify">
                     <view class="text-xl">
@@ -18,10 +19,12 @@
                     </view>
                     <view>{{item.receiverAddress}}</view>
                 </view>
-                <view wx:if="{{!delete}}" class="basis-xs padding-lr-xs flex-center">
+                <view wx:if="{{deleteid !== item.id}}"
+                      class="basis-xs padding-lr-xs flex-center">
                         <radio class="blue radio"></radio>
                 </view>
-                <view wx:if="{{delete}}" class="basis-xs text-red text-xxl padding-lr-xs flex-center"
+                <view wx:if="{{deleteid === item.id}}"
+                      class="basis-xs text-red text-xxl padding-lr-xs flex-center"
                       catch:tap="deleteaddress" data-delete-id="{{item.id}}">
                         <text class="cuIcon-deletefill"></text>
                 </view>

@@ -64,11 +64,8 @@ Page({
             .then(respone => {
                 const {code} = respone.data
                 if (code === 200) {
-                    wx.navigateTo({
-                        url:'/pages/views/InsidePages/address/address'
-                    })
+                    wx.navigateBack(-1)
                 }
-                console.log(respone.data)
             })
             .catch(error => {
                 console.log(error)

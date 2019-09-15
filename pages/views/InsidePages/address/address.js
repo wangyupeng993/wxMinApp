@@ -3,7 +3,7 @@ const checkSession = require('../../../api/checkSession/index.js')
 Page({
     data: {
         address:[],
-        delete: false
+        deleteid: ''
     },
     onLoad () {
         checkSession().then(respone => {
@@ -45,10 +45,25 @@ Page({
                 console.log(error)
             })
     },
-    showDELETE() {this.setData({delete: true})},
-    hideDELETE() {this.setData({delete: false})},
+    showDELETE(ev) {
+        const {itemId} = ev.currentTarget.dataset
+        this.setData({deleteid: itemId})
+    },
+    hideDELETE(ev) {
+        const {itemId} = ev.currentTarget.dataset
+        this.setData({deleteid: ''})
+    },
     deleteaddress (ev) {
-        console.log(ev)
+        const {deleteId} = ev.currentTarget.dataset
+        service.deleteadress({id: deleteId})
+            .then(respone => {
+                console.log(respone)
+                this.useraddress()
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        console.log(ev.currentTarget.dataset.deleteId)
     },
     defaultaddress () {}
 })
