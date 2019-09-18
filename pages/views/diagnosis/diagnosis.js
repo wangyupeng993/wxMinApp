@@ -1,10 +1,11 @@
 const service = require('../../api/request/index.js')
+// https://yhealth.oss-cn-shenzhen.aliyuncs.com/EtotIfJYmA_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.2DdWb9SNl9t53b8f9d97faf74a9fa16fd44226e7d87b.gif
 Page({
     data: {
         checked: false,
         ImagePath: '',
         ImageFile: [],
-        ImageGIF: 'https://yhealth.oss-cn-shenzhen.aliyuncs.com/ZgMkGpLJHh_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.B7QfzTT8Hlmz2d6fc9f518ca7e47b8b35993b00bc39b.gif'
+        ImageGIF: '../../assets/images/scan.png'
     },
     onLoad () {
         this.CameraContext = wx.createCameraContext()
@@ -50,7 +51,7 @@ Page({
             success: respone => {
                 this.setData({
                     ImagePath: respone.tempImagePath,
-                    ImageGIF:'../../assets/images/technology.png'
+                    ImageGIF:'../../assets/images/scan.png'
                 })
             },
             error:error => {
@@ -62,7 +63,7 @@ Page({
     takePhotoBack () {
         this.setData({
             ImagePath: '',
-            ImageGIF: 'https://yhealth.oss-cn-shenzhen.aliyuncs.com/ZgMkGpLJHh_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.B7QfzTT8Hlmz2d6fc9f518ca7e47b8b35993b00bc39b.gif'
+            ImageGIF: '../../assets/images/scan.png'
         })
     },
     // 继续添加图片
@@ -78,7 +79,7 @@ Page({
                 this.setData({
                     ImageFile,
                     ImagePath: '',
-                    ImageGIF: 'https://yhealth.oss-cn-shenzhen.aliyuncs.com/ZgMkGpLJHh_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.B7QfzTT8Hlmz2d6fc9f518ca7e47b8b35993b00bc39b.gif'
+                    ImageGIF: '../../assets/images/scan.png'
                 })
                 wx.showToast({
                     title: `共有${ImageFile.length}张图片`,
@@ -114,7 +115,7 @@ Page({
                                         ImagePath: '',
                                         ImageFile: [],
                                         openCamera: false,
-                                        ImageGIF: 'https://yhealth.oss-cn-shenzhen.aliyuncs.com/ZgMkGpLJHh_wx0c2c0fbc65f996ea.o6zAJs3530sWD5ghjtJSiU0bGIYI.B7QfzTT8Hlmz2d6fc9f518ca7e47b8b35993b00bc39b.gif'
+                                        ImageGIF: '../../assets/images/scan.png'
                                     })
                                 }
                             })
