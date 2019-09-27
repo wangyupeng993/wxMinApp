@@ -5,7 +5,9 @@ Page({
         checked: false,
         ImagePath: '',
         ImageFile: [],
-        ImageGIF: '../../assets/images/scan.png'
+        seeImageFile: [],
+        ImageGIF: '../../assets/images/scan.png',
+        openCamera: ''
     },
     onLoad () {
         this.CameraContext = wx.createCameraContext()
@@ -28,13 +30,14 @@ Page({
             url: '/pages/views/InsidePages/report/report'
         })*/
         this.setData({
-            openCamera: true
+            openCamera: 'camera'
         })
     },
     closeCamera () {
         this.setData({
             openCamera: false,
             ImagePath: '',
+            seeImageFile: [],
             ImageFile: []
         })
     },
@@ -68,8 +71,9 @@ Page({
     },
     // 继续添加图片
     takePhotoNumber () {
-        let {ImageFile, ImagePath} = this.data
+        let {ImageFile, ImagePath, seeImageFile} = this.data
         if (ImagePath === '' || ImagePath === null || !ImagePath) return false
+        seeImageFile.push(ImagePath)
         wx.getFileSystemManager().readFile({
             filePath: ImagePath,//选择图片返回的相对路径
             encoding: 'base64',
@@ -78,6 +82,7 @@ Page({
                 ImageFile.push(imageBase64 )
                 this.setData({
                     ImageFile,
+                    seeImageFile,
                     ImagePath: '',
                     ImageGIF: '../../assets/images/scan.png'
                 })
@@ -94,7 +99,8 @@ Page({
     },
     // 确定上传图片
     takePhotoSure () {
-        let {ImageFile, ImagePath} = this.data
+        let {ImageFile, ImagePath,seeImageFile} = this.data
+        seeImageFile.push(ImagePath)
         wx.getFileSystemManager().readFile({
             filePath: ImagePath,//选择图片返回的相对路径
             encoding: 'base64',
@@ -114,6 +120,7 @@ Page({
                                     this.setData({
                                         ImagePath: '',
                                         ImageFile: [],
+                                        seeImageFile: [],
                                         openCamera: false,
                                         ImageGIF: '../../assets/images/scan.png'
                                     })
@@ -128,6 +135,18 @@ Page({
             fail: error => {
                 console.log(error)
             }
+        })
+    },
+    // 查看拍摄图片
+    seetakeImage () {
+        this.setData({
+            openCamera: 'seetake'
+        })
+    },
+    // 退出查看照片
+    exitSeeImage () {
+        this.setData({
+            openCamera: 'camera'
         })
     },
     //分享

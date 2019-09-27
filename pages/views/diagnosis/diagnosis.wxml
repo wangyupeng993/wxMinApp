@@ -8,7 +8,7 @@
                colour="rgba(255,255,255,0)" />-->
 </view>
 
-<camera wx:if="{{openCamera}}" flash="off" binderror="error" class="openCamera">
+<camera wx:if="{{openCamera === 'camera'}}" flash="off" binderror="error" class="openCamera">
     <cover-view style="width:100%;height:100vh;">
         <cover-image src="{{ImagePath}}"></cover-image>
         <cover-image src="{{ImageGIF}}" class="ImageGIF"></cover-image>
@@ -29,8 +29,34 @@
                 <cover-image src="../../assets/images/icon/shangchuan.png"></cover-image>
             </cover-view>
         </cover-view>
+
+        <cover-view class="absolute absolute-top absolute-left flex" style="height:100%;">
+            <cover-view class="basis-ls flex-center text-white">
+                <cover-view class="el-relative"
+                            style="width:150rpx;height:150rpx;">
+                    <cover-image class="absolute absolute-top absolute-left"
+                                 bind:tap="seetakeImage"
+                                 wx:for="{{seeImageFile}}" wx:key="*/this"
+                                 style="width:150rpx;height:150rpx;"
+                                 src="{{item}}"></cover-image>
+                </cover-view>
+            </cover-view>
+        </cover-view>
     </cover-view>
 </camera>
+
+<view class="absolute absolute-top absolute-left app-main" wx:if="{{openCamera === 'seetake'}}">
+    <swiper class="app-main">
+        <swiper-item wx:for="{{seeImageFile}}" wx:key="*/this">
+            <image class="app-main" src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+    </swiper>
+    <view class="absolute text-xxl bg-black padding-sm radius"
+          bind:tap="exitSeeImage"
+          style="top:30rpx;left:10rpx;">
+        <text class="cuIcon-close"></text>
+    </view>
+</view>
 
 <view class="el-container" wx:if="{{!openCamera}}">
     <view class="el-row">
