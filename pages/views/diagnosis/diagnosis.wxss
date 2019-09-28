@@ -99,45 +99,38 @@ page{
 
 .getPhoto{
     position: absolute;
-    bottom:30rpx;
-    left:50%;
-    margin-left:-102rpx;
-    width:204rpx;
-    height:204rpx;
+    bottom:100rpx;
+    left:0;
+    width:100%;
+    height:120rpx;
     font-size:30rpx;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:#ffffff;
-    border-radius:50%;
 }
 
 .getPhoto cover-image{
-    width:100rpx;
-    height:82rpx;
+    width:120rpx;
+    height:120rpx;
+    border-radius:50%;
 }
 
 .getImagePath{
     position: absolute;
-    bottom:30rpx;
+    bottom:80rpx;
     width:100vw;
-    height:204rpx;
+    height:110rpx;
     display:flex;
     justify-content:center;
     align-items:center;
 }
 
 .getImagePath cover-view{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:150rpx;
-    height:150rpx;
-    background:#ffffff;
     border-radius:50%;
 }
 
 .getImagePath cover-view cover-image {
     width:100rpx;
     height: 100rpx;
+    border-radius:50%;
 }

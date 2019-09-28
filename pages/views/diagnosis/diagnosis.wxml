@@ -14,30 +14,31 @@
         <cover-image src="{{ImageGIF}}" class="ImageGIF"></cover-image>
         <cover-view class="closeCamera" bind:tap="closeCamera">关闭</cover-view>
 
-        <cover-view wx:if="{{ImagePath === ''}}" bind:tap="takePhoto" class="getPhoto">
-            <cover-image src="../../assets/images/icon/photo.png"></cover-image>
+        <cover-view wx:if="{{ImagePath === ''}}" class="getPhoto">
+            <cover-image bind:tap="takePhoto" src="../../assets/images/icon/photo.png"></cover-image>
         </cover-view>
 
-        <cover-view wx:if="{{ImagePath !== ''}}" class="getImagePath">
-            <cover-view bind:tap="takePhotoBack" class="margin-lr-lg">
-                <cover-image src="../../assets/images/icon/back.png"></cover-image>
+        <cover-view wx:if="{{ImagePath !== ''}}" class="getImagePath flex">
+            <cover-view class="basis-sm flex-center">
+                <cover-image src="../../assets/images/icon/back.png"
+                             bind:tap="takePhotoBack"></cover-image>
             </cover-view>
-            <cover-view bind:tap="takePhotoNumber" class="margin-lr-lg">
-                <cover-image src="../../assets/images/icon/jixutianjia.png"></cover-image>
+            <cover-view class="basis-sm flex-center">
+                <cover-image src="../../assets/images/icon/jixutianjia.png"
+                             bind:tap="takePhotoNumber"></cover-image>
             </cover-view>
-            <cover-view bind:tap="takePhotoSure" class="margin-lr-lg">
-                <cover-image src="../../assets/images/icon/shangchuan.png"></cover-image>
+            <cover-view class="basis-sm flex-center">
+                <cover-image src="../../assets/images/icon/shangchuan.png"
+                             bind:tap="takePhotoSure"></cover-image>
             </cover-view>
         </cover-view>
 
-        <cover-view class="absolute absolute-top absolute-left flex" style="height:100%;">
-            <cover-view class="basis-ls flex-center text-white">
-                <cover-view class="el-relative"
-                            style="width:150rpx;height:150rpx;">
+        <cover-view class="absolute absolute-left flex" style="width:100%;height:150rpx;bottom:200rpx;">
+            <cover-view class="basis-sm flex-center text-white">
+                <cover-view class="el-relative margin-right-lg" style="width:120rpx;height:120rpx;">
                     <cover-image class="absolute absolute-top absolute-left"
                                  bind:tap="seetakeImage"
                                  wx:for="{{seeImageFile}}" wx:key="*/this"
-                                 style="width:150rpx;height:150rpx;"
                                  src="{{item}}"></cover-image>
                 </cover-view>
             </cover-view>
